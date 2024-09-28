@@ -5,17 +5,29 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ThirdPersonMovement : MonoBehaviour
 {
+    [Header("KeyCodes")]
+    [SerializeField] private KeyCode sprintKey;
+    [SerializeField] private KeyCode jumpKey;
+
     [Header("Movement")]
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private GameObject objectToRotate;
     [SerializeField] private float movementSpeed;
-
+    [SerializeField] private float sprintSpeed;
 
     private float horizontalMovement;
     private float verticalMovement;
     private Vector3 movementDirection;
     private Rigidbody rb;
+    private bool sprinting;
     private bool stopped;
+
+    [Header("Jumping")]
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpDelay;
+
+    private float currentDelay;
+    private bool isAbleToJump;
 
     [Header("Rotation")]
     [SerializeField] private float rotationSpeed;
@@ -33,7 +45,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, Vector3.down * ((objectHeight * 0.5f )+ 0.1f));
+        Gizmos.DrawRay(objectToRotate.transform.position, Vector3.down * ((objectHeight * 0.5f )+ 0.1f));
     }
 
     private void Start()
@@ -47,38 +59,50 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Update()
     {
-        if(grounded)
-        {
-            GetKeyInputs();
-            CheckForMove();
-        } else {
-            CheckForGrounded();
-        }
+        grounded = CheckForGrounded();
+
+        GetKeyInputs();
+        CheckForMove();
 
         if(isRotating)
         {
             RotateObject();
         }
 
+        if(!isAbleToJump)
+        {
+            currentDelay += Time.deltaTime;
+            if(currentDelay >= jumpDelay)
+            {
+                isAbleToJump = true;
+            }
+        }
     }
 
     private void GetKeyInputs()
     {
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         verticalMovement = Input.GetAxisRaw("Vertical");
+        if(Input.GetKey(sprintKey))
+        {
+            sprinting = true;
+        } else {
+            sprinting = false;
+        }
+        if(Input.GetKeyDown(jumpKey))
+        {
+            Jump();
+        }
     }
 
     private void CheckForMove()
     {
         if(horizontalMovement != 0 || verticalMovement != 0)
         {
-            if(grounded && CheckGroundAngle())
-            {
-                stopped = false;
-                GetRotationAngle();
-                MoveObject();
-            }
-        } else if(!stopped)
+            stopped = false;
+            GetRotationAngle();
+            MoveObject();
+        } else if(!stopped && grounded)
         {
             StopObject();
         }
@@ -163,31 +187,51 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void MoveObject()
     {
-        rb.velocity = movementDirection * movementSpeed;
+        Vector3 movementVelocity = Vector3.zero;
+        if(sprinting)
+        {
+            movementVelocity = objectToRotate.transform.forward * sprintSpeed;
+        } else {
+            movementVelocity = objectToRotate.transform.forward * movementSpeed;
+        }
+        rb.velocity = new Vector3(movementVelocity.x, rb.velocity.y, movementVelocity.z);
+    }
+
+    private void Jump()
+    {
+        if(grounded && isAbleToJump)
+        {
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            grounded = false;
+            isAbleToJump = false;
+            currentDelay = 0;
+        }
     }
 
     private void StopObject()
     {
         stopped = true;
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        rb.velocity = new Vector3(0, 0, 0);
     }
 
-    private void CheckForGrounded()
+    private bool CheckForGrounded()
     {
         RaycastHit groundHit;
-        if(Physics.Raycast(transform.position, Vector3.down, out groundHit, objectHeight * 0.5f + 0.1f))
+        if(Physics.Raycast(objectToRotate.transform.position, Vector3.down, out groundHit, objectHeight * 0.5f + 0.1f))
         {
             if(groundHit.transform.tag == groundTag)
             {
-                grounded = true;
+                return true;
             }
         }
+        return false;
     }
 
+    /*
     private bool CheckGroundAngle()
     {
         RaycastHit groundHit;
-        if(Physics.Raycast(transform.position, Vector3.down, out groundHit, objectHeight * 0.5f + 0.8f))
+        if(Physics.Raycast(objectToRotate.transform.position, Vector3.down, out groundHit, objectHeight * 0.5f + 0.8f))
         {
             float groundAngle = Vector3.Angle(groundHit.normal, Vector3.up);
             if(groundAngle < maxSlopeAngle)
@@ -203,4 +247,5 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         movementDirection = Vector3.ProjectOnPlane(objectToRotate.transform.forward, groundNormal);
     }
+    */
 }

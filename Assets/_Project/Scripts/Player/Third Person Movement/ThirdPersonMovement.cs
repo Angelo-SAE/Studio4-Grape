@@ -42,6 +42,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool grounded;
 
+    //Player Animation Controller
+    [SerializeField] private Animator animator;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -55,6 +58,7 @@ public class ThirdPersonMovement : MonoBehaviour
         //temp for now
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
 
     private void Update()
@@ -77,6 +81,8 @@ public class ThirdPersonMovement : MonoBehaviour
                 isAbleToJump = true;
             }
         }
+
+            
     }
 
     private void GetKeyInputs()
@@ -102,9 +108,15 @@ public class ThirdPersonMovement : MonoBehaviour
             stopped = false;
             GetRotationAngle();
             MoveObject();
+           
+            animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
+
         } else if(!stopped && grounded)
         {
             StopObject();
+
+            //Somehow This is not Updating the Animator Controller
+            animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
         }
     }
 
@@ -195,6 +207,7 @@ public class ThirdPersonMovement : MonoBehaviour
             movementVelocity = objectToRotate.transform.forward * movementSpeed;
         }
         rb.velocity = new Vector3(movementVelocity.x, rb.velocity.y, movementVelocity.z);
+        
     }
 
     private void Jump()

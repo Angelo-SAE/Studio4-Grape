@@ -48,7 +48,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(objectToRotate.transform.position, Vector3.down * ((objectHeight * 0.5f )+ 0.1f));
+        Gizmos.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down * ((objectHeight * 0.5f )+ 0.1f));
     }
 
     private void Start()
@@ -82,7 +82,7 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
-            
+
     }
 
     private void GetKeyInputs()
@@ -108,15 +108,15 @@ public class ThirdPersonMovement : MonoBehaviour
             stopped = false;
             GetRotationAngle();
             MoveObject();
-           
-            //animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
+
+            animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
 
         } else if(!stopped && grounded)
         {
             StopObject();
 
             //Somehow This is not Updating the Animator Controller
-            //animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
+            animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
         }
     }
 
@@ -207,7 +207,7 @@ public class ThirdPersonMovement : MonoBehaviour
             movementVelocity = objectToRotate.transform.forward * movementSpeed;
         }
         rb.velocity = new Vector3(movementVelocity.x, rb.velocity.y, movementVelocity.z);
-        
+
     }
 
     private void Jump()
@@ -230,7 +230,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool CheckForGrounded()
     {
         RaycastHit groundHit;
-        if(Physics.Raycast(objectToRotate.transform.position, Vector3.down, out groundHit, objectHeight * 0.5f + 0.1f))
+        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down, out groundHit, objectHeight * 0.5f + 0.1f))
         {
             if(groundHit.transform.tag == groundTag)
             {

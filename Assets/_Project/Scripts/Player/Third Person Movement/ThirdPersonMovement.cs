@@ -109,14 +109,14 @@ public class ThirdPersonMovement : MonoBehaviour
             GetRotationAngle();
             MoveObject();
            
-            animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
+            //animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
 
         } else if(!stopped && grounded)
         {
             StopObject();
 
             //Somehow This is not Updating the Animator Controller
-            animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
+            //animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
         }
     }
 

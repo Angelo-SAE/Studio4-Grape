@@ -5,9 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ThirdPersonMovement : MonoBehaviour
 {
+    [Header("Animations")]
+    [SerializeField] private Animator animator;
+
     [Header("KeyCodes")]
     [SerializeField] private KeyCode sprintKey;
     [SerializeField] private KeyCode jumpKey;
+    [SerializeField] private KeyCode crouchKey;
 
     [Header("Movement")]
     [SerializeField] private GameObject cameraHolder;
@@ -29,6 +33,11 @@ public class ThirdPersonMovement : MonoBehaviour
     private float currentDelay;
     private bool isAbleToJump;
 
+    [Header("Crouching")]
+    [SerializeField] private float crouchSpeed;
+
+    private bool crouching;
+
     [Header("Rotation")]
     [SerializeField] private float rotationSpeed;
 
@@ -42,8 +51,15 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private bool grounded;
 
-    //Player Animation Controller
-    [SerializeField] private Animator animator;
+    [Header("Ladder Movement")]
+    [SerializeField] private float climbingSpeed;
+    [SerializeField] private float climbingSprintSpeed;
+    [SerializeField] private BoolObject canInteract;
+
+    private bool isClimbing;
+    private float topEndHeight;
+    private float bottomEndHeight;
+    private Vector3 topEndPosition;
 
     private void OnDrawGizmos()
     {
@@ -63,26 +79,30 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = CheckForGrounded();
-
         GetKeyInputs();
-        CheckForMove();
 
-        if(isRotating)
+        if(isClimbing)
         {
-            RotateObject();
-        }
+            ClimbLadder();
+        } else {
+            grounded = CheckForGrounded();
 
-        if(!isAbleToJump)
-        {
-            currentDelay += Time.deltaTime;
-            if(currentDelay >= jumpDelay)
+            CheckForMove();
+
+            if(isRotating)
             {
-                isAbleToJump = true;
+                RotateObject();
+            }
+
+            if(!isAbleToJump)
+            {
+                currentDelay += Time.deltaTime;
+                if(currentDelay >= jumpDelay)
+                {
+                    isAbleToJump = true;
+                }
             }
         }
-
-
     }
 
     private void GetKeyInputs()
@@ -98,6 +118,13 @@ public class ThirdPersonMovement : MonoBehaviour
         if(Input.GetKeyDown(jumpKey))
         {
             Jump();
+            EndLadderClimb();
+        }
+        if(Input.GetKey(crouchKey))
+        {
+            crouching = true;
+        } else {
+            crouching = false;
         }
     }
 
@@ -109,14 +136,15 @@ public class ThirdPersonMovement : MonoBehaviour
             GetRotationAngle();
             MoveObject();
 
-            animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
+            //animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
 
         } else if(!stopped && grounded)
         {
             StopObject();
+            isRotating = false;
 
             //Somehow This is not Updating the Animator Controller
-            animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
+            //animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
         }
     }
 
@@ -200,7 +228,10 @@ public class ThirdPersonMovement : MonoBehaviour
     private void MoveObject()
     {
         Vector3 movementVelocity = Vector3.zero;
-        if(sprinting)
+        if(crouching)
+        {
+            movementVelocity = objectToRotate.transform.forward * crouchSpeed;
+        } else if(sprinting)
         {
             movementVelocity = objectToRotate.transform.forward * sprintSpeed;
         } else {
@@ -212,7 +243,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Jump()
     {
-        if(grounded && isAbleToJump)
+        if(grounded || isClimbing && isAbleToJump )
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             grounded = false;
@@ -261,4 +292,61 @@ public class ThirdPersonMovement : MonoBehaviour
         movementDirection = Vector3.ProjectOnPlane(objectToRotate.transform.forward, groundNormal);
     }
     */
+
+    public void StartLadderClimb(Vector3 sPosition, Vector3 tEndPosition, Vector3 rotation, float tEndHeight, float bEndHeight, bool top) //IDK why but bug where player is starting in there current position rather than the ladder
+    {
+        topEndHeight = tEndHeight;
+        bottomEndHeight = bEndHeight;
+        topEndPosition = tEndPosition;
+        isClimbing = true;
+        StopObject();
+        rb.useGravity = false;
+        canInteract.value = false;
+        objectToRotate.transform.eulerAngles = rotation;
+        if(top)
+        {
+            if(transform.position.y < sPosition.y)
+            {
+                transform.position = new Vector3(sPosition.x, transform.position.y, sPosition.z);
+            } else {
+                transform.position = sPosition;
+            }
+        } else {
+            if(transform.position.y > sPosition.y)
+            {
+                transform.position = new Vector3(sPosition.x, transform.position.y, sPosition.z);
+            } else {
+                transform.position = sPosition;
+            }
+        }
+    }
+
+    private void ClimbLadder()
+    {
+        if(verticalMovement != 0)
+        {
+            if(sprinting)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * Time.deltaTime, transform.position.z);
+            } else {
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * Time.deltaTime, transform.position.z);
+            }
+        }
+
+        if(transform.position.y >= topEndHeight)
+        {
+            transform.position = topEndPosition;
+            EndLadderClimb();
+        } else if(transform.position.y <= bottomEndHeight)
+        {
+            EndLadderClimb();
+        }
+    }
+
+    private void EndLadderClimb()
+    {
+        isClimbing = false;
+        rb.useGravity = true;
+        canInteract.value = true;
+    }
 }

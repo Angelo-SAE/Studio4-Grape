@@ -21,11 +21,21 @@ public class GamePause : MonoBehaviour
         }
     }
 
+    public void PauseTime()
+    {
+        Time.timeScale = 0;
+    }
+
     public void UnPauseGame()
     {
         if(usingBoolObject)
         {
             gamePause.SetFalse();
         }
+    }
+
+    public void UnPauseTime()
+    {
+        Time.timeScale = 1;
     }
 }

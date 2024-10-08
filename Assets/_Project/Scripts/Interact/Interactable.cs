@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IInteractable
 {
+    bool CheckIfInteractable();
     void Interact();
     void AltInteract();
 }

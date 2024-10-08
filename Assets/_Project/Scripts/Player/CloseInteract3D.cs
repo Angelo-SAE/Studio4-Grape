@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CloseInteract3D : MonoBehaviour
 {
@@ -25,6 +27,10 @@ public class CloseInteract3D : MonoBehaviour
     private Collider[] interactableObjects;
     private Collider closestInteractable;
     private Collider closest;
+
+    [Header("Interaction UI")]
+    [SerializeField] private GameObject popUp;
+    [SerializeField] private TMP_Text popUpText;
 
     private void OnDrawGizmosSelected()
     {
@@ -76,17 +82,20 @@ public class CloseInteract3D : MonoBehaviour
             {
                 if(closestInteractable is not null)
                 {
+                    DisablePopUp();
                     //RevertOutline();
                 }
                 closestInteractable = newClosest;
                 if(newClosest is not null)
                 {
+                    EnablePopUp();
                     //OutlineClosest();
                 }
             }
         } else {
             if(closestInteractable is not null)
             {
+                DisablePopUp();
                 //RevertOutline();
                 closestInteractable = null;
             }
@@ -100,19 +109,25 @@ public class CloseInteract3D : MonoBehaviour
 
         for(startingPoint = 0; startingPoint < interactableObjects.Length; startingPoint++)
         {
-            if(CheckAngle(interactableObjects[startingPoint].transform.position))
+            if(interactableObjects[startingPoint].GetComponent<IInteractable>().CheckIfInteractable())
             {
-                closest = interactableObjects[startingPoint];
-                break;
+                if(CheckAngle(interactableObjects[startingPoint].transform.position))
+                {
+                    closest = interactableObjects[startingPoint];
+                    break;
+                }
             }
         }
         for(int a = startingPoint + 1; a < interactableObjects.Length; a++)
         {
-            if(Vector3.Distance(interactableObjects[a].transform.position, transform.position) < Vector3.Distance(closest.transform.position, transform.position))
+            if(interactableObjects[a].GetComponent<IInteractable>().CheckIfInteractable())
             {
-                if(CheckAngle(interactableObjects[a].transform.position))
+                if(Vector3.Distance(interactableObjects[a].transform.position, transform.position) < Vector3.Distance(closest.transform.position, transform.position))
                 {
-                    closest = interactableObjects[a];
+                    if(CheckAngle(interactableObjects[a].transform.position))
+                    {
+                        closest = interactableObjects[a];
+                    }
                 }
             }
         }
@@ -127,6 +142,17 @@ public class CloseInteract3D : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void EnablePopUp()
+    {
+        popUpText.text = closestInteractable.tag;
+        popUp.SetActive(true);
+    }
+
+    private void DisablePopUp()
+    {
+        popUp.SetActive(false);
     }
 
     //If you don't want outlines specifically then you can change these functions and names accordingly to have them do what ever.

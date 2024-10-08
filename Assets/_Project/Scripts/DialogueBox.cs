@@ -6,58 +6,84 @@ using UnityEngine.Events;
 
 public class DialogueBox : MonoBehaviour
 {
-    [Header("Temp Variables")]
-    [SerializeField] private StringArrayObject lin;
-    [SerializeField] private string nam;
+    [Header("Scriptable Objects")]
+    [SerializeField] private GameObjectObject dialogueBox;
 
     [Header("DialogueBox Variables")]
-    [SerializeField] private TMP_Text npcName;
+    [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private float dialogueSpeed;
 
-    private string[] lines;
-    private string name;
     private bool isTalking;
     private bool isWaiting;
-    private int currentLine;
+    private int npcDialogueCount;
+    private int playerDialogueCount;
+    private DialogueObject dialogue;
 
     [Header("Unity Events")]
     [SerializeField] private UnityEvent OnDialogueStart;
     [SerializeField] private UnityEvent OnDialogueEnd;
 
-    private void Update()
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            StartDialogue(nam, lin.value);
-        }
-        //if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) && isTalking)
-        //{
-        //    isTalking = false;
-        //}
-        //if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) && isWaiting)
-        //{
-        //    isWaiting = false;
-        //    DisplayNextLine();
-        //}
+        dialogueBox.value = gameObject;
     }
 
-    private void StartDialogue(string nae, string[] lies)
+    private void Update()
     {
-        name = nae;
-        lines = lies;
-        npcName.text = name;
+        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            if(isTalking)
+            {
+                isTalking = false;
+            } else if(isWaiting)
+            {
+                isWaiting = false;
+                DisplayNextLine();
+            }
+        }
+    }
+
+    public void StartDialogue(DialogueObject milkyDial)
+    {
+        dialogue = milkyDial;
         dialogueText.text = "";
-        currentLine = 0;
+        npcDialogueCount = 0;
+        playerDialogueCount = 0;
 
         OnDialogueStart.Invoke();
+        if(dialogue.dialogueControl[npcDialogueCount + playerDialogueCount])
+        {
+            nameText.text = dialogue.npcName;
+            StartCoroutine(DisplayText(dialogue.npcDialogue[npcDialogueCount]));
+            npcDialogueCount++;
+        } else {
+            nameText.text = dialogue.playerName;
+            StartCoroutine(DisplayText(dialogue.playerDialogue[playerDialogueCount]));
+            playerDialogueCount++;
+        }
 
-        StartCoroutine(DisplayText(lines[currentLine]));
     }
 
     private void DisplayNextLine()
     {
-        StartCoroutine(DisplayText(lines[currentLine]));
+        if((npcDialogueCount + playerDialogueCount) < dialogue.dialogueControl.Length)
+        {
+            dialogueText.text = "";
+            if(dialogue.dialogueControl[npcDialogueCount + playerDialogueCount])
+            {
+                nameText.text = dialogue.npcName;
+                StartCoroutine(DisplayText(dialogue.npcDialogue[npcDialogueCount]));
+                npcDialogueCount++;
+            } else {
+                nameText.text = dialogue.playerName;
+                StartCoroutine(DisplayText(dialogue.playerDialogue[playerDialogueCount]));
+                playerDialogueCount++;
+            }
+        } else {
+            OnDialogueEnd.Invoke();
+        }
+
     }
 
     private IEnumerator DisplayText(string text)
@@ -65,8 +91,17 @@ public class DialogueBox : MonoBehaviour
         isTalking = true;
         for(int a = 0; a < text.Length; a++)
         {
-            dialogueText.text += text[a];
-            yield return new WaitForSeconds(dialogueSpeed * 0.01f);
+            if(isTalking)
+            {
+                dialogueText.text += text[a];
+                yield return new WaitForSeconds(dialogueSpeed * 0.01f);
+            } else {
+                dialogueText.text = text;
+                break;
+            }
         }
+        yield return new WaitForSeconds(0.3f);
+        isTalking = false;
+        isWaiting = true;
     }
 }

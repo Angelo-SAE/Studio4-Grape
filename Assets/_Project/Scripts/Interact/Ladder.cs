@@ -15,6 +15,11 @@ public class Ladder : MonoBehaviour, IInteractable
     [SerializeField] private Transform topEndPosition;
     [SerializeField] private float ladderHeight;
 
+    public bool CheckIfInteractable()
+    {
+        return true;
+    }
+
     public void Interact()
     {
         StartLadderClimb();

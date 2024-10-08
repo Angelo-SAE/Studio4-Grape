@@ -108,6 +108,9 @@ public class ThirdPersonMovement : MonoBehaviour
                     }
                 }
             }
+        } else if(!stopped)
+        {
+            StopObject();
         }
     }
 

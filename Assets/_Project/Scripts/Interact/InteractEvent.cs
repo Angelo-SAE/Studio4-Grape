@@ -9,6 +9,11 @@ public class InteractEvent : MonoBehaviour, IInteractable
     [SerializeField] private UnityEvent interactEvent;
     [SerializeField] private UnityEvent altInteractEvent;
 
+    public bool CheckIfInteractable()
+    {
+        return true;
+    }
+
     public void Interact()
     {
         interactEvent.Invoke();

@@ -1776,10 +1776,22 @@ MonoBehaviour:
   nam: Jhonny
   npcName: {fileID: 973905545}
   dialogueText: {fileID: 109360859}
-  dialogueSpeed: 5
+  dialogueSpeed: 2
   OnDialogueStart:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1511993500}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 328467132}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2094,6 +2106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992c6b04bd3db2f4099111dd4d836b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
   cameraSensitivityX: 800
   cameraSensitivityY: 800
   cameraObject: {fileID: 6203429335607037865}

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
+    [SerializeField] private BoolObject paused;
+
     [Header("Camera Rotation")]
     [SerializeField] private float cameraSensitivityX;
     [SerializeField] private float cameraSensitivityY;
@@ -30,9 +33,12 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Update()
     {
-        GetMouseInputs();
-        RotateCamera();
-        ZoomCamera();
+        if(!paused.value)
+        {
+            GetMouseInputs();
+            RotateCamera();
+            ZoomCamera();
+        }
     }
 
     private void GetMouseInputs()

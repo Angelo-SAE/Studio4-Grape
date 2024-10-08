@@ -15,7 +15,6 @@ public class GamePause : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0;
         if(usingBoolObject)
         {
             gamePause.SetTrue();
@@ -24,7 +23,6 @@ public class GamePause : MonoBehaviour
 
     public void UnPauseGame()
     {
-        Time.timeScale = 1;
         if(usingBoolObject)
         {
             gamePause.SetFalse();

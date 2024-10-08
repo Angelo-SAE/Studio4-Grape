@@ -6,6 +6,7 @@ public class CloseInteract3D : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     [SerializeField] private BoolObject canInteract;
+    [SerializeField] private BoolObject paused;
 
 
     [Header("Interaction")]
@@ -33,7 +34,7 @@ public class CloseInteract3D : MonoBehaviour
 
     private void Update()
     {
-        if(canInteract.value)
+        if(canInteract.value && !paused.value)
         {
             CheckForInteractable();
 
@@ -46,10 +47,7 @@ public class CloseInteract3D : MonoBehaviour
             {
                 AltInteract();
             }
-        } else {
-
         }
-
     }
 
     private void Interact()

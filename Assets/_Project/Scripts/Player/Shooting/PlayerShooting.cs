@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
+    [SerializeField] private BoolObject paused;
+
     [Header("KeyCodes")]
     [SerializeField] KeyCode primaryFire;
 
@@ -21,8 +24,11 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update()
     {
-        CoolDowns();
-        GetInputs();
+        if(!paused.value)
+        {
+            CoolDowns();
+            GetInputs();
+        }
     }
 
     private void CoolDowns()

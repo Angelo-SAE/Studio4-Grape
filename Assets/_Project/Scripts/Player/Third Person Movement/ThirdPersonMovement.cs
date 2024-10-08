@@ -5,6 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ThirdPersonMovement : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
+    [SerializeField] private BoolObject paused;
+    [SerializeField] private BoolObject canInteract;
+
     [Header("Animations")]
     [SerializeField] private Animator animator;
 
@@ -54,7 +58,6 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Ladder Movement")]
     [SerializeField] private float climbingSpeed;
     [SerializeField] private float climbingSprintSpeed;
-    [SerializeField] private BoolObject canInteract;
 
     private bool isClimbing;
     private float topEndHeight;
@@ -79,27 +82,30 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Update()
     {
-        GetKeyInputs();
-
-        if(isClimbing)
+        if(!paused.value)
         {
-            ClimbLadder();
-        } else {
-            grounded = CheckForGrounded();
+            GetKeyInputs();
 
-            CheckForMove();
-
-            if(isRotating)
+            if(isClimbing)
             {
-                RotateObject();
-            }
+                ClimbLadder();
+            } else {
+                grounded = CheckForGrounded();
 
-            if(!isAbleToJump)
-            {
-                currentDelay += Time.deltaTime;
-                if(currentDelay >= jumpDelay)
+                CheckForMove();
+
+                if(isRotating)
                 {
-                    isAbleToJump = true;
+                    RotateObject();
+                }
+
+                if(!isAbleToJump)
+                {
+                    currentDelay += Time.deltaTime;
+                    if(currentDelay >= jumpDelay)
+                    {
+                        isAbleToJump = true;
+                    }
                 }
             }
         }

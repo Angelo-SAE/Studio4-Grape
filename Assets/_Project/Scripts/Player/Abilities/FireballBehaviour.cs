@@ -12,13 +12,13 @@ public class FireballBehaviour : MonoBehaviour
     
 
     [Header("Pulsating Settings")]
-    public float pulseSpeed = 2f;  // Speed of the pulsating effect
-    public float minScale = 0.8f;  // Minimum size of the fireball
-    public float maxScale = 1.2f;  // Maximum size of the fireball
+    public float pulseSpeed = 2f;
+    public float minScale = 0.8f;
+    public float maxScale = 1.2f;
 
-    private Vector3 originalScale;  // Store the original scale of the fireball
+    private Vector3 originalScale;
 
-    private List<Enemy> enemiesInFire = new List<Enemy>();  // List to keep track of enemies inside the fire area
+    private List<Enemy> enemiesInFire = new List<Enemy>();
 
 
     public void Initialize(float duration, float dps, float radius, bool slowEnemies)
@@ -29,11 +29,9 @@ public class FireballBehaviour : MonoBehaviour
         enemiesInFireSlowed = slowEnemies;
         
 
-
-        // Store the original scale of the fireball
         originalScale = transform.localScale;
 
-        // Start the coroutine to handle the fireball's behavior
+        
         StartCoroutine(HandleFireballLifetime());
         
         
@@ -41,23 +39,23 @@ public class FireballBehaviour : MonoBehaviour
 
     void Update()
     {
-        // Apply pulsating effect
+        
         Pulsate();
         UpdateEnemiesInFire();
     }
 
     void Pulsate()
     {
-        // Use a sine wave to smoothly transition between minScale and maxScale
+        
         float scaleMultiplier = Mathf.Lerp(minScale, maxScale, (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f);
 
-        // Apply the scale change to the fireball
+        
         transform.localScale = originalScale * scaleMultiplier;
     }
 
     void UpdateEnemiesInFire()
     {
-        // Update the list of enemies currently within the fire area
+        
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1);
         List<Enemy> currentEnemies = new List<Enemy>();
 
@@ -68,12 +66,12 @@ public class FireballBehaviour : MonoBehaviour
             {
                 currentEnemies.Add(enemy);
 
-                // Add new enemies to the list if not already in the fire
+                
                 if (!enemiesInFire.Contains(enemy))
                 {
                     enemiesInFire.Add(enemy);
-                    enemy.isInFire = true;  // Mark as in fire
-                    enemy.isOnFire = false;  // Reset this, it'll be set to true when damage is applied
+                    enemy.isInFire = true;
+                    enemy.isOnFire = false;
                     enemy.GetFireData(tickInterval, fireDuration, fireDPS);
 
                     if (enemiesInFireSlowed)
@@ -84,17 +82,15 @@ public class FireballBehaviour : MonoBehaviour
             }
         }
 
-        // Remove enemies that have left the fire area and reset their fire flags
         for (int i = enemiesInFire.Count - 1; i >= 0; i--)
         {
             Enemy enemy = enemiesInFire[i];
             if (!currentEnemies.Contains(enemy))
             {
-                // Reset the fire status for enemies leaving the fire
+ 
                 enemy.isInFire = false;
                 enemy.isOnFire = false;
 
-                // Remove the enemy from the enemiesInFire list
                 enemiesInFire.RemoveAt(i);
             }
         }
@@ -112,16 +108,14 @@ public class FireballBehaviour : MonoBehaviour
             yield return null;
         }
 
-        // When fireball lifetime ends, stop all enemies from taking damage
         foreach (Enemy enemy in enemiesInFire)
         {
             enemy.isInFire = false;
             enemy.isOnFire = false;
         }
 
-        enemiesInFire.Clear();  // Clear the list to ensure no further tracking
+        enemiesInFire.Clear();
 
-        // Destroy the fireball after its lifetime
         Destroy(gameObject);
     }
 }

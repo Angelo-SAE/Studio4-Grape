@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThermobaricGrenadeBehaviour : MonoBehaviour
 {
-    // Ability parameters
+    
     private float blastRadius;
     private float baseDamage;
     private float minDamage;
@@ -19,8 +19,8 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
     private bool enemiesInFireSlowed;
     private float knockbackForceMultiplier;
 
-    public GameObject fireSpherePrefab;  // Prefab for the small orange spheres
-    public Material fireSphereMaterial;  // Material for the spheres, set to orange color
+    public GameObject fireSpherePrefab;
+    public Material fireSphereMaterial;
 
     public Transform grenadeBodyTransform;
 
@@ -48,10 +48,8 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
 
     IEnumerator ExplosionCountdown()
     {
-        // Wait for the delay before exploding
         yield return new WaitForSeconds(explosionDelay);
-
-        // Trigger the explosion
+        
         hasExploded = false;
         Explode();
     }
@@ -64,10 +62,7 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
             return;
 
         hasExploded = true;
-
-        // Explosion effects (particles, sound, etc.) can be added here
-
-        // Damage enemies within the blast radius using the Rigidbody's position
+        
         Collider[] colliders = Physics.OverlapSphere(grenadeBodyTransform.position, blastRadius);
         foreach (Collider collider in colliders)
         {
@@ -81,9 +76,8 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
 
                 if (knockbackAndStun)
                 {
-                    // Knockback force scales with damage dealt
                     Vector3 knockbackDirection = (enemy.transform.position - grenadeBodyTransform.position).normalized;
-                    float knockbackForce = damage * knockbackForceMultiplier;  // Adjust multiplier as needed
+                    float knockbackForce = damage * knockbackForceMultiplier;
                     enemy.ApplyKnockback(knockbackDirection * knockbackForce, knockbackForce);
                     enemy.Stun(stunDuration);
                 }
@@ -92,10 +86,10 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
 
         if (spawnFire)
         {
-            SpawnFireSpheres();  // Spawn fireballs without worrying about their behavior
+            SpawnFireSpheres();
         }
 
-        Destroy(gameObject);  // Grenade destroys itself after explosion
+        Destroy(gameObject);
     }
 
     float CalculateDamage(float distance)
@@ -116,61 +110,19 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
         }
     }
 
-    /*IEnumerator SpawnFireArea()
-    {
-        
-        SpawnFireSpheres();
-
-        float elapsed = 0f;
-
-        
-        while (elapsed < fireDuration)
-        {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
-            foreach (Collider collider in colliders)
-            {
-                Enemy enemy = collider.GetComponentInParent<Enemy>();
-                if (enemy != null)
-                {
-                    
-                    enemy.TakeDamage(fireDPS * Time.deltaTime);
-
-                    // Slow enemies if Upgrade BA is active
-                    if (enemiesInFireSlowed)
-                    {
-                        enemy.ApplySlow(fireDuration - elapsed);
-                    }
-                }
-            }
-
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        Debug.Log("Fire expired. Destroying fire spheres.");
-        
-        foreach (GameObject sphere in spawnedSpheres)
-        {
-            if (sphere != null)
-            {
-                Destroy(sphere);
-            }
-        }
-
-        
-        spawnedSpheres.Clear();
-    }*/
+    
 
     void SpawnFireSpheres()
     {
         
-        int sphereCount = Mathf.CeilToInt(Mathf.PI * blastRadius * blastRadius * sphereDensity);  // Use appropriate density
+        int sphereCount = Mathf.CeilToInt(Mathf.PI * blastRadius * blastRadius * sphereDensity);
 
-        Debug.Log("Spawning " + sphereCount + " fireballs.");  // Debug to check how many spheres are being created
+        Debug.Log("Spawning " + sphereCount + " fireballs.");
 
         for (int i = 0; i < sphereCount; i++)
         {
-            // Generate a random position within the blast radius
-            Vector2 randomCircle = Random.insideUnitCircle * blastRadius;  // Inside a circle for random position
+            
+            Vector2 randomCircle = Random.insideUnitCircle * blastRadius;
             Vector3 randomPosition = new Vector3(grenadeBodyTransform.position.x + randomCircle.x, grenadeBodyTransform.position.y, grenadeBodyTransform.position.z + randomCircle.y);
 
             

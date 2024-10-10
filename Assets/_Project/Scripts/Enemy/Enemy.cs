@@ -75,10 +75,10 @@ public class Enemy : MonoBehaviour
     IEnumerator StunCoroutine(float duration)
     {
         isStunned = true;
-        // Disable enemy movement or actions here
+        
         yield return new WaitForSeconds(duration);
         isStunned = false;
-        // Re-enable enemy movement or actions here
+        
     }
 
     public void ApplySlow(float duration)

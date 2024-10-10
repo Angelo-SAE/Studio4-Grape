@@ -37,15 +37,15 @@ public class ThermobaricGrenade : MonoBehaviour
     public float fireDuration = 5f;
     public float fireDPS = 50f;
     public float stunDuration = 2f;
-    public float knockbackForceMultiplier = 1f;  // Adjust to control knockback strength
+    public float knockbackForceMultiplier = 1f;
     public bool enemiesInFireSlowed = false;
-    public float sphereDensity = 1f;  // Controls the density of fire spheres
+    public float sphereDensity = 1f;
 
     private bool isAbilityReady = true;
 
     void Start()
     {
-        // Assign references if not set in Inspector
+ 
         if (cameraTransform == null)
         {
             cameraTransform = Camera.main.transform;
@@ -58,18 +58,16 @@ public class ThermobaricGrenade : MonoBehaviour
 
     private Vector3 CalculateThrowDirection(Vector3 cameraForward)
     {
-        // Calculate the upward angle in radians
+
         float angleInRadians = upwardThrowAngle * Mathf.Deg2Rad;
 
-        // Rotate the camera's forward vector upwards by the specified angle
         Vector3 adjustedDirection = Quaternion.AngleAxis(upwardThrowAngle * -1, cameraTransform.right) * cameraForward;
 
-        return adjustedDirection.normalized;  // Ensure the result is normalized
+        return adjustedDirection.normalized;
     }
 
     void Update()
     {
-        // Activate ability when the ability key is pressed (e.g., 'E')
         if (Input.GetKeyDown(KeyCode.E) && isAbilityReady)
         {
             StartCoroutine(ActivateAbility());
@@ -80,14 +78,11 @@ public class ThermobaricGrenade : MonoBehaviour
     {
         isAbilityReady = false;
 
-        // Calculate the throw direction based on the camera's forward vector
         Vector3 throwDirection = CalculateThrowDirection(cameraTransform.forward);
 
-        // Instantiate the grenade slightly in front of the player to prevent immediate collision
         Vector3 spawnPosition = transform.position + throwDirection * 1.5f + new Vector3(0, 2, 0);
         GameObject grenade = Instantiate(grenadePrefab, spawnPosition, Quaternion.identity);
 
-        // Apply upgrades
         float finalBlastRadius = blastRadius;
         float finalBaseDamage = baseDamage;
         float finalMinDamage = minDamage;
@@ -116,20 +111,19 @@ public class ThermobaricGrenade : MonoBehaviour
             }
         }
 
-        // Initialize the grenade behaviour with the calculated parameters
         grenadeBehaviour.Initialize(finalBlastRadius, finalBaseDamage, finalMinDamage, damageFalloffStart, spawnFire, fireDuration, fireDPS, sphereDensity, knockbackAndStun, stunDuration, enemiesInFireSlowed, knockbackForceMultiplier);
 
-        // Apply initial velocity to the grenade
+        
         Rigidbody grenadeRigidbody = grenade.GetComponentInChildren<Rigidbody>();
         if (grenadeRigidbody != null)
         {
-            // Get the player's velocity to add momentum
+            
             Vector3 playerVelocity = playerRigidbody != null ? playerRigidbody.velocity : Vector3.zero;
 
-            // Calculate the final throw velocity
+            
             Vector3 throwVelocity = throwDirection * throwStrength + playerVelocity;
 
-            // Apply the velocity to the grenade's Rigidbody
+            
             grenadeRigidbody.velocity = throwVelocity;
         }
         else
@@ -137,7 +131,7 @@ public class ThermobaricGrenade : MonoBehaviour
             Debug.LogError("Grenade prefab is missing a Rigidbody component.");
         }
 
-        // Wait for cooldown period to reset ability
+        
         yield return new WaitForSeconds(baseCooldown);
         isAbilityReady = true;
     }

@@ -7,14 +7,7 @@ public class CoreSize : MonoBehaviour
 
     public GameObject cylinder;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-   
-
+    
     public void UpdateSize(float radius)
     {
         Vector3 newScale = cylinder.transform.localScale;

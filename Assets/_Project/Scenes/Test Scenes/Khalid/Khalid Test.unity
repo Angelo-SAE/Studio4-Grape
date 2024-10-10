@@ -508,6 +508,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1322915957}
+  - {fileID: 1608901788}
   m_Father: {fileID: 5378090833127965639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328467132
@@ -770,13 +771,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614355592}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1037804575}
-  m_Father: {fileID: 1613196464}
+  m_Father: {fileID: 1878812892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665335404
 GameObject:
@@ -2519,6 +2520,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520685356}
   m_CullTransparentMesh: 1
+--- !u!1 &1608901787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608901788}
+  - component: {fileID: 1608901789}
+  m_Layer: 0
+  m_Name: Thermobaric Grenade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608901788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608901787}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 298187212}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1608901789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608901787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fbab155a49da745bb80b883e729c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCooldown: 0.01
+  grenadePrefab: {fileID: 8594820715534240545, guid: de82839838cf3e1408ea4696db9bf14b, type: 3}
+  throwStrength: 13
+  upwardThrowAngle: 15
+  cameraTransform: {fileID: 8434348059367103717}
+  playerRigidbody: {fileID: 4898214365617087834}
+  baseDamage: 60
+  minDamage: 30
+  blastRadius: 5
+  damageFalloffStart: 0
+  currentUpgrade: 4
+  increasedBlastRadiusPercentage: 10
+  improvedBaseDamage: 10
+  improvedMinDamage: 10
+  fireDuration: 7
+  fireDPS: 5
+  stunDuration: 3
+  knockbackForceMultiplier: 40
+  enemiesInFireSlowed: 0
+  sphereDensity: 4
 --- !u!1 &1613196462
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,6 +2619,8 @@ MonoBehaviour:
   moveSpeed: 5
   isVulnerable: 0
   damageMultiplier: 1
+  isInFire: 0
+  isOnFire: 0
 --- !u!4 &1613196464
 Transform:
   m_ObjectHideFlags: 0
@@ -2568,7 +2635,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1878812892}
-  - {fileID: 614355593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 179.985, z: 0}
 --- !u!1 &1837257235
@@ -2849,6 +2915,7 @@ Transform:
   m_Children:
   - {fileID: 722662949}
   - {fileID: 1507775271}
+  - {fileID: 614355593}
   m_Father: {fileID: 1613196464}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1878812893
@@ -2932,7 +2999,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878812891}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 70
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3706,6 +3773,7 @@ Transform:
   m_Children:
   - {fileID: 7606984010803369980}
   - {fileID: 3773286150675101642}
+  - {fileID: 6577637738180182155}
   m_Father: {fileID: 7330309658226135523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &3348500432410051907
@@ -3887,6 +3955,8 @@ MonoBehaviour:
   moveSpeed: 5
   isVulnerable: 0
   damageMultiplier: 1
+  isInFire: 0
+  isOnFire: 0
 --- !u!222 &4110284623837739875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4285,7 +4355,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313957147756099073}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 70
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4471,13 +4541,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5783805058447035732}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5647292493148177317}
-  m_Father: {fileID: 7330309658226135523}
+  m_Father: {fileID: 2745259937480135407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &6882534426734132212
 AudioListener:
@@ -4551,7 +4621,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2745259937480135407}
-  - {fileID: 6577637738180182155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 179.985, z: 0}
 --- !u!114 &7364501752626211291

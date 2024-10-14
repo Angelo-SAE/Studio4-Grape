@@ -7,14 +7,9 @@ using TMPro;
 public class CloseInteract3D : MonoBehaviour
 {
     [Header("Scriptable Objects")]
+    [SerializeField] private KeyBindingsObject keyBindings;
     [SerializeField] private BoolObject canInteract;
     [SerializeField] private BoolObject paused;
-
-
-    [Header("Interaction")]
-    [SerializeField] private KeyCode interactKey;
-    [SerializeField] private KeyCode altInteractKey;
-
 
     [Header("Interact Detection")]
     [SerializeField] private GameObject objectDirection; //find better name
@@ -44,12 +39,12 @@ public class CloseInteract3D : MonoBehaviour
         {
             CheckForInteractable();
 
-            if(Input.GetKeyDown(interactKey))
+            if(Input.GetKeyDown(keyBindings.interact))
             {
                 Interact();
             }
 
-            if(Input.GetKeyDown(altInteractKey))
+            if(Input.GetKeyDown(keyBindings.altInteract))
             {
                 AltInteract();
             }

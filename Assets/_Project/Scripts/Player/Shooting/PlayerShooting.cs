@@ -5,10 +5,8 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     [Header("Scriptable Objects")]
+    [SerializeField] private KeyBindingsObject keyBindings;
     [SerializeField] private BoolObject paused;
-
-    [Header("KeyCodes")]
-    [SerializeField] KeyCode primaryFire;
 
     [Header("Woop")]
     [SerializeField] private LayerMask enemyLayer;
@@ -45,7 +43,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void GetInputs()
     {
-        if(Input.GetKey(primaryFire))
+        if(Input.GetKey(keyBindings.primaryFire))
         {
             PrimaryFire();
         }

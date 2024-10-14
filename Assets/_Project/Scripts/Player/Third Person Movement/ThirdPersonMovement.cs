@@ -6,16 +6,12 @@ using UnityEngine;
 public class ThirdPersonMovement : MonoBehaviour
 {
     [Header("Scriptable Objects")]
+    [SerializeField] private KeyBindingsObject keyBindings;
     [SerializeField] private BoolObject paused;
     [SerializeField] private BoolObject canInteract;
 
     [Header("Animations")]
     [SerializeField] private Animator animator;
-
-    [Header("KeyCodes")]
-    [SerializeField] private KeyCode sprintKey;
-    [SerializeField] private KeyCode jumpKey;
-    [SerializeField] private KeyCode crouchKey;
 
     [Header("Movement")]
     [SerializeField] private GameObject cameraHolder;
@@ -116,20 +112,52 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void GetKeyInputs()
     {
-        horizontalMovement = Input.GetAxisRaw("Horizontal");
-        verticalMovement = Input.GetAxisRaw("Vertical");
-        if(Input.GetKey(sprintKey))
+        if(Input.GetKeyDown(keyBindings.forward))
+        {
+            verticalMovement++;
+        }
+        if(Input.GetKeyUp(keyBindings.forward))
+        {
+            verticalMovement--;
+        }
+        if(Input.GetKeyDown(keyBindings.backward))
+        {
+            verticalMovement--;
+        }
+        if(Input.GetKeyUp(keyBindings.backward))
+        {
+            verticalMovement++;
+        }
+
+        if(Input.GetKeyDown(keyBindings.right))
+        {
+            horizontalMovement++;
+        }
+        if(Input.GetKeyUp(keyBindings.right))
+        {
+            horizontalMovement--;
+        }
+        if(Input.GetKeyDown(keyBindings.left))
+        {
+            horizontalMovement--;
+        }
+        if(Input.GetKeyUp(keyBindings.left))
+        {
+            horizontalMovement++;
+        }
+
+        if(Input.GetKey(keyBindings.sprint))
         {
             sprinting = true;
         } else {
             sprinting = false;
         }
-        if(Input.GetKeyDown(jumpKey))
+        if(Input.GetKeyDown(keyBindings.jump))
         {
             Jump();
             EndLadderClimb();
         }
-        if(Input.GetKey(crouchKey))
+        if(Input.GetKey(keyBindings.crouch))
         {
             crouching = true;
         } else {

@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         if (isInFire && !isOnFire)
         {
             StartCoroutine(ApplyDamageTicks(tickInterval, fireDuration, fireDPS));
-            
+
         }
     }
 
@@ -43,8 +43,8 @@ public class Enemy : MonoBehaviour
         tickInterval = ti;
         fireDuration = fd;
         fireDPS = dps;
-        
-        
+
+
     }
 
 
@@ -75,10 +75,10 @@ public class Enemy : MonoBehaviour
     IEnumerator StunCoroutine(float duration)
     {
         isStunned = true;
-        
+
         yield return new WaitForSeconds(duration);
         isStunned = false;
-        
+
     }
 
     public void ApplySlow(float duration)
@@ -99,10 +99,10 @@ public class Enemy : MonoBehaviour
 
             isOnFire = true;
             float damagePerTick = fireDPS * tickInterval;
-            
+
             TakeDamage(damagePerTick);
             Debug.Log("Damage Ticking at " + damagePerTick + " dmg per tick. Each tick is " + tickInterval + " seconds.");
-            
+
         }
         isOnFire = false;
     }

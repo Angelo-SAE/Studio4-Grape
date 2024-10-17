@@ -11,9 +11,13 @@ public class PlayerControls : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private TMP_Text[] keyText;
+    [SerializeField] private TMP_Text rebindText;
     [SerializeField] private GameObject setKeyPanel;
+    [SerializeField] private GameObject rebindKeyPanel;
 
     private int keyToChange;
+    private int contestingKey;
+    private KeyCode currentKeyCode;
     private bool isChangingKey;
     private Event keyEvent;
 
@@ -47,44 +51,91 @@ public class PlayerControls : MonoBehaviour
                 setKeyPanel.SetActive(false);
                 return;
             }
-            keyBindings.keyArray[keyToChange] = keyEvent.keyCode;
-            keyText[keyToChange].text = keyBindings.keyArray[keyToChange].ToString();
+            currentKeyCode = keyEvent.keyCode;
             isChangingKey = false;
-            keyBindings.UpdateKeyCodes();
-            StartCoroutine(RemovePanel());
+            if(CheckForExistingKey())
+            {
+                rebindKeyPanel.SetActive(true);
+                setKeyPanel.SetActive(false);
+            } else {
+                BindKey();
+            }
+
         } else {
             if(keyEvent.isMouse)
             {
-                if(keyEvent.button == 0)
+                switch(keyEvent.button)
                 {
-                    keyBindings.keyArray[keyToChange] = KeyCode.Mouse0;
-                } else if(keyEvent.button == 1)
-                {
-                    keyBindings.keyArray[keyToChange] = KeyCode.Mouse1;
-                } else if(keyEvent.button == 2)
-                {
-                    keyBindings.keyArray[keyToChange] = KeyCode.Mouse2;
-                } else if(keyEvent.button == 3)
-                {
-                    keyBindings.keyArray[keyToChange] = KeyCode.Mouse3;
-                } else if(keyEvent.button == 4)
-                {
-                    keyBindings.keyArray[keyToChange] = KeyCode.Mouse4;
-                } else {
+                    case(0):
+                    currentKeyCode = KeyCode.Mouse0;
+                    break;
+                    case(1):
+                    currentKeyCode = KeyCode.Mouse1;
+                    break;
+                    case(2):
+                    currentKeyCode = KeyCode.Mouse2;
+                    break;
+                    case(3):
+                    currentKeyCode = KeyCode.Mouse3;
+                    break;
+                    case(4):
+                    currentKeyCode = KeyCode.Mouse4;
+                    break;
+                    case(5):
+                    currentKeyCode = KeyCode.Mouse5;
+                    break;
+
                     return;
                 }
-                keyText[keyToChange].text = keyBindings.keyArray[keyToChange].ToString();
                 isChangingKey = false;
-                keyBindings.UpdateKeyCodes();
-                StartCoroutine(RemovePanel());
+                if(CheckForExistingKey())
+                {
+                    rebindKeyPanel.SetActive(true);
+                    setKeyPanel.SetActive(false);
+                } else {
+                    BindKey();
+                }
             }
         }
     }
 
-    private IEnumerator RemovePanel()
+    private bool CheckForExistingKey()
+    {
+        for(int a = 0; a < keyBindings.keyArray.Length; a++)
+        {
+            if(a != keyToChange)
+            {
+                if(keyBindings.keyArray[a] == currentKeyCode)
+                {
+                    rebindText.text = currentKeyCode.ToString() + " Is Already Binded Would You Like To Rebind This Key.";
+                    contestingKey = a;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void RebindKey()
+    {
+        keyBindings.keyArray[contestingKey] = KeyCode.None;
+        keyText[contestingKey].text = keyBindings.keyArray[contestingKey].ToString();
+        BindKey();
+    }
+
+    private void BindKey()
+    {
+        keyBindings.keyArray[keyToChange] = currentKeyCode;
+        keyText[keyToChange].text = keyBindings.keyArray[keyToChange].ToString();
+        keyBindings.UpdateKeyCodes();
+        StartCoroutine(RemovePanels());
+    }
+
+    private IEnumerator RemovePanels()
     {
         yield return new WaitForSecondsRealtime(0.1f);
         setKeyPanel.SetActive(false);
+        rebindKeyPanel.SetActive(false);
     }
 
     public void ChangeKey(int keyNumber)

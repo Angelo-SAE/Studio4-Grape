@@ -173,7 +173,7 @@ public class ThirdPersonMovement : MonoBehaviour
             GetRotationAngle();
             MoveObject();
 
-            //animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
+            animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
 
         } else if(!stopped && grounded)
         {
@@ -181,7 +181,7 @@ public class ThirdPersonMovement : MonoBehaviour
             isRotating = false;
 
             //Somehow This is not Updating the Animator Controller
-            //animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
+            animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
         }
     }
 
@@ -286,6 +286,9 @@ public class ThirdPersonMovement : MonoBehaviour
             grounded = false;
             isAbleToJump = false;
             currentDelay = 0;
+
+            animator.SetTrigger("Jump"); // Trigger Jumping Animation
+
         }
     }
 

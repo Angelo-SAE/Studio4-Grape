@@ -2017,11 +2017,13 @@ MonoBehaviour:
   baseAOERadius: 7.5
   finalAOERadius: 0
   corePrefab: {fileID: 8654482479317209510, guid: 3159d8f956fcd264b85cd132ee51f0c5, type: 3}
-  currentUpgrade: 4
+  currentUpgrade: 0
   aoeIncreasePercentage: 15
-  aoeDecreasePercentage: 10
   damageIncreasePercentage: 50
   explosionDamage: 50
+  weakenPercentage: 0
+  vulnerableDuration: 0
+  magneticStrengthIncrease: 0
   throwStrength: 7.5
   cameraTransform: {fileID: 8434348059367103717}
   playerRigidbody: {fileID: 4898214365617087834}
@@ -2614,13 +2616,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 985163059}
-  health: 100
+  health: 1000
   damage: 5
   moveSpeed: 5
   isVulnerable: 0
   damageMultiplier: 1
   isInFire: 0
   isOnFire: 0
+  isWeakened: 0
 --- !u!4 &1613196464
 Transform:
   m_ObjectHideFlags: 0
@@ -3708,8 +3711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b505a695ee00947beecb02d92cc0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
   paused: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
-  primaryFire: 323
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -3865,12 +3868,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157ee029240840d4083309e96bd80c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
   paused: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
   canInteract: {fileID: 11400000, guid: 561ae8ac112c6d34d9ac608f3ff1af5e, type: 2}
   animator: {fileID: 0}
-  sprintKey: 301
-  jumpKey: 32
-  crouchKey: 304
   cameraHolder: {fileID: 7628727766325638515}
   objectToRotate: {fileID: 185343026230081543}
   movementSpeed: 5
@@ -3950,13 +3951,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 4945509695521681124}
-  health: 100
+  health: 1000
   damage: 5
   moveSpeed: 5
   isVulnerable: 0
   damageMultiplier: 1
   isInFire: 0
   isOnFire: 0
+  isWeakened: 0
 --- !u!222 &4110284623837739875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4969,15 +4971,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9044330699335418967}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1103674fa8d4b584183b0722d08181fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
   canInteract: {fileID: 11400000, guid: 561ae8ac112c6d34d9ac608f3ff1af5e, type: 2}
   paused: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
-  interactKey: 101
-  altInteractKey: 102
   objectDirection: {fileID: 185343026230081543}
   interactLayer:
     serializedVersion: 2

@@ -25,10 +25,12 @@ public class Enemy : MonoBehaviour
     private float tickInterval, fireDuration, fireDPS;
 
     Rigidbody rb;
+    
 
     private void Start()
     {
-        rb = GetComponentInChildren<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        
         originalSpeed = moveSpeed;
     }
 
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(ApplyDamageTicks(tickInterval, fireDuration, fireDPS));
         }
+
     }
 
     public void GetFireData(float ti, float fd, float dps)
@@ -49,11 +52,11 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damageTaken)
     {
-        float effectiveDamage = damageTaken * (isVulnerable ? damageMultiplier : 1f) * weakenMultiplier;
+        float effectiveDamage = Mathf.RoundToInt(damageTaken * (isVulnerable ? damageMultiplier : 1f) * weakenMultiplier);
         health -= effectiveDamage;
         UpdateHealthSlider();
 
-        Debug.Log("Enemy has taken " + damageTaken + " damage");
+        Debug.Log("Enemy has taken " + effectiveDamage + " damage");
         if (health <= 0)
         {
             Destroy(gameObject);
@@ -152,6 +155,22 @@ public class Enemy : MonoBehaviour
     {
         isWeakened = false;
         weakenMultiplier = 1f;
+    }
+
+    public void ApplyDamageOverTime(float damagePerSecond, float duration)
+    {
+        StartCoroutine(DamageOverTimeCoroutine(damagePerSecond, duration));
+    }
+
+    IEnumerator DamageOverTimeCoroutine(float damagePerSecond, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            TakeDamage(damagePerSecond * tickInterval);
+            yield return new WaitForSeconds(tickInterval);
+            elapsed += tickInterval;
+        }
     }
 
     public void AddForce(Vector3 force)

@@ -27,11 +27,13 @@ public class CloseInteract3D : MonoBehaviour
     [SerializeField] private GameObject popUp;
     [SerializeField] private TMP_Text popUpText;
 
+    /*
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y + boxHeight, transform.position.z), new Vector3(interactableRange * 2, interactableHeight * 2, interactableRange * 2));
     }
+    */
 
     private void Update()
     {

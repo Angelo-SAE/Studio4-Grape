@@ -287,7 +287,7 @@ public class ThirdPersonMovement : MonoBehaviour
             isAbleToJump = false;
             currentDelay = 0;
 
-            animator.SetTrigger("Jump"); // Trigger Jumping Animation
+            //animator.SetTrigger("Jump"); // Trigger Jumping Animation
 
         }
     }

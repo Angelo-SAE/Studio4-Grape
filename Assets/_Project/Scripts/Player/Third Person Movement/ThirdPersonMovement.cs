@@ -286,6 +286,9 @@ public class ThirdPersonMovement : MonoBehaviour
             grounded = false;
             isAbleToJump = false;
             currentDelay = 0;
+
+            //animator.SetTrigger("Jump"); // Trigger Jumping Animation
+
         }
     }
 

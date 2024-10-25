@@ -10,7 +10,11 @@ public class MagneticCoreBehaviour : MonoBehaviour
     private float explosionDamage;
     public bool applyVulnerable = false;
     public float damageIncreasePercentage = 0f;
-    public bool vulnerablePersists = false;
+    public float vulnerableDuration = 0f;
+    public bool applyStun = false;
+    public bool applyWeaken = false;
+    public float weakenPercentage = 0f;
+    public bool strongerMagneticEffect = false;
 
     private bool isActivated = false;
 
@@ -18,19 +22,16 @@ public class MagneticCoreBehaviour : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (!isActivated)
         {
-            
             if (collision.gameObject.CompareTag("Ground"))
             {
                 ActivateCore();
             }
-            
         }
     }
 
@@ -38,10 +39,8 @@ public class MagneticCoreBehaviour : MonoBehaviour
     {
         isActivated = true;
 
-        
         StartCoroutine(CoreLifetime());
 
-        
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -49,10 +48,6 @@ public class MagneticCoreBehaviour : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-
-        StartCoroutine(CoreLifetime());
-
-
     }
 
     public void Initialize(float radius, float duration, bool explodeAtEnd, float explosionDamage)
@@ -78,7 +73,11 @@ public class MagneticCoreBehaviour : MonoBehaviour
                         affectedEnemies.Add(enemy);
                         if (applyVulnerable)
                         {
-                            enemy.ApplyVulnerable(damageIncreasePercentage, vulnerablePersists ? -1f : duration);
+                            enemy.ApplyVulnerable(damageIncreasePercentage, vulnerableDuration > 0 ? vulnerableDuration : duration);
+                        }
+                        if (applyWeaken)
+                        {
+                            enemy.ApplyWeaken(weakenPercentage);
                         }
                     }
                     PullEnemy(enemy);
@@ -92,10 +91,8 @@ public class MagneticCoreBehaviour : MonoBehaviour
         Vector3 direction = (transform.position - enemy.transform.position).normalized;
         float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-        
-        float pullStrength = 1.25f - (distance / aoeRadius);
+        float pullStrength = strongerMagneticEffect ? 1.5f - (distance / aoeRadius) : 1.25f - (distance / aoeRadius);
 
-        
         Vector3 pullForce = direction * pullStrength * enemy.GetMoveSpeed();
         enemy.AddForce(pullForce);
     }
@@ -121,8 +118,11 @@ public class MagneticCoreBehaviour : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(explosionDamage);
+                if (applyStun)
+                {
+                    enemy.Stun(3f); // Stun duration can be adjusted as needed
+                }
             }
         }
-        
     }
 }

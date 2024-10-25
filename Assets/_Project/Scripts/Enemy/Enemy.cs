@@ -19,14 +19,19 @@ public class Enemy : MonoBehaviour
     private bool isSlowed = false;
     public bool isInFire;
     public bool isOnFire;
+    public bool isWeakened = false;
+    private float weakenMultiplier = 1f;
 
     private float tickInterval, fireDuration, fireDPS;
 
     Rigidbody rb;
+    
 
     private void Start()
     {
-        rb = GetComponentInChildren<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        
+        originalSpeed = moveSpeed;
     }
 
     private void Update()
@@ -34,8 +39,8 @@ public class Enemy : MonoBehaviour
         if (isInFire && !isOnFire)
         {
             StartCoroutine(ApplyDamageTicks(tickInterval, fireDuration, fireDPS));
-
         }
+
     }
 
     public void GetFireData(float ti, float fd, float dps)
@@ -43,16 +48,16 @@ public class Enemy : MonoBehaviour
         tickInterval = ti;
         fireDuration = fd;
         fireDPS = dps;
-
-
     }
-
 
     public void TakeDamage(float damageTaken)
     {
-        health -= damageTaken;
+        float effectiveDamage = Mathf.RoundToInt(damageTaken * (isVulnerable ? damageMultiplier : 1f) * weakenMultiplier);
+        health -= effectiveDamage;
         UpdateHealthSlider();
-        if(health <= 0)
+
+        Debug.Log("Enemy has taken " + effectiveDamage + " damage");
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
@@ -61,7 +66,7 @@ public class Enemy : MonoBehaviour
     public void ApplyKnockback(Vector3 forceVector, float forceStrength)
     {
         rb.AddForce(forceVector, ForceMode.Impulse);
-        rb.AddForce(new Vector3(0,1.5f * forceStrength,0), ForceMode.Impulse);
+        rb.AddForce(new Vector3(0, 1.5f * forceStrength, 0), ForceMode.Impulse);
     }
 
     public void Stun(float duration)
@@ -75,10 +80,10 @@ public class Enemy : MonoBehaviour
     IEnumerator StunCoroutine(float duration)
     {
         isStunned = true;
-
+        moveSpeed = 0f; // Stop enemy movement while stunned
         yield return new WaitForSeconds(duration);
+        moveSpeed = originalSpeed;
         isStunned = false;
-
     }
 
     public void ApplySlow(float duration)
@@ -97,12 +102,13 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(tickInterval);
 
-            isOnFire = true;
-            float damagePerTick = fireDPS * tickInterval;
+            if (!isInFire) break;
 
+            float damagePerTick = fireDPS * tickInterval;
             TakeDamage(damagePerTick);
             Debug.Log("Damage Ticking at " + damagePerTick + " dmg per tick. Each tick is " + tickInterval + " seconds.");
 
+            fireDuration -= tickInterval;
         }
         isOnFire = false;
     }
@@ -134,6 +140,37 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(duration);
         isVulnerable = false;
         damageMultiplier = 1f;
+    }
+
+    public void ApplyWeaken(float weakenPercentage)
+    {
+        if (!isWeakened)
+        {
+            isWeakened = true;
+            weakenMultiplier = 1 - (weakenPercentage / 100f);
+        }
+    }
+
+    public void RemoveWeaken()
+    {
+        isWeakened = false;
+        weakenMultiplier = 1f;
+    }
+
+    public void ApplyDamageOverTime(float damagePerSecond, float duration)
+    {
+        StartCoroutine(DamageOverTimeCoroutine(damagePerSecond, duration));
+    }
+
+    IEnumerator DamageOverTimeCoroutine(float damagePerSecond, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            TakeDamage(damagePerSecond * tickInterval);
+            yield return new WaitForSeconds(tickInterval);
+            elapsed += tickInterval;
+        }
     }
 
     public void AddForce(Vector3 force)

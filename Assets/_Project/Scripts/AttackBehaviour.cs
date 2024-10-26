@@ -10,7 +10,7 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
     [SerializeField] private float damageAmount;
     [SerializeField] private float attackRange;
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPosition.position, attackRange);
     }

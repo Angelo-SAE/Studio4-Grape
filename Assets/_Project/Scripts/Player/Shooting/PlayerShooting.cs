@@ -7,10 +7,13 @@ public class PlayerShooting : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
     [SerializeField] private BoolObject paused;
+    [SerializeField] private BoolObject playerIsShooting;
 
     [Header("Woop")]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private GameObject gunShot;
+    [SerializeField] private Transform shotPosition;
 
     [Header("Primary Fire")]
     [SerializeField] private float primaryFireRange;
@@ -45,7 +48,10 @@ public class PlayerShooting : MonoBehaviour
     {
         if(Input.GetKey(keyBindings.primaryFire))
         {
+            playerIsShooting.value = true;
             PrimaryFire();
+        } else {
+            playerIsShooting.value = false;
         }
     }
 
@@ -53,10 +59,11 @@ public class PlayerShooting : MonoBehaviour
     {
         if(pFireOffCooldown)
         {
+            Instantiate(gunShot, shotPosition.position, shotPosition.localRotation, shotPosition);
             RaycastHit hit;
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange, enemyLayer))
             {
-                hit.collider.transform.parent.GetComponent<Enemy>().TakeDamage(primaryFireDamage);
+                hit.collider.transform.GetComponent<Enemy>().TakeDamage(primaryFireDamage);
             }
             pFireCurrentDelay = 0;
             pFireOffCooldown = false;

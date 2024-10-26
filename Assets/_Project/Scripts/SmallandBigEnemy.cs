@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallBoi : MonoBehaviour
+public class SmallandBigEnemy : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     [SerializeField] private GameObjectObject playerObject;
@@ -12,6 +12,7 @@ public class SmallBoi : MonoBehaviour
     [SerializeField] private AttackBehaviour attackBehaviour;
 
     [Header("Extra")]
+    [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float detectionRange;
     [SerializeField] private float chaseRange;
@@ -24,6 +25,7 @@ public class SmallBoi : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
+    [SerializeField] private string attackAnimation;
 
     private void Update()
     {
@@ -48,10 +50,13 @@ public class SmallBoi : MonoBehaviour
         {
             RaycastHit hit;
             Vector3 tempDirection = playerObject.value.transform.position - transform.position;
-            Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), new Vector3(tempDirection.x, 0f, tempDirection.z).normalized, out hit, detectionRange);
-            if(hit.collider.tag == "Player")
+            Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), new Vector3(tempDirection.x, 0f, tempDirection.z).normalized, out hit, detectionRange, enemyLayer);
+            if(hit.collider is not null)
             {
-                playerInRange = true;
+                if(hit.collider.tag == "Player")
+                {
+                    playerInRange = true;
+                }
             }
         }
     }
@@ -76,7 +81,7 @@ public class SmallBoi : MonoBehaviour
 
     private void AttackPlayer()
     {
-        animator.Play("StabAttack");
+        animator.Play(attackAnimation);
         rb.velocity = Vector3.zero;
         Invoke("Attack", attackDelay);
         Invoke("StopAttack", attackDuration);

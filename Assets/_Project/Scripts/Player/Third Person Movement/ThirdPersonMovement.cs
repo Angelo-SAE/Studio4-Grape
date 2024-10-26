@@ -9,6 +9,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] private KeyBindingsObject keyBindings;
     [SerializeField] private BoolObject paused;
     [SerializeField] private BoolObject canInteract;
+    [SerializeField] private BoolObject playerIsShooting;
 
     [Header("Animations")]
     [SerializeField] private Animator animator;
@@ -16,15 +17,24 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private GameObject objectToRotate;
+    [SerializeField] private GameObject movementDirectionObject;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float sprintSpeed;
+    [SerializeField] private Rigidbody rb;
 
-    private float horizontalMovement;
-    private float verticalMovement;
+
     private Vector3 movementDirection;
-    private Rigidbody rb;
     private bool sprinting;
     private bool stopped;
+
+
+    //Inputs
+    private float horizontalPos;
+    private float horizontalNeg;
+    private float verticalPos;
+    private float verticalNeg;
+    private float horizontalMovement;
+    private float verticalMovement;
 
     [Header("Jumping")]
     [SerializeField] private float jumpForce;
@@ -68,12 +78,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-
         //temp for now
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        playerIsShooting.value = false;
     }
 
     private void Update()
@@ -95,6 +103,14 @@ public class ThirdPersonMovement : MonoBehaviour
                     RotateObject();
                 }
 
+                animator.SetBool("Shooting", playerIsShooting.value); //Animation
+                if(playerIsShooting.value)
+                {
+                    objectToRotate.transform.rotation = Quaternion.Euler(0, cameraHolder.transform.localEulerAngles.y, 0);
+                }
+
+
+
                 if(!isAbleToJump)
                 {
                     currentDelay += Time.deltaTime;
@@ -112,44 +128,26 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void GetKeyInputs()
     {
-        if(Input.GetKeyDown(keyBindings.forward))
+        GetDirectionInputs();
+
+        horizontalMovement = horizontalPos + horizontalNeg;
+        verticalMovement = verticalPos + verticalNeg;
+
+        if(Input.GetKeyDown(KeyCode.H))
         {
-            verticalMovement++;
-        }
-        if(Input.GetKeyUp(keyBindings.forward))
-        {
-            verticalMovement--;
-        }
-        if(Input.GetKeyDown(keyBindings.backward))
-        {
-            verticalMovement--;
-        }
-        if(Input.GetKeyUp(keyBindings.backward))
-        {
-            verticalMovement++;
+            Debug.Log(horizontalMovement);
+            Debug.Log(verticalMovement);
         }
 
-        if(Input.GetKeyDown(keyBindings.right))
-        {
-            horizontalMovement++;
-        }
-        if(Input.GetKeyUp(keyBindings.right))
-        {
-            horizontalMovement--;
-        }
-        if(Input.GetKeyDown(keyBindings.left))
-        {
-            horizontalMovement--;
-        }
-        if(Input.GetKeyUp(keyBindings.left))
-        {
-            horizontalMovement++;
-        }
+        animator.SetFloat("PositionX", horizontalMovement); //Animation
+        animator.SetFloat("PositionY", verticalMovement); //Animation
 
         if(Input.GetKey(keyBindings.sprint))
         {
+            animator.SetFloat("MovementSpeed", 1.3f);
             sprinting = true;
         } else {
+            animator.SetFloat("MovementSpeed", 1f);
             sprinting = false;
         }
         if(Input.GetKeyDown(keyBindings.jump))
@@ -165,6 +163,35 @@ public class ThirdPersonMovement : MonoBehaviour
         }
     }
 
+    private void GetDirectionInputs()
+    {
+        if(Input.GetKey(keyBindings.right))
+        {
+            horizontalPos = 1;
+        } else {
+            horizontalPos = 0;
+        }
+        if(Input.GetKey(keyBindings.left))
+        {
+            horizontalNeg = -1;
+        } else {
+            horizontalNeg = 0;
+        }
+
+        if(Input.GetKey(keyBindings.forward))
+        {
+            verticalPos = 1;
+        } else {
+            verticalPos = 0;
+        }
+        if(Input.GetKey(keyBindings.backward))
+        {
+            verticalNeg = -1;
+        } else {
+            verticalNeg = 0;
+        }
+    }
+
     private void CheckForMove()
     {
         if(horizontalMovement != 0 || verticalMovement != 0)
@@ -173,15 +200,14 @@ public class ThirdPersonMovement : MonoBehaviour
             GetRotationAngle();
             MoveObject();
 
-            //animator.SetBool("PlayerMoving", true); //Added the Start of Player Moving Animation
+            animator.SetBool("PlayerMoving", true); //Animation
 
         } else if(!stopped && grounded)
         {
             StopObject();
             isRotating = false;
 
-            //Somehow This is not Updating the Animator Controller
-            //animator.SetBool("PlayerMoving", false); //Added the End of Player Moving Animation
+            animator.SetBool("PlayerMoving", false); //Animation
         }
     }
 
@@ -258,8 +284,11 @@ public class ThirdPersonMovement : MonoBehaviour
             isRotating = false;
         }
         */
-
-        objectToRotate.transform.rotation = Quaternion.Euler(0, cameraHolder.transform.localEulerAngles.y + rotationAngle, 0);
+        if(!playerIsShooting.value)
+        {
+            objectToRotate.transform.rotation = Quaternion.Euler(0, cameraHolder.transform.localEulerAngles.y + rotationAngle, 0);
+        }
+        movementDirectionObject.transform.rotation = Quaternion.Euler(0, cameraHolder.transform.localEulerAngles.y + rotationAngle, 0);
     }
 
     private void MoveObject()
@@ -267,12 +296,12 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 movementVelocity = Vector3.zero;
         if(crouching)
         {
-            movementVelocity = objectToRotate.transform.forward * crouchSpeed;
+            movementVelocity = movementDirectionObject.transform.forward * crouchSpeed;
         } else if(sprinting)
         {
-            movementVelocity = objectToRotate.transform.forward * sprintSpeed;
+            movementVelocity = movementDirectionObject.transform.forward * sprintSpeed;
         } else {
-            movementVelocity = objectToRotate.transform.forward * movementSpeed;
+            movementVelocity = movementDirectionObject.transform.forward * movementSpeed;
         }
         rb.velocity = new Vector3(movementVelocity.x, rb.velocity.y, movementVelocity.z);
 
@@ -287,7 +316,7 @@ public class ThirdPersonMovement : MonoBehaviour
             isAbleToJump = false;
             currentDelay = 0;
 
-            //animator.SetTrigger("Jump"); // Trigger Jumping Animation
+            animator.SetTrigger("Jump"); //Animation
 
         }
     }
@@ -295,6 +324,10 @@ public class ThirdPersonMovement : MonoBehaviour
     private void StopObject()
     {
         stopped = true;
+        horizontalPos = 0;
+        horizontalNeg = 0;
+        verticalPos = 0;
+        verticalNeg = 0;
         rb.velocity = new Vector3(0, 0, 0);
     }
 
@@ -335,6 +368,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void StartLadderClimb(Vector3 sPosition, Vector3 tEndPosition, Vector3 rotation, float tEndHeight, float bEndHeight, bool top) //IDK why but bug where player is starting in there current position rather than the ladder
     {
+        animator.SetBool("ClimbingLadder", true);
+        animator.Play("ClimbingLadder");
         topEndHeight = tEndHeight;
         bottomEndHeight = bEndHeight;
         topEndPosition = tEndPosition;
@@ -363,14 +398,28 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void ClimbLadder()
     {
-        if(verticalMovement != 0)
+        if(verticalMovement == 1)
         {
             if(sprinting)
             {
+                animator.SetFloat("ClimbingSpeed", 1f);
                 transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * Time.deltaTime, transform.position.z);
             } else {
+                animator.SetFloat("ClimbingSpeed", 0.7f);
                 transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * Time.deltaTime, transform.position.z);
             }
+        } else if(verticalMovement == -1)
+        {
+            if(sprinting)
+            {
+                animator.SetFloat("ClimbingSpeed", -1f);
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * Time.deltaTime, transform.position.z);
+            } else {
+                animator.SetFloat("ClimbingSpeed", -0.7f);
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * Time.deltaTime, transform.position.z);
+            }
+        } else {
+            animator.SetFloat("ClimbingSpeed", 0f);
         }
 
         if(transform.position.y >= topEndHeight)
@@ -385,6 +434,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void EndLadderClimb()
     {
+        animator.SetBool("ClimbingLadder", false);
         isClimbing = false;
         rb.useGravity = true;
         canInteract.value = true;

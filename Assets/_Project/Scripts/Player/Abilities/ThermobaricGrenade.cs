@@ -23,6 +23,9 @@ public class ThermobaricGrenade : MonoBehaviour
         BBB
     }
 
+    [Header("Scriptable Objects")]
+    [SerializeField] private KeyBindingsObject keyBindings;
+
     [Header("Ability Settings")]
     public float baseCooldown = 5f;  // Fast cooldown
     public GameObject grenadePrefab;
@@ -78,7 +81,7 @@ public class ThermobaricGrenade : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityTwo) && isAbilityReady)
         {
             StartCoroutine(ActivateAbility());
         }

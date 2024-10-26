@@ -5,11 +5,11 @@ using UnityEngine;
 public class ThirdPersonCamera : MonoBehaviour
 {
     [Header("Scriptable Objects")]
+    [SerializeField] private FloatObject cameraSensitivity;
     [SerializeField] private BoolObject paused;
 
     [Header("Camera Rotation")]
-    [SerializeField] private float cameraSensitivityX;
-    [SerializeField] private float cameraSensitivityY;
+    [SerializeField] private float setCameraSensitivity;
 
     private float mouseX;
     private float mouseY;
@@ -43,8 +43,8 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void GetMouseInputs()
     {
-        mouseX = Input.GetAxis("Mouse X") * cameraSensitivityX * Time.deltaTime;
-        mouseY = Input.GetAxis("Mouse Y") * cameraSensitivityY * Time.deltaTime;
+        mouseX = Input.GetAxis("Mouse X") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
+        mouseY = Input.GetAxis("Mouse Y") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
         mouseScroll = Input.GetAxis("Mouse ScrollWheel") * zoomSensitivity * Time.deltaTime;
 
     }

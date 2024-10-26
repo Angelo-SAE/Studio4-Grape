@@ -23,6 +23,9 @@ public class MagneticCore : MonoBehaviour
         BBB
     }
 
+    [Header("Scriptable Objects")]
+    [SerializeField] private KeyBindingsObject keyBindings;
+
     [Header("Ability Settings")]
     public float baseCooldown;
     public float baseDuration;
@@ -50,7 +53,7 @@ public class MagneticCore : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityTwo) && isAbilityReady)
         {
             StartCoroutine(ActivateAbility());
         }

@@ -81,7 +81,7 @@ public class ThermobaricGrenade : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyBindings.abilityTwo) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityOne) && isAbilityReady)
         {
             StartCoroutine(ActivateAbility());
         }

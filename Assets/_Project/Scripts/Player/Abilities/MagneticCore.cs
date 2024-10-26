@@ -53,7 +53,7 @@ public class MagneticCore : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyBindings.abilityThree) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityTwo) && isAbilityReady)
         {
             StartCoroutine(ActivateAbility());
         }

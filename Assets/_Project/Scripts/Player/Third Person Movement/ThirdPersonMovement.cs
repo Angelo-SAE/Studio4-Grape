@@ -328,6 +328,7 @@ public class ThirdPersonMovement : MonoBehaviour
         horizontalNeg = 0;
         verticalPos = 0;
         verticalNeg = 0;
+        animator.SetBool("PlayerMoving", false); //Animation
         rb.velocity = new Vector3(0, 0, 0);
     }
 

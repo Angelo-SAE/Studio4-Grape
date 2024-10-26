@@ -59,7 +59,8 @@ public class PlayerShooting : MonoBehaviour
     {
         if(pFireOffCooldown)
         {
-            Instantiate(gunShot, shotPosition.position, shotPosition.localRotation, shotPosition);
+            Instantiate(gunShot, shotPosition.position, shotPosition.rotation, shotPosition);
+
             RaycastHit hit;
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange, enemyLayer))
             {

@@ -27,6 +27,8 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool sprinting;
     private bool stopped;
 
+    public float movementMultipler = 1;
+
 
     //Inputs
     private float horizontalPos;
@@ -296,12 +298,12 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 movementVelocity = Vector3.zero;
         if(crouching)
         {
-            movementVelocity = movementDirectionObject.transform.forward * crouchSpeed;
+            movementVelocity = movementDirectionObject.transform.forward * crouchSpeed * movementMultipler;
         } else if(sprinting)
         {
-            movementVelocity = movementDirectionObject.transform.forward * sprintSpeed;
+            movementVelocity = movementDirectionObject.transform.forward * sprintSpeed * movementMultipler;
         } else {
-            movementVelocity = movementDirectionObject.transform.forward * movementSpeed;
+            movementVelocity = movementDirectionObject.transform.forward * movementSpeed * movementMultipler;
         }
         rb.velocity = new Vector3(movementVelocity.x, rb.velocity.y, movementVelocity.z);
 
@@ -404,10 +406,10 @@ public class ThirdPersonMovement : MonoBehaviour
             if(sprinting)
             {
                 animator.SetFloat("ClimbingSpeed", 1f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * Time.deltaTime, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * movementMultipler * Time.deltaTime, transform.position.z);
             } else {
                 animator.SetFloat("ClimbingSpeed", 0.7f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * Time.deltaTime, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * movementMultipler * Time.deltaTime, transform.position.z);
             }
         } else if(verticalMovement == -1)
         {
@@ -440,4 +442,5 @@ public class ThirdPersonMovement : MonoBehaviour
         rb.useGravity = true;
         canInteract.value = true;
     }
+    
 }

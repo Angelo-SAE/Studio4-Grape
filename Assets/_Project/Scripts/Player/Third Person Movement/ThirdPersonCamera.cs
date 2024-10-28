@@ -5,8 +5,13 @@ using UnityEngine;
 public class ThirdPersonCamera : MonoBehaviour
 {
     [Header("Scriptable Objects")]
+    [SerializeField] private GameObjectObject playerObject;
     [SerializeField] private FloatObject cameraSensitivity;
     [SerializeField] private BoolObject paused;
+
+    [Header("Camera Height")]
+    [SerializeField] private float maxHeight;
+    [SerializeField] private float minHeight;
 
     [Header("Camera Rotation")]
     [SerializeField] private float setCameraSensitivity;
@@ -16,14 +21,31 @@ public class ThirdPersonCamera : MonoBehaviour
     private float clampedRotationX;
 
     [Header("Camera Zoom")]
+    [SerializeField] private LayerMask ignorePlayer;
     [SerializeField] private GameObject cameraObject;
+    [SerializeField] private float checkLength;
+    [SerializeField] private float checkLengthSides;
     [SerializeField] private float zoomSensitivity;
     [SerializeField] private float minCameraZoom;
     [SerializeField] private float maxCameraZoom;
 
-    private float mouseScroll;
     private float cameraZoom;
+    private bool canZoomOut;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(cameraObject.transform.position, cameraObject.transform.position + (cameraObject.transform.forward * -1f) * checkLength);
+        Gizmos.DrawLine(cameraObject.transform.position, cameraObject.transform.position + (cameraObject.transform.right) * checkLengthSides);
+        Gizmos.DrawLine(cameraObject.transform.position, cameraObject.transform.position + (cameraObject.transform.right * -1f) * checkLengthSides);
+        Gizmos.DrawLine(cameraObject.transform.position, cameraObject.transform.position + (cameraObject.transform.up) * checkLengthSides);
+        Gizmos.DrawLine(cameraObject.transform.position, cameraObject.transform.position + (cameraObject.transform.up * -1f) * checkLengthSides);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(cameraObject.transform.position, new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z));
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(cameraObject.transform.position + ((cameraObject.transform.forward * -1) * 0.3f), new Vector3(checkLengthSides + checkLengthSides + (checkLengthSides / 2), checkLengthSides + checkLengthSides + (checkLengthSides / 2), checkLength + (checkLength )));
+    }
 
     private void Start()
     {
@@ -37,7 +59,9 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             GetMouseInputs();
             RotateCamera();
+            CheckForObjectsBehind();
             ZoomCamera();
+            SetCameraHeight();
         }
     }
 
@@ -45,22 +69,90 @@ public class ThirdPersonCamera : MonoBehaviour
     {
         mouseX = Input.GetAxis("Mouse X") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
         mouseY = Input.GetAxis("Mouse Y") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
-        mouseScroll = Input.GetAxis("Mouse ScrollWheel") * zoomSensitivity * Time.deltaTime;
-
     }
 
     private void RotateCamera()
     {
 
         clampedRotationX -= mouseY;
-        clampedRotationX = Mathf.Clamp(clampedRotationX, -40, 80);
+        clampedRotationX = Mathf.Clamp(clampedRotationX, -50, 70);
 
         transform.rotation = Quaternion.Euler(clampedRotationX, transform.eulerAngles.y + mouseX, transform.eulerAngles.z);
     }
 
+    private void CheckForObjectsBehind()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(cameraObject.transform.position, cameraObject.transform.forward * -1f, out hit, checkLength, ignorePlayer))
+        {
+            float amount = Vector3.Distance(hit.point, cameraObject.transform.position) / checkLength;
+            cameraZoom -= 0.5f * Mathf.Lerp(1f, 0f, amount);
+            canZoomOut = false;
+        }
+        if(Physics.Raycast(cameraObject.transform.position, cameraObject.transform.right, out hit, checkLengthSides, ignorePlayer))
+        {
+            float amount = Vector3.Distance(hit.point, cameraObject.transform.position) / checkLengthSides;
+            cameraZoom -= 0.5f * Mathf.Lerp(1f, 0f, amount);
+            canZoomOut = false;
+        }
+        if(Physics.Raycast(cameraObject.transform.position, cameraObject.transform.right * -1f, out hit, checkLengthSides, ignorePlayer))
+        {
+            float amount = Vector3.Distance(hit.point, cameraObject.transform.position) / checkLengthSides;
+            cameraZoom -= 0.5f * Mathf.Lerp(1f, 0f, amount);
+            canZoomOut = false;
+        }
+        if(Physics.Raycast(cameraObject.transform.position, cameraObject.transform.up, out hit, checkLengthSides, ignorePlayer))
+        {
+            float amount = Vector3.Distance(hit.point, cameraObject.transform.position) / checkLengthSides;
+            cameraZoom -= 0.5f * Mathf.Lerp(1f, 0f, amount);
+            canZoomOut = false;
+        }
+        if(Physics.Raycast(cameraObject.transform.position, cameraObject.transform.up * -1f, out hit, checkLengthSides, ignorePlayer))
+        {
+            float amount = Vector3.Distance(hit.point, cameraObject.transform.position) / checkLengthSides;
+            cameraZoom -= 0.5f * Mathf.Lerp(1f, 0f, amount);
+            canZoomOut = false;
+        }
+        if(Physics.Raycast(cameraObject.transform.position, new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z) - cameraObject.transform.position, out hit))
+        {
+            if(hit.collider.tag != "Player")
+            {
+                cameraZoom -= 0.3f;
+                canZoomOut = false;
+            }
+        }
+        /*
+        if(Physics.Raycast(cameraObject.transform.position, cameraObject.transform.position - new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), out hit))
+        {
+            Debug.Log(hit.collider.tag);
+            if(hit.collider.tag != "Camera")
+            {
+                cameraZoom -= 0.3f;
+                canZoomOut = false;
+            }
+        }
+        */
+    }
+
     private void ZoomCamera()
     {
-        cameraZoom = Mathf.Clamp(cameraZoom - mouseScroll, minCameraZoom, maxCameraZoom);
+        if(canZoomOut)
+        {
+            if(!Physics.BoxCast(cameraObject.transform.position, new Vector3(checkLengthSides * 2, checkLengthSides * 2, 0.1f),  cameraObject.transform.forward * -1f, transform.rotation, 2.5f, ignorePlayer))
+            {
+                cameraZoom += 0.04f * Mathf.Lerp(1, 0, cameraZoom/maxCameraZoom);;
+            }
+
+        } else {
+            canZoomOut = true;
+        }
+        cameraZoom = Mathf.Clamp(cameraZoom, minCameraZoom, maxCameraZoom);
         cameraObject.transform.localPosition =  new Vector3(0, 0, -cameraZoom);
+    }
+
+    private void SetCameraHeight()
+    {
+        float cameraHeight = Mathf.Lerp(maxHeight, minHeight, cameraZoom/maxCameraZoom);
+        transform.localPosition = new Vector3(0, cameraHeight, 0);
     }
 }

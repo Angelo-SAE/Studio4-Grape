@@ -442,5 +442,30 @@ public class ThirdPersonMovement : MonoBehaviour
         rb.useGravity = true;
         canInteract.value = true;
     }
-    
+
+    public void StartLingerCoroutine(float duration)
+    {
+        StartCoroutine(ApplyLingerEffect(duration));
+
+    }
+
+    IEnumerator ApplyLingerEffect(float duration)
+    {
+        //PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
+        //ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
+        Debug.Log("linger coroutine movement");
+
+        yield return new WaitForSeconds(duration);
+
+        //if (shooting != null)
+        ///{
+            //shooting.ResetFireRate();
+        //}
+        
+
+        
+        movementMultipler = 1;
+        
+    }
+
 }

@@ -39,8 +39,6 @@ public class StimDevice : MonoBehaviour
 
     IEnumerator StimEffect()
     {
-
-
         while (true)
         {
             Collider[] playersInRange = Physics.OverlapSphere(transform.position, aoeRadius, playerLayerMask);
@@ -70,7 +68,10 @@ public class StimDevice : MonoBehaviour
             }
             else if (playerObject != null && applyLinger && playersInRange.Length == 0)
             {
-                lingerCoroutine = StartCoroutine(ApplyLingerEffect(playerObject));
+                PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
+                ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
+                Debug.Log("aaaa");
+                movement.StartLingerCoroutine(lingerDuration);
                 playerObject = null;
             }
             else if (playerObject != null && !applyLinger && playersInRange.Length == 0)
@@ -109,7 +110,7 @@ public class StimDevice : MonoBehaviour
 
         if (movement != null && movementSpeedBuffPercentage > 0)
         {
-            movement.movementMultipler = 1;
+            //movement.movementMultipler = 1;
         }
     }
     IEnumerator DestroyAfterDuration()

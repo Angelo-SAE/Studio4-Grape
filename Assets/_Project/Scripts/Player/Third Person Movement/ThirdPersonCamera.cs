@@ -32,6 +32,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private float cameraZoom;
     private bool canZoomOut;
 
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(cameraObject.transform.position, cameraObject.transform.position + (cameraObject.transform.forward * -1f) * checkLength);
@@ -46,6 +47,7 @@ public class ThirdPersonCamera : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(cameraObject.transform.position + ((cameraObject.transform.forward * -1) * 0.3f), new Vector3(checkLengthSides + checkLengthSides + (checkLengthSides / 2), checkLengthSides + checkLengthSides + (checkLengthSides / 2), checkLength + (checkLength )));
     }
+    */
 
     private void Start()
     {

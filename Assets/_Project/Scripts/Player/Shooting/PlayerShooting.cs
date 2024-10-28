@@ -17,6 +17,7 @@ public class PlayerShooting : MonoBehaviour
 
     [Header("Primary Fire")]
     [SerializeField] private float primaryFireRange;
+    [SerializeField] private float basePrimaryFireDelay;
     [SerializeField] private float primaryFireDelay;
     [SerializeField] private float primaryFireDamage;
 
@@ -69,5 +70,16 @@ public class PlayerShooting : MonoBehaviour
             pFireCurrentDelay = 0;
             pFireOffCooldown = false;
         }
+    }
+
+    public void ModifyFireRate(float fireRateMultiplier)
+    {
+        
+        primaryFireDelay = fireRateMultiplier * basePrimaryFireDelay;
+    }
+
+    public void ResetFireRate()
+    {
+        primaryFireDamage = basePrimaryFireDelay;
     }
 }

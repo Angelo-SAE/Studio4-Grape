@@ -33,6 +33,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void SpawnEEEE()
+    {
+        StartCoroutine(SpawnEnemies());
+    }
+
     private IEnumerator SpawnEnemies()
     {
         isSpawning = true;

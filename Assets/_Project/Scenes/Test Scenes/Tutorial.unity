@@ -69819,13 +69819,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066794418}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.42032325, z: 0, w: 0.9073744}
   m_LocalPosition: {x: -5.9038715, y: 0, z: 0.040423084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 664488271}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -49.71, z: 0}
 --- !u!23 &1066794420
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -119617,10 +119617,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992c6b04bd3db2f4099111dd4d836b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObject: {fileID: 0}
   cameraSensitivity: {fileID: 11400000, guid: e42cf68d3ab9fbe49b8dc58ffe62a8e8, type: 2}
   paused: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
+  maxHeight: 0
+  minHeight: 0
   setCameraSensitivity: 400
+  ignorePlayer:
+    serializedVersion: 2
+    m_Bits: 0
   cameraObject: {fileID: 616549270}
+  checkLength: 0
+  checkLengthSides: 0
   zoomSensitivity: 700
   minCameraZoom: 3
   maxCameraZoom: 7
@@ -130328,6 +130336,7 @@ MonoBehaviour:
   gunShot: {fileID: 4115974739509227812, guid: 91ee3acf7bd733b4684602d84bfddded, type: 3}
   shotPosition: {fileID: 972647836}
   primaryFireRange: 50
+  basePrimaryFireDelay: 0
   primaryFireDelay: 0.5
   primaryFireDamage: 10
 --- !u!114 &1956394422
@@ -130353,6 +130362,7 @@ MonoBehaviour:
   movementSpeed: 5
   sprintSpeed: 8
   rb: {fileID: 1956394426}
+  movementMultipler: 1
   jumpForce: 5
   jumpDelay: 0.1
   crouchSpeed: 3.5

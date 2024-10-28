@@ -16,6 +16,9 @@ public class CombatStim : MonoBehaviour
         ABB
     }
 
+    [Header("Scriptable Objects")]
+    [SerializeField] private KeyBindingsObject keyBindings;
+
     [Header("Ability Settings")]
     public float baseCooldown = 10f;
     public GameObject stimDevicePrefab;
@@ -48,7 +51,7 @@ public class CombatStim : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityThree) && isAbilityReady)
         {
             StartCoroutine(ActivateAbility());
         }
@@ -109,6 +112,3 @@ public class CombatStim : MonoBehaviour
         }
     }
 }
-
-
-

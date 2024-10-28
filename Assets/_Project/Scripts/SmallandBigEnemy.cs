@@ -19,8 +19,8 @@ public class SmallandBigEnemy : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float attackDelay;
     [SerializeField] private float attackDuration;
+    [SerializeField] private bool playerInRange;
 
-    private bool playerInRange;
     private bool attackingPlayer;
 
     [Header("Animation")]

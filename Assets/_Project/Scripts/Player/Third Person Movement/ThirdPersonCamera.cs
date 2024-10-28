@@ -121,17 +121,16 @@ public class ThirdPersonCamera : MonoBehaviour
                 canZoomOut = false;
             }
         }
-        /*
-        if(Physics.Raycast(cameraObject.transform.position, cameraObject.transform.position - new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), out hit))
+
+        if(Physics.Raycast(new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), cameraObject.transform.position - new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), out hit))
         {
-            Debug.Log(hit.collider.tag);
             if(hit.collider.tag != "Camera")
             {
-                cameraZoom -= 0.3f;
+                cameraZoom -= 1f;
                 canZoomOut = false;
             }
         }
-        */
+
     }
 
     private void ZoomCamera()
@@ -140,7 +139,7 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             if(!Physics.BoxCast(cameraObject.transform.position, new Vector3(checkLengthSides * 2, checkLengthSides * 2, 0.1f),  cameraObject.transform.forward * -1f, transform.rotation, 2.5f, ignorePlayer))
             {
-                cameraZoom += 0.04f * Mathf.Lerp(1, 0, cameraZoom/maxCameraZoom);;
+                cameraZoom += 0.04f * Mathf.Lerp(1, 0, cameraZoom/maxCameraZoom);
             }
 
         } else {

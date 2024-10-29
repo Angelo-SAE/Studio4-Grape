@@ -946,7 +946,7 @@ MonoBehaviour:
   healthSlider: {fileID: 6329684132497751563}
   health: 100
   damage: 5
-  moveSpeed: 5
+  moveSpeed: 4
   isVulnerable: 0
   damageMultiplier: 1
   isInFire: 0
@@ -976,6 +976,7 @@ MonoBehaviour:
   attackRange: 1.5
   attackDelay: 0.5
   attackDuration: 0.85
+  playerInRange: 0
   animator: {fileID: 6489890640498643815}
   attackAnimation: StabAttack
 --- !u!114 &1148039304150174109

@@ -188,4 +188,9 @@ public class ThermobaricGrenade : MonoBehaviour
         yield return new WaitForSeconds(baseCooldown);
         isAbilityReady = true;
     }
+
+    public void Upgrade()
+    {
+        currentUpgrade = UpgradePath.A;
+    }
 }

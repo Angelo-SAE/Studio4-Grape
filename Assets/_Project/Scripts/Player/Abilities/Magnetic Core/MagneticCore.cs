@@ -169,4 +169,9 @@ public class MagneticCore : MonoBehaviour
         yield return new WaitForSeconds(baseCooldown);
         isAbilityReady = true;
     }
+
+    public void Upgrade()
+    {
+        currentUpgrade = UpgradePath.A;
+    }
 }

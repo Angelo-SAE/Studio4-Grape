@@ -139,7 +139,7 @@ public class ThirdPersonCamera : MonoBehaviour
     {
         if(canZoomOut)
         {
-            if(!Physics.BoxCast(cameraObject.transform.position, new Vector3(checkLengthSides * 2, checkLengthSides * 2, 0.1f),  cameraObject.transform.forward * -1f, transform.rotation, 2.5f, ignorePlayer))
+            if(!Physics.BoxCast(cameraObject.transform.position, new Vector3(checkLengthSides * 1.6f, checkLengthSides * 1.6f, 0.1f),  cameraObject.transform.forward * -1f, transform.rotation, 1.5f, ignorePlayer))
             {
                 cameraZoom += 0.04f * Mathf.Lerp(1, 0, cameraZoom/maxCameraZoom);
             }

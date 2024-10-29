@@ -72,6 +72,21 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
+    public void StartLingerCoroutine(float duration)
+    {
+        StartCoroutine(ApplyLingerEffect(duration));
+      
+    }
+
+    IEnumerator ApplyLingerEffect(float duration)
+    {
+
+        yield return new WaitForSeconds(duration);
+
+        ResetFireRate();
+
+    }
+
     public void ModifyFireRate(float fireRateMultiplier)
     {
         
@@ -80,6 +95,6 @@ public class PlayerShooting : MonoBehaviour
 
     public void ResetFireRate()
     {
-        primaryFireDamage = basePrimaryFireDelay;
+        primaryFireDelay = basePrimaryFireDelay;
     }
 }

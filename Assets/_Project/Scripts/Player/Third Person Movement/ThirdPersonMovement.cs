@@ -21,6 +21,7 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float sprintSpeed;
     [SerializeField] private Rigidbody rb;
+    public bool isStimmed;
 
 
     private Vector3 movementDirection;
@@ -446,23 +447,13 @@ public class ThirdPersonMovement : MonoBehaviour
     public void StartLingerCoroutine(float duration)
     {
         StartCoroutine(ApplyLingerEffect(duration));
-
+        
     }
 
     IEnumerator ApplyLingerEffect(float duration)
     {
-        //PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
-        //ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
-        Debug.Log("linger coroutine movement");
 
         yield return new WaitForSeconds(duration);
-
-        //if (shooting != null)
-        ///{
-            //shooting.ResetFireRate();
-        //}
-        
-
         
         movementMultipler = 1;
         

@@ -23,6 +23,7 @@ public class CombatStim : MonoBehaviour
     public float baseCooldown = 10f;
     public GameObject stimDevicePrefab;
     public float baseAOERadius = 5f;
+    private float AOERadius;
     public float buffDuration = 10f;
     public float lingerDuration = 0f;
 
@@ -61,11 +62,13 @@ public class CombatStim : MonoBehaviour
     {
         isAbilityReady = false;
 
+        ApplyUpgrades();
+
         Vector3 spawnPosition = transform.position;
         currentStimDevice = Instantiate(stimDevicePrefab, spawnPosition, Quaternion.identity);
-        currentStimDevice.GetComponent<StimDevice>().Initialize(baseAOERadius, buffDuration, fireRateBuffPercentage, damageReductionPercentage, movementSpeedBuffPercentage, applyLinger, lingerDuration);
-
-        ApplyUpgrades();
+        currentStimDevice.GetComponent<StimDevice>().Initialize(AOERadius, buffDuration, fireRateBuffPercentage, damageReductionPercentage, movementSpeedBuffPercentage, applyLinger, lingerDuration);
+        StimSize stimSize = currentStimDevice.GetComponent<StimSize>();
+        stimSize.UpdateSize(AOERadius);
 
         yield return new WaitForSeconds(baseCooldown);
         isAbilityReady = true;
@@ -82,21 +85,21 @@ public class CombatStim : MonoBehaviour
             case UpgradePath.AA:
                 applyLinger = true;
                 lingerDuration = 5f;
-                baseAOERadius *= 1.25f;
-                movementSpeedBuffPercentage = 15f;
+                AOERadius = baseAOERadius * 1.25f;
+                movementSpeedBuffPercentage = 25f;
                 break;
             case UpgradePath.AAA:
                 applyLinger = true;
                 lingerDuration = 5f;
-                baseAOERadius *= 1.25f;
-                movementSpeedBuffPercentage = 15f;
+                AOERadius = baseAOERadius * 1.25f;
+                movementSpeedBuffPercentage = 25f;
                 damageReductionPercentage = 33f;
                 break;
             case UpgradePath.AAB:
                 applyLinger = true;
                 lingerDuration = 12.5f;
-                baseAOERadius *= 1.25f;
-                movementSpeedBuffPercentage = 15f;
+                AOERadius = baseAOERadius * 1.25f;
+                movementSpeedBuffPercentage = 25f;
                 break;
             case UpgradePath.AB:
                 healPerKill = 1f;

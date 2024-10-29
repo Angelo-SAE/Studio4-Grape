@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StimDevice : MonoBehaviour
@@ -41,23 +42,39 @@ public class StimDevice : MonoBehaviour
     {
         while (true)
         {
-            Collider[] playersInRange = Physics.OverlapSphere(transform.position, aoeRadius, playerLayerMask);
+            Collider[] collidersInRange = Physics.OverlapSphere(transform.position, aoeRadius, playerLayerMask);
+            HashSet<GameObject> uniquePlayersInRange = new HashSet<GameObject>();
 
-            if (playersInRange.Length > 0)
+            foreach (Collider collider in collidersInRange)
             {
-                playerObject = playersInRange[0].gameObject;
+                uniquePlayersInRange.Add(collider.transform.root.gameObject);
+            }
+            //Debug.Log("found " +  uniquePlayersInRange.Count + " players are in the hash set");
+
+            if (uniquePlayersInRange.Count > 0)
+            {
+                playerObject = uniquePlayersInRange.First(); // Assuming one player scenario
 
                 PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
                 ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
 
                 if (shooting != null)
                 {
+
                     shooting.ModifyFireRate(1 - (fireRateBuffPercentage / 100f));
+                }
+                else
+                {
+                    Debug.Log("shooting componenet not found");
                 }
 
                 if (movement != null && movementSpeedBuffPercentage > 0)
                 {
                     movement.movementMultipler = (1 + (movementSpeedBuffPercentage / 100f));
+                }
+                else
+                {
+                    Debug.Log("movement componenet not found");
                 }
 
                 if (lingerCoroutine != null)
@@ -66,34 +83,30 @@ public class StimDevice : MonoBehaviour
                     lingerCoroutine = null;
                 }
             }
-            else if (playerObject != null && applyLinger && playersInRange.Length == 0)
+            else if (playerObject != null && applyLinger)
             {
+                //lingerCoroutine = StartCoroutine(ApplyLingerEffect(playerObject));
                 PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
                 ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
-                Debug.Log("aaaa");
+
                 movement.StartLingerCoroutine(lingerDuration);
+                shooting.StartLingerCoroutine(lingerDuration);
+
+                Debug.Log("playerobject has been nulled");
                 playerObject = null;
             }
-            else if (playerObject != null && !applyLinger && playersInRange.Length == 0)
-            {
-                PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
-                ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
-
-                if (shooting != null)
-                {
-                    shooting.ResetFireRate();
-                }
-
-                if (movement != null && movementSpeedBuffPercentage > 0)
-                {
-                    movement.movementMultipler = 1;
-                }
-            }
-
-
 
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Set the color of the gizmo
+        Gizmos.color = Color.red;
+
+        // Draw a wireframe sphere at the position of the OverlapSphere
+        Gizmos.DrawWireSphere(transform.position, aoeRadius);
     }
 
     IEnumerator ApplyLingerEffect(GameObject playerObject)
@@ -116,6 +129,13 @@ public class StimDevice : MonoBehaviour
     IEnumerator DestroyAfterDuration()
     {
         yield return new WaitForSeconds(buffDuration);
+        if (playerObject != null)
+        {
+            PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
+            ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
+            movement.StartLingerCoroutine(lingerDuration);
+            shooting.StartLingerCoroutine(lingerDuration);
+        }
         Destroy(gameObject);
     }
 

@@ -28,6 +28,8 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
 
     public Transform grenadeBodyTransform;
 
+    public GameObject explosionVFX;
+
     private bool hasExploded = false;
     private List<GameObject> spawnedSpheres = new List<GameObject>();
 
@@ -62,6 +64,7 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
 
     void Explode()
     {
+        Instantiate(explosionVFX, grenadeBodyTransform.position, transform.rotation);
         if (hasExploded)
             return;
 

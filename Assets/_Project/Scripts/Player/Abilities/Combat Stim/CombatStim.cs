@@ -48,6 +48,7 @@ public class CombatStim : MonoBehaviour
     {
         playerShooting = GetComponent<PlayerShooting>();
         movement = GetComponent<ThirdPersonMovement>();
+        AOERadius = baseAOERadius;
     }
 
     private void Update()
@@ -102,13 +103,19 @@ public class CombatStim : MonoBehaviour
                 movementSpeedBuffPercentage = 25f;
                 break;
             case UpgradePath.AB:
+                applyLinger = true;
+                lingerDuration = 5f;
                 healPerKill = 1f;
                 break;
             case UpgradePath.ABA:
+                applyLinger = true;
+                lingerDuration = 5f;
                 healPerKill = 1f;
                 vulnerableChance = 2f;
                 break;
             case UpgradePath.ABB:
+                applyLinger = true;
+                lingerDuration = 5f;
                 healPerKill = 1f;
                 weakenChance = 2f;
                 break;

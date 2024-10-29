@@ -51,7 +51,7 @@ public class StimDevice : MonoBehaviour
             }
             //Debug.Log("found " +  uniquePlayersInRange.Count + " players are in the hash set");
 
-            if (uniquePlayersInRange.Count > 0)
+            if (uniquePlayersInRange.Count == 1)
             {
                 playerObject = uniquePlayersInRange.First(); // Assuming one player scenario
 
@@ -62,6 +62,7 @@ public class StimDevice : MonoBehaviour
                 {
 
                     shooting.ModifyFireRate(1 - (fireRateBuffPercentage / 100f));
+                    shooting.isStimmed = true;
                 }
                 else
                 {
@@ -71,6 +72,7 @@ public class StimDevice : MonoBehaviour
                 if (movement != null && movementSpeedBuffPercentage > 0)
                 {
                     movement.movementMultipler = (1 + (movementSpeedBuffPercentage / 100f));
+                    movement.isStimmed = true;
                 }
                 else
                 {
@@ -83,6 +85,10 @@ public class StimDevice : MonoBehaviour
                     lingerCoroutine = null;
                 }
             }
+            else if (uniquePlayersInRange.Count > 1)
+            {
+                Debug.LogError("More than one player detected!");
+            }
             else if (playerObject != null && applyLinger)
             {
                 //lingerCoroutine = StartCoroutine(ApplyLingerEffect(playerObject));
@@ -91,8 +97,7 @@ public class StimDevice : MonoBehaviour
 
                 movement.StartLingerCoroutine(lingerDuration);
                 shooting.StartLingerCoroutine(lingerDuration);
-
-                Debug.Log("playerobject has been nulled");
+                
                 playerObject = null;
             }
 
@@ -100,32 +105,7 @@ public class StimDevice : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        // Set the color of the gizmo
-        Gizmos.color = Color.red;
-
-        // Draw a wireframe sphere at the position of the OverlapSphere
-        Gizmos.DrawWireSphere(transform.position, aoeRadius);
-    }
-
-    IEnumerator ApplyLingerEffect(GameObject playerObject)
-    {
-        PlayerShooting shooting = playerObject.GetComponent<PlayerShooting>();
-        ThirdPersonMovement movement = playerObject.GetComponent<ThirdPersonMovement>();
-
-        yield return new WaitForSeconds(lingerDuration);
-
-        if (shooting != null)
-        {
-            shooting.ResetFireRate();
-        }
-
-        if (movement != null && movementSpeedBuffPercentage > 0)
-        {
-            //movement.movementMultipler = 1;
-        }
-    }
+    
     IEnumerator DestroyAfterDuration()
     {
         yield return new WaitForSeconds(buffDuration);

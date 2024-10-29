@@ -452,10 +452,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     IEnumerator ApplyLingerEffect(float duration)
     {
+        isStimmed = true;
 
         yield return new WaitForSeconds(duration);
         
         movementMultipler = 1;
+        isStimmed = false;
         
     }
 

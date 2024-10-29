@@ -20,6 +20,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float basePrimaryFireDelay;
     [SerializeField] private float primaryFireDelay;
     [SerializeField] private float primaryFireDamage;
+    public bool isStimmed;
 
     private float pFireCurrentDelay;
     private bool pFireOffCooldown;
@@ -80,6 +81,7 @@ public class PlayerShooting : MonoBehaviour
 
     IEnumerator ApplyLingerEffect(float duration)
     {
+        isStimmed = true;
 
         yield return new WaitForSeconds(duration);
 
@@ -96,5 +98,6 @@ public class PlayerShooting : MonoBehaviour
     public void ResetFireRate()
     {
         primaryFireDelay = basePrimaryFireDelay;
+        isStimmed = false;
     }
 }

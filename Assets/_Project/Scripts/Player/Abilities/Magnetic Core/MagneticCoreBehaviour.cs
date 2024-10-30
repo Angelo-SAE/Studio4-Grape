@@ -17,11 +17,13 @@ public class MagneticCoreBehaviour : MonoBehaviour
     public bool strongerMagneticEffect = false;
 
     private bool isActivated = false;
+    private bool hasLanded = false;
 
     private List<Enemy> affectedEnemies = new List<Enemy>();
 
     void Start()
     {
+        StartCoroutine(SelfDestructIfNotLanded(5f));
     }
 
     void OnCollisionEnter(Collision collision)
@@ -30,6 +32,7 @@ public class MagneticCoreBehaviour : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Ground"))
             {
+                hasLanded = true;
                 ActivateCore();
             }
         }
@@ -87,24 +90,35 @@ public class MagneticCoreBehaviour : MonoBehaviour
     void PullEnemy(Enemy enemy)
     {
         Vector3 direction = (transform.position - enemy.transform.position).normalized;
+        //direction.y = 0;
         float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-        float pullStrength = strongerMagneticEffect ? 1.5f - (distance / aoeRadius) : 1.25f - (distance / aoeRadius);
+        //float pullStrength = strongerMagneticEffect ? 1.5f - (distance / aoeRadius) : 1.25f - (distance / aoeRadius);
+        float pullStrength = strongerMagneticEffect ? 1.5f - (0) : 1.25f - (0);
 
-        Vector3 pullForce = direction * pullStrength * enemy.GetMoveSpeed();
+        Vector3 pullForce = direction * pullStrength * enemy.GetMoveSpeed() * 0.25f;
         enemy.AddForce(pullForce);
     }
 
     IEnumerator CoreLifetime()
     {
-        Debug.Log("Waiting " + duration + " seconds");
+        //Debug.Log("Waiting " + duration + " seconds");
         yield return new WaitForSeconds(duration);
         if (willExplode)
         {
             Explode();
         }
-        Debug.Log("Destroying magnetic core");
+        //Debug.Log("Destroying magnetic core");
         Destroy(gameObject);
+    }
+
+    IEnumerator SelfDestructIfNotLanded(float timeToSelfDestruct)
+    {
+        yield return new WaitForSeconds(timeToSelfDestruct);
+        if (!hasLanded)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Explode()

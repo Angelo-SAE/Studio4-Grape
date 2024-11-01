@@ -29,6 +29,7 @@ public class ThermobaricGrenade : MonoBehaviour
     [Header("Ability Settings")]
     public float baseCooldown = 5f;  // Fast cooldown
     public GameObject grenadePrefab;
+    public AbilityUIManager abilityUI;
 
     [Header("Throw Settings")]
     public float throwStrength = 20f;  // Adjust to control throw distance
@@ -60,6 +61,8 @@ public class ThermobaricGrenade : MonoBehaviour
 
     private bool isAbilityReady = true;
 
+    
+
     void Start()
     {
         if (cameraTransform == null)
@@ -90,6 +93,7 @@ public class ThermobaricGrenade : MonoBehaviour
     IEnumerator ActivateAbility()
     {
         isAbilityReady = false;
+        abilityUI.SetIconOnCooldown(3, isAbilityReady, baseCooldown);
 
         Vector3 throwDirection = CalculateThrowDirection(cameraTransform.forward);
         Vector3 spawnPosition = transform.position + throwDirection * 1.5f + new Vector3(0, 2, 0);
@@ -187,6 +191,7 @@ public class ThermobaricGrenade : MonoBehaviour
 
         yield return new WaitForSeconds(baseCooldown);
         isAbilityReady = true;
+        abilityUI.SetIconOnCooldown(3, isAbilityReady, baseCooldown);
     }
 
     public void Upgrade()

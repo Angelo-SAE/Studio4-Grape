@@ -32,6 +32,7 @@ public class MagneticCore : MonoBehaviour
     public float baseAOERadius;
     public float finalAOERadius;
     public GameObject corePrefab;
+    public AbilityUIManager abilityUI;
 
     [Header("Upgrade Modifiers")]
     public UpgradePath currentUpgrade = UpgradePath.None;
@@ -49,6 +50,8 @@ public class MagneticCore : MonoBehaviour
 
     public bool isAbilityReady = true;
 
+    
+
     CoreSize coreSize;
 
     void Update()
@@ -62,6 +65,7 @@ public class MagneticCore : MonoBehaviour
     IEnumerator ActivateAbility()
     {
         isAbilityReady = false;
+        abilityUI.SetIconOnCooldown(1, isAbilityReady, baseCooldown);
 
         Vector3 throwDirection = cameraTransform.forward.normalized;
 
@@ -168,6 +172,7 @@ public class MagneticCore : MonoBehaviour
 
         yield return new WaitForSeconds(baseCooldown);
         isAbilityReady = true;
+        abilityUI.SetIconOnCooldown(1, isAbilityReady, baseCooldown);
     }
 
     public void Upgrade()

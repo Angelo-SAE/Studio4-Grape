@@ -26,6 +26,7 @@ public class CombatStim : MonoBehaviour
     private float AOERadius;
     public float buffDuration = 10f;
     public float lingerDuration = 0f;
+    public AbilityUIManager abilityUI;
 
     [Header("Buff Settings")]
     public float fireRateBuffPercentage = 10f;
@@ -43,6 +44,8 @@ public class CombatStim : MonoBehaviour
     private GameObject currentStimDevice;
     private PlayerShooting playerShooting;
     private ThirdPersonMovement movement;
+
+    
 
     private void Start()
     {
@@ -62,6 +65,7 @@ public class CombatStim : MonoBehaviour
     IEnumerator ActivateAbility()
     {
         isAbilityReady = false;
+        abilityUI.SetIconOnCooldown(2, isAbilityReady, baseCooldown);
 
         ApplyUpgrades();
 
@@ -73,6 +77,7 @@ public class CombatStim : MonoBehaviour
 
         yield return new WaitForSeconds(baseCooldown);
         isAbilityReady = true;
+        abilityUI.SetIconOnCooldown(2, isAbilityReady, baseCooldown);
     }
 
     private void ApplyUpgrades()

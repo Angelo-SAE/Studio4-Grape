@@ -160,6 +160,7 @@ public class Enemy : MonoBehaviour
     public void ApplyDamageOverTime(float damagePerSecond, float duration)
     {
         StartCoroutine(DamageOverTimeCoroutine(damagePerSecond, duration));
+
     }
 
     IEnumerator DamageOverTimeCoroutine(float damagePerSecond, float duration)
@@ -183,3 +184,4 @@ public class Enemy : MonoBehaviour
         return moveSpeed;
     }
 }
+

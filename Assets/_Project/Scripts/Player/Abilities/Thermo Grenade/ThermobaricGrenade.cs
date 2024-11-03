@@ -27,43 +27,48 @@ public class ThermobaricGrenade : MonoBehaviour
     [SerializeField] private KeyBindingsObject keyBindings;
 
     [Header("Ability Settings")]
-    public float baseCooldown = 5f;  // Fast cooldown
-    public GameObject grenadePrefab;
-    public AbilityUIManager abilityUI;
-
-    [Header("Throw Settings")]
-    public float throwStrength = 20f;  // Adjust to control throw distance
-    public float upwardThrowAngle = 15f;
-    public Transform cameraTransform;  // Reference to player's camera
-    public Rigidbody playerRigidbody;  // Reference to player's Rigidbody
-
-    [Header("Damage Settings")]
-    public float baseDamage = 140f;
-    public float minDamage = 35f;
-    public float blastRadius = 10f;
-    public float damageFalloffStart = 0f;
-
-    [Header("Upgrade Modifiers")]
-    public UpgradePath currentUpgrade = UpgradePath.None;
-    public float increasedBlastRadiusPercentage = 15f;
-    public float improvedBaseDamage = 200f;
-    public float improvedMinDamage = 50f;
-    public float fireDuration = 5f;
-    public float fireDPS = 50f;
-    public float stunDuration = 2f;
-    public float knockbackForceMultiplier = 1f;
-    public bool enemiesInFireSlowed = false;
-    public float sphereDensity = 1f;
-    public bool damageNoFalloff = false;
-    public bool enemiesStayOnFire = false;
-    public float onFireDuration = 1.5f;
-    public float fireExpansionPercentage = 33f;
+    [SerializeField] private float baseCooldown;  // Fast cooldown
+    [SerializeField] private GameObject grenadePrefab;
+    [SerializeField] private AbilityUIManager abilityUI;
 
     private bool isAbilityReady = true;
 
-    
+    [Header("Throw Settings")]
+    [SerializeField] private float throwStrength = 20f;  // Adjust to control throw distance
+    [SerializeField] private float upwardThrowAngle = 15f;
+    [SerializeField] private Transform cameraTransform;  // Reference to player's camera
+    [SerializeField] private Rigidbody playerRigidbody;  // Reference to player's Rigidbody
 
-    void Start()
+    [Header("Damage Settings")]
+    [SerializeField] private float baseDamage = 140f;
+    [SerializeField] private float minDamage = 35f;
+    [SerializeField] private float blastRadius = 10f;
+    [SerializeField] private float damageFalloffStart = 0f;
+
+    [Header("Upgrade Modifiers")] //need to have all different variables for each different change
+    [SerializeField] private UpgradePath currentUpgrade = UpgradePath.None;
+
+
+    [Header("Base Upgrades")]
+    [SerializeField] private float improvedBaseDamage = 200f;
+    [SerializeField] private float improvedMinDamage = 50f;
+    [SerializeField] private float increasedBlastRadiusPercentage = 15f;
+
+    [Header("Fire Upgrades")]
+    [SerializeField] private float fireDuration = 5f;
+    [SerializeField] private float spawnedFireDuration;
+    [SerializeField] private float fireDamagePerTick = 50f;
+    [SerializeField] private float fireDensity = 1f;
+    [SerializeField] private float fireSlowStrength;
+    [SerializeField] private float fireExpansionPercentage = 33f;
+
+    [Header("Stun Upgrades")]
+    [SerializeField] private float stunDuration = 2f;
+    [SerializeField] private float knockbackForceMultiplier = 1f;
+
+
+
+    private void Start()
     {
         if (cameraTransform == null)
         {
@@ -82,7 +87,7 @@ public class ThermobaricGrenade : MonoBehaviour
         return adjustedDirection.normalized;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(keyBindings.abilityOne) && isAbilityReady)
         {
@@ -90,7 +95,7 @@ public class ThermobaricGrenade : MonoBehaviour
         }
     }
 
-    IEnumerator ActivateAbility()
+    private IEnumerator ActivateAbility()
     {
         isAbilityReady = false;
         abilityUI.SetIconOnCooldown(3, isAbilityReady, baseCooldown);
@@ -102,91 +107,109 @@ public class ThermobaricGrenade : MonoBehaviour
         float finalBlastRadius = blastRadius;
         float finalBaseDamage = baseDamage;
         float finalMinDamage = minDamage;
-        bool spawnFire = false;
-        bool knockbackAndStun = false;
-        bool applyDamageOverTime = false;
 
         ThermobaricGrenadeBehaviour grenadeBehaviour = grenade.GetComponent<ThermobaricGrenadeBehaviour>();
 
-        switch (currentUpgrade)
+        switch(currentUpgrade)
         {
             case UpgradePath.A:
-                finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f);
-                break;
+                finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f); //maybe just change variable so there will be no need to divide by 100
+            break;
+
             case UpgradePath.AA:
                 finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f);
                 finalBaseDamage = improvedBaseDamage;
                 finalMinDamage = improvedMinDamage;
-                break;
+            break;
+
             case UpgradePath.AAA:
                 finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f);
                 finalBaseDamage = improvedBaseDamage;
                 finalMinDamage = improvedMinDamage;
-                knockbackAndStun = true;
-                break;
+                grenadeBehaviour.knockbackAndStun = true;
+                grenadeBehaviour.knockbackForceMultiplier = knockbackForceMultiplier;
+                grenadeBehaviour.stunDuration = stunDuration;
+            break;
+
             case UpgradePath.AAB:
                 finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f);
                 finalBaseDamage = improvedBaseDamage;
                 finalMinDamage = improvedMinDamage;
-                knockbackAndStun = false;
-                applyDamageOverTime = true;
-                break;
+                grenadeBehaviour.knockbackAndStun = false;
+                grenadeBehaviour.knockbackForceMultiplier = knockbackForceMultiplier;
+                grenadeBehaviour.stunDuration = stunDuration;
+                grenadeBehaviour.applyDamageOverTime = true;
+            break;
+
             case UpgradePath.AB:
                 finalMinDamage = finalBaseDamage * 0.5f;
-                break;
+            break;
+
             case UpgradePath.ABA:
                 finalBaseDamage = improvedBaseDamage;
                 finalMinDamage = finalBaseDamage * 0.5f;
-                break;
+            break;
+
             case UpgradePath.ABB:
                 finalMinDamage = finalBaseDamage;
-                break;
+            break;
+
             case UpgradePath.B:
-                spawnFire = true;
-                break;
+                grenadeBehaviour.spawnFire = true;
+                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
+            break;
+
             case UpgradePath.BA:
-                spawnFire = true;
-                fireDuration = 7.5f;
-                break;
+                grenadeBehaviour.spawnFire = true;
+                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
+            break;
+
             case UpgradePath.BAA:
-                spawnFire = true;
-                fireDuration = 7.5f;
-                enemiesInFireSlowed = true;
-                break;
+                grenadeBehaviour.spawnFire = true;
+                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
+                grenadeBehaviour.enemiesInFireSlowed = true;
+                grenadeBehaviour.fireSlowStrength = fireSlowStrength;
+            break;
+
             case UpgradePath.BAB:
-                spawnFire = true;
-                fireDuration = 7.5f;
-                enemiesInFireSlowed = false;
-                applyDamageOverTime = true;
-                break;
+                grenadeBehaviour.spawnFire = true;
+                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
+                grenadeBehaviour.enemiesInFireSlowed = false;
+                grenadeBehaviour.applyDamageOverTime = true;
+            break;
+
             case UpgradePath.BB:
-                spawnFire = true;
-                fireDPS = 75f;
-                break;
+                grenadeBehaviour.spawnFire = true;
+                grenadeBehaviour.fireDamagePerTick = 10f;
+            break;
+
             case UpgradePath.BBA:
-                spawnFire = true;
-                fireDPS = 75f;
-                fireExpansionPercentage = 33f;
-                break;
+                grenadeBehaviour.spawnFire = true;
+                grenadeBehaviour.fireDamagePerTick = 10f;
+                grenadeBehaviour.fireExpansionPercentage = fireExpansionPercentage;
+            break;
+
             case UpgradePath.BBB:
-                spawnFire = true;
-                fireDPS = 75f;
-                enemiesStayOnFire = true;
-                break;
+                grenadeBehaviour.spawnFire = true;
+                grenadeBehaviour.fireDuration = fireDuration;
+                grenadeBehaviour.fireDamagePerTick = 10f;
+            break;
         }
 
-        grenadeBehaviour.Initialize(finalBlastRadius, finalBaseDamage, finalMinDamage, damageFalloffStart, spawnFire, fireDuration, fireDPS, sphereDensity, knockbackAndStun, stunDuration, enemiesInFireSlowed, knockbackForceMultiplier, applyDamageOverTime, damageNoFalloff, fireExpansionPercentage, enemiesStayOnFire, onFireDuration);
+        grenadeBehaviour.blastRadius = finalBlastRadius;
+        grenadeBehaviour.baseDamage = finalBaseDamage;
+        grenadeBehaviour.minDamage = finalMinDamage;
+        grenadeBehaviour.damageFalloffStart = damageFalloffStart;
+        grenadeBehaviour.fireDensity = fireDensity;
+        grenadeBehaviour.spawnedFireDuration = spawnedFireDuration;
 
         Rigidbody grenadeRigidbody = grenade.GetComponentInChildren<Rigidbody>();
+
         if (grenadeRigidbody != null)
         {
             Vector3 playerVelocity = playerRigidbody != null ? playerRigidbody.velocity : Vector3.zero;
             Vector3 throwVelocity = throwDirection * throwStrength + playerVelocity;
             grenadeRigidbody.velocity = throwVelocity;
-        }
-        else
-        {
-            Debug.LogError("Grenade prefab is missing a Rigidbody component.");
         }
 
         yield return new WaitForSeconds(baseCooldown);

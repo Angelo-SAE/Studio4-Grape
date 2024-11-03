@@ -124,14 +124,15 @@ public class ThirdPersonCamera : MonoBehaviour
             }
         }
 
-        if(Physics.Raycast(new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), cameraObject.transform.position - new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), out hit))
-        {
-            if(hit.collider.tag != "Camera")
-            {
-                cameraZoom -= 1f;
-                canZoomOut = false;
-            }
-        }
+        //need to fix
+        //if(Physics.Raycast(new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), cameraObject.transform.position - new Vector3(playerObject.value.transform.position.x, playerObject.value.transform.position.y + 1.6f, playerObject.value.transform.position.z), out hit))
+        //{
+        //    if(hit.collider.tag != "Camera")
+        //    {
+        //        cameraZoom -= 1f;
+        //        canZoomOut = false;
+        //    }
+        //}
 
     }
 

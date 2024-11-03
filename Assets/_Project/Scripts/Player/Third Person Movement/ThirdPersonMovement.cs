@@ -14,6 +14,9 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Animations")]
     [SerializeField] private Animator animator;
 
+    [Header("PlayerStats")]
+    [SerializeField] private PlayerStats playerStats;
+
     [Header("Movement")]
     [SerializeField] private GameObject cameraHolder;
     [SerializeField] private GameObject objectToRotate;
@@ -21,15 +24,11 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float sprintSpeed;
     [SerializeField] private Rigidbody rb;
-    public bool isStimmed;
 
 
     private Vector3 movementDirection;
     private bool sprinting;
     private bool stopped;
-
-    public float movementMultipler = 1;
-
 
     //Inputs
     private float horizontalPos;
@@ -299,12 +298,12 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 movementVelocity = Vector3.zero;
         if(crouching)
         {
-            movementVelocity = movementDirectionObject.transform.forward * crouchSpeed * movementMultipler;
+            movementVelocity = movementDirectionObject.transform.forward * crouchSpeed * playerStats.MovementSpeed;
         } else if(sprinting)
         {
-            movementVelocity = movementDirectionObject.transform.forward * sprintSpeed * movementMultipler;
+            movementVelocity = movementDirectionObject.transform.forward * sprintSpeed * playerStats.MovementSpeed;
         } else {
-            movementVelocity = movementDirectionObject.transform.forward * movementSpeed * movementMultipler;
+            movementVelocity = movementDirectionObject.transform.forward * movementSpeed * playerStats.MovementSpeed;
         }
         rb.velocity = new Vector3(movementVelocity.x, rb.velocity.y, movementVelocity.z);
 
@@ -407,10 +406,10 @@ public class ThirdPersonMovement : MonoBehaviour
             if(sprinting)
             {
                 animator.SetFloat("ClimbingSpeed", 1f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * movementMultipler * Time.deltaTime, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * playerStats.MovementSpeed * Time.deltaTime, transform.position.z);
             } else {
                 animator.SetFloat("ClimbingSpeed", 0.7f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * movementMultipler * Time.deltaTime, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * playerStats.MovementSpeed * Time.deltaTime, transform.position.z);
             }
         } else if(verticalMovement == -1)
         {
@@ -443,22 +442,4 @@ public class ThirdPersonMovement : MonoBehaviour
         rb.useGravity = true;
         canInteract.value = true;
     }
-
-    public void StartLingerCoroutine(float duration)
-    {
-        StartCoroutine(ApplyLingerEffect(duration));
-        
-    }
-
-    IEnumerator ApplyLingerEffect(float duration)
-    {
-        isStimmed = true;
-
-        yield return new WaitForSeconds(duration);
-        
-        movementMultipler = 1;
-        isStimmed = false;
-        
-    }
-
 }

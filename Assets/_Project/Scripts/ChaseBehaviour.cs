@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseBehaviour : MonoBehaviour,  IBehaviour
+public class ChaseBehaviour : MonoBehaviour,  IBehaviour //need to change from interface or figure something else out
 {
     [Header("Scriptable Objects")]
     [SerializeField] private GameObjectObject playerObject;
 
+    [Header("Enemy Stats")]
+    [SerializeField] private EnemyStats enemyStats;
+
     [Header("Movement Variables")]
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float speed;
     [SerializeField] private float steeringSpeed;
     [SerializeField] private LayerMask avoidanceLayers;
     [SerializeField] private float avoidanceDetectionRange;
 
     private Vector3 currentVelocity;
-
 
     private Vector3 finalVector;
     private Vector3 targetVector;
@@ -44,9 +45,9 @@ public class ChaseBehaviour : MonoBehaviour,  IBehaviour
         GetBadDirections();
         CalculateFinalVector();
         Vector3 tempSteeringForce = finalVector.normalized - transform.forward;
-        Vector3 tempFinalVector = (transform.forward + (tempSteeringForce * (Time.deltaTime * steeringSpeed))).normalized * speed;
-        //Vector3 tempFinalVector = finalVector.normalized * speed;
-        rb.velocity = tempFinalVector;
+        Vector3 tempFinalVector = (transform.forward + (tempSteeringForce * (Time.deltaTime * steeringSpeed))).normalized * enemyStats.MovementSpeed;
+        rb.velocity = tempFinalVector + (enemyStats.pullForce * (enemyStats.MovementSpeed + 1));
+        enemyStats.pullForce = Vector3.zero;
         transform.rotation = Quaternion.LookRotation(tempFinalVector);
     }
 

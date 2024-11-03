@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallandBigEnemy : MonoBehaviour
+public class SmallandBigEnemyMovementAndAttack : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     [SerializeField] private GameObjectObject playerObject;
+
+    [Header("EnemyStats")]
+    [SerializeField] private EnemyStats enemyStats;
 
     [Header("Enemy Behaviours")]
     [SerializeField] private ChaseBehaviour chaseBehaviour;
@@ -40,6 +43,7 @@ public class SmallandBigEnemy : MonoBehaviour
             }
         } else {
             CheckForPlayer();
+            rb.velocity = enemyStats.pullForce;
             animator.Play("Idle");
         }
     }

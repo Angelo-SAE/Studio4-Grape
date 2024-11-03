@@ -4,107 +4,103 @@ using UnityEngine;
 
 public class ThermobaricGrenadeBehaviour : MonoBehaviour
 {
-    private float blastRadius;
-    private float baseDamage;
-    private float minDamage;
-    private float damageFalloffStart;
+    [Header("Base Variables")]
+    public float baseDamage;
+    public float minDamage;
+    public float blastRadius;
+    public bool damageNoFalloff;
+    public float damageFalloffStart; //this will be a percentage of the blast radius
     public float explosionDelay;
-    private bool spawnFire;
-    private float fireDuration;
-    private float fireDPS;
-    private float sphereDensity;
-    private bool knockbackAndStun;
-    private float stunDuration;
-    private bool enemiesInFireSlowed;
-    private float knockbackForceMultiplier;
-    private bool applyDamageOverTime;
-    private bool damageNoFalloff;
-    private float fireExpansionPercentage;
-    private bool enemiesStayOnFire;
-    private float onFireDuration;
 
-    public GameObject fireSpherePrefab;
-    public Material fireSphereMaterial;
+    [Header("Fire Variables")]
+    public bool spawnFire;
+    public float spawnedFireDuration;
+    public float fireTickSpeed;
+    public float fireDuration;
+    public float fireDamagePerTick;
+    public float fireDensity; //will look at more. for fire balls. will replace with vfx and mvoe the fireball behaivouir to this script and jsut ause a single collider on the grenade
+    public float fireExpansionPercentage;
+    public bool enemiesInFireSlowed;
+    public float fireSlowStrength;
 
-    public Transform grenadeBodyTransform;
+    private bool fireSpawned;
 
+    [Header("Stun Variables")]
+    public bool knockbackAndStun;
+    public float knockbackForceMultiplier;
+    public float stunDuration;
+
+
+    public bool applyDamageOverTime; //why unless it is made more clear that this is a seperate status effect from fire and is like a poision or something
+
+    [Header("Objects and VFX")]
+    public GameObject grenade;
+    public GameObject fireVFX;
     public GameObject explosionVFX;
 
-    private bool hasExploded = false;
-    private List<GameObject> spawnedSpheres = new List<GameObject>();
+    private List<EnemyStats> affectedEnemies; //try to figure out a better way to do this. this is to prevent the fact that you have multiple colliders on enemies make it so you affect the object multiple times
 
-    public void Initialize(float blastRadius, float baseDamage, float minDamage, float damageFalloffStart, bool spawnFire, float fireDuration, float fireDPS, float sphereDensity, bool knockbackAndStun, float stunDuration, bool enemiesInFireSlowed, float knockbackForceMultiplier, bool applyDamageOverTime, bool damageNoFalloff, float fireExpansionPercentage, bool enemiesStayOnFire, float onFireDuration)
+    private void Start()
     {
-        this.blastRadius = blastRadius;
-        this.baseDamage = baseDamage;
-        this.minDamage = minDamage;
-        this.damageFalloffStart = damageFalloffStart;
-        this.spawnFire = spawnFire;
-        this.fireDuration = fireDuration;
-        this.fireDPS = fireDPS;
-        this.sphereDensity = sphereDensity;
-        this.knockbackAndStun = knockbackAndStun;
-        this.stunDuration = stunDuration;
-        this.enemiesInFireSlowed = enemiesInFireSlowed;
-        this.knockbackForceMultiplier = knockbackForceMultiplier;
-        this.applyDamageOverTime = applyDamageOverTime;
-        this.damageNoFalloff = damageNoFalloff;
-        this.fireExpansionPercentage = fireExpansionPercentage;
-        this.enemiesStayOnFire = enemiesStayOnFire;
-        this.onFireDuration = onFireDuration;
-
         StartCoroutine(ExplosionCountdown());
     }
 
-    IEnumerator ExplosionCountdown()
+    private IEnumerator ExplosionCountdown()
     {
         yield return new WaitForSeconds(explosionDelay);
         Explode();
     }
 
-    void Explode()
+    private void Explode()
     {
-        Instantiate(explosionVFX, grenadeBodyTransform.position, transform.rotation);
-        if (hasExploded)
-            return;
+        transform.position = grenade.transform.position;
+        explosionVFX.SetActive(true);
+        Destroy(grenade);
 
-        hasExploded = true;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
+        affectedEnemies = new List<EnemyStats>();
 
-        Collider[] colliders = Physics.OverlapSphere(grenadeBodyTransform.position, blastRadius);
-        foreach (Collider collider in colliders)
+        for(int a = 0; a < colliders.Length; a++)
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
+            EnemyStats enemy = colliders[a].GetComponent<EnemyStats>();
             if (enemy != null)
             {
-                float distance = Vector3.Distance(grenadeBodyTransform.position, enemy.transform.position);
-                float damage = damageNoFalloff ? baseDamage : CalculateDamage(distance);
-
-                enemy.TakeDamage(damage);
-
-                if (knockbackAndStun)
+                if(!affectedEnemies.Contains(enemy))
                 {
-                    Vector3 knockbackDirection = (enemy.transform.position - grenadeBodyTransform.position).normalized;
-                    float knockbackForce = damage * knockbackForceMultiplier;
-                    enemy.ApplyKnockback(knockbackDirection * knockbackForce, knockbackForce);
-                    enemy.Stun(stunDuration);
+                    affectedEnemies.Add(enemy);
+                    float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                    float damage = damageNoFalloff ? baseDamage : CalculateDamage(distance);
+
+                    enemy.TakeDamage(damage);
+
+                    if (knockbackAndStun)
+                    {
+                        Vector3 knockbackDirection = (enemy.transform.position - transform.position).normalized;
+                        float knockbackForce = damage * knockbackForceMultiplier;
+                        //enemy.ApplyKnockback(knockbackDirection * knockbackForce, knockbackForce);
+                        enemy.ApplyStun(stunDuration);
+                    }
+
+                    if (applyDamageOverTime)
+                    {
+                        //enemy.ApplyDamageOverTime(50f, 5f);  // 50 damage over 5 seconds
+                    }
                 }
 
-                if (applyDamageOverTime)
-                {
-                    enemy.ApplyDamageOverTime(50f, 5f);  // 50 damage over 5 seconds
-                }
             }
         }
 
         if (spawnFire)
         {
-            SpawnFireSpheres();
+            fireSpawned = true;
+            SpawnFireSpheres(); //replaced with VFX
+            StartCoroutine(DestroyGrenade(spawnedFireDuration));
+        } else {
+            StartCoroutine(DestroyGrenade(1.5f));
         }
-
-        Destroy(gameObject);
     }
 
-    float CalculateDamage(float distance)
+    private float CalculateDamage(float distance)
     {
         if (distance <= damageFalloffStart)
         {
@@ -121,29 +117,53 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
         }
     }
 
-    void SpawnFireSpheres()
+    private void SpawnFireSpheres() //replaced with VFX
     {
         float radiusMultipler = 1 + (fireExpansionPercentage / 100);
         float multipliedBlastRadius = blastRadius * radiusMultipler;
-        int sphereCount = Mathf.CeilToInt(Mathf.PI * multipliedBlastRadius * multipliedBlastRadius * sphereDensity);
-        Debug.Log("Spawning " + sphereCount + " fireballs.");
+        int sphereCount = Mathf.CeilToInt(Mathf.PI * multipliedBlastRadius * multipliedBlastRadius * fireDensity);
+        //Debug.Log("Spawning " + sphereCount + " fireballs.");
 
         for (int i = 0; i < sphereCount; i++)
         {
             Vector2 randomCircle = Random.insideUnitCircle * blastRadius;
-            Vector3 randomPosition = new Vector3(grenadeBodyTransform.position.x + randomCircle.x, grenadeBodyTransform.position.y, grenadeBodyTransform.position.z + randomCircle.y);
+            Vector3 randomPosition = new Vector3(transform.position.x + randomCircle.x, transform.position.y, transform.position.z + randomCircle.y);
 
-            GameObject fireball = Instantiate(fireSpherePrefab, randomPosition, Quaternion.identity);
+            Instantiate(fireVFX, randomPosition, Quaternion.identity, transform);
+        }
+    }
 
-            FireballBehaviour fireballBehaviour = fireball.GetComponent<FireballBehaviour>();
-            if (fireballBehaviour != null)
+    private void Update()
+    {
+        if(fireSpawned)
+        {
+            DealFireDamage();
+        }
+    }
+
+    private void DealFireDamage()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
+
+        for(int a = 0; a < colliders.Length; a++)
+        {
+            //Debug.Log(colliders[a]);
+            EnemyStats enemy = colliders[a].GetComponent<EnemyStats>();
+            if (enemy != null)
             {
-                fireballBehaviour.Initialize(fireDuration, fireDPS, blastRadius, enemiesInFireSlowed, enemiesStayOnFire, onFireDuration);
-            }
-            else
-            {
-                Debug.LogError("Fireball prefab is missing!");
+                enemy.GetFireData(fireTickSpeed, fireDuration, fireDamagePerTick);
+
+                if (enemiesInFireSlowed)
+                {
+                    enemy.ApplySlow(fireDuration, fireSlowStrength);
+                }
             }
         }
+    }
+
+    private IEnumerator DestroyGrenade(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }

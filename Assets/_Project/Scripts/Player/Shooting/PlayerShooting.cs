@@ -10,6 +10,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private BoolObject playerIsShooting;
 
     [Header("Woop")]
+    [SerializeField] private PlayerStats playerStats;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private GameObject gunShot;
@@ -17,10 +18,8 @@ public class PlayerShooting : MonoBehaviour
 
     [Header("Primary Fire")]
     [SerializeField] private float primaryFireRange;
-    [SerializeField] private float basePrimaryFireDelay;
     [SerializeField] private float primaryFireDelay;
     [SerializeField] private float primaryFireDamage;
-    public bool isStimmed;
 
     private float pFireCurrentDelay;
     private bool pFireOffCooldown;
@@ -39,7 +38,7 @@ public class PlayerShooting : MonoBehaviour
         if(!pFireOffCooldown)
         {
             pFireCurrentDelay += Time.deltaTime;
-            if(pFireCurrentDelay >= primaryFireDelay)
+            if(pFireCurrentDelay >= primaryFireDelay / playerStats.AttackSpeed)
             {
                 pFireOffCooldown = true;
             }
@@ -66,38 +65,10 @@ public class PlayerShooting : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange, enemyLayer))
             {
-                hit.collider.transform.GetComponent<Enemy>().TakeDamage(primaryFireDamage);
+                hit.collider.transform.GetComponent<EnemyStats>().TakeDamage(primaryFireDamage);
             }
             pFireCurrentDelay = 0;
             pFireOffCooldown = false;
         }
-    }
-
-    public void StartLingerCoroutine(float duration)
-    {
-        StartCoroutine(ApplyLingerEffect(duration));
-      
-    }
-
-    IEnumerator ApplyLingerEffect(float duration)
-    {
-        isStimmed = true;
-
-        yield return new WaitForSeconds(duration);
-
-        ResetFireRate();
-
-    }
-
-    public void ModifyFireRate(float fireRateMultiplier)
-    {
-        
-        primaryFireDelay = fireRateMultiplier * basePrimaryFireDelay;
-    }
-
-    public void ResetFireRate()
-    {
-        primaryFireDelay = basePrimaryFireDelay;
-        isStimmed = false;
     }
 }

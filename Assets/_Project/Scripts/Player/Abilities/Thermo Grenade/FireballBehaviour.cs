@@ -11,6 +11,7 @@ public class FireballBehaviour : MonoBehaviour
     public float tickInterval = 0.2f;
     private bool enemiesStayOnFire;
     private float onFireDuration;
+    public float slowStrength;
 
     [Header("Pulsating Settings")]
     public float pulseSpeed = 2f;
@@ -19,7 +20,7 @@ public class FireballBehaviour : MonoBehaviour
 
     private Vector3 originalScale;
 
-    private List<Enemy> enemiesInFire = new List<Enemy>();
+    private List<EnemyStats> enemiesInFire = new List<EnemyStats>();
 
     public void Initialize(float duration, float dps, float radius, bool slowEnemies, bool stayOnFire, float stayOnFireDuration)
     {
@@ -31,30 +32,22 @@ public class FireballBehaviour : MonoBehaviour
         onFireDuration = stayOnFireDuration;
 
         originalScale = transform.localScale;
-
-        StartCoroutine(HandleFireballLifetime());
     }
 
-    void Update()
+    private void Update()
     {
-        Pulsate();
         UpdateEnemiesInFire();
     }
 
-    void Pulsate()
-    {
-        float scaleMultiplier = Mathf.Lerp(minScale, maxScale, (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f);
-        transform.localScale = originalScale * scaleMultiplier;
-    }
 
-    void UpdateEnemiesInFire()
+    private void UpdateEnemiesInFire()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
-        List<Enemy> currentEnemies = new List<Enemy>();
+        List<EnemyStats> currentEnemies = new List<EnemyStats>();
 
         foreach (Collider collider in colliders)
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
+            EnemyStats enemy = collider.GetComponent<EnemyStats>();
             if (enemy != null)
             {
                 currentEnemies.Add(enemy);
@@ -62,13 +55,13 @@ public class FireballBehaviour : MonoBehaviour
                 if (!enemiesInFire.Contains(enemy))
                 {
                     enemiesInFire.Add(enemy);
-                    enemy.isInFire = true;
-                    enemy.isOnFire = false;
+                    //enemy.isInFire = true;
+                    //enemy.isOnFire = false;
                     enemy.GetFireData(tickInterval, fireDuration, fireDPS);
 
                     if (enemiesInFireSlowed)
                     {
-                        enemy.ApplySlow(fireDuration);
+                        enemy.ApplySlow(fireDuration, slowStrength);
                     }
                 }
             }
@@ -76,17 +69,17 @@ public class FireballBehaviour : MonoBehaviour
 
         for (int i = enemiesInFire.Count - 1; i >= 0; i--)
         {
-            Enemy enemy = enemiesInFire[i];
+            EnemyStats enemy = enemiesInFire[i];
             if (!currentEnemies.Contains(enemy))
             {
-                enemy.isInFire = false;
+                //enemy.isInFire = false;
                 if (enemiesStayOnFire && enemy != null)
                 {
-                    enemy.ApplyDamageOverTime(fireDPS, onFireDuration);
+                    //enemy.ApplyDamageOverTime(fireDPS, onFireDuration);
                 }
                 else
                 {
-                    enemy.isOnFire = false;
+                    //enemy.isOnFire = false;
                 }
 
                 enemiesInFire.RemoveAt(i);
@@ -94,26 +87,4 @@ public class FireballBehaviour : MonoBehaviour
         }
     }
 
-    IEnumerator HandleFireballLifetime()
-    {
-        float elapsed = 0f;
-        float initialRadius = blastRadius;
-
-        while (elapsed < fireDuration)
-        {
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-
-        foreach (Enemy enemy in enemiesInFire)
-        {
-            enemy.isInFire = false;
-            enemy.isOnFire = false;
-        }
-
-        enemiesInFire.Clear();
-
-        Destroy(gameObject);
-    }
 }
-

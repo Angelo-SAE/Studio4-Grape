@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AttackBehaviour : MonoBehaviour, IBehaviour
 {
+    [Header("Enemy Stats")]
+    [SerializeField] private EnemyStats enemyStats;
+
     [Header("Attack Variables")]
     [SerializeField] private Transform attackPosition;
     [SerializeField] private LayerMask targetLayers;
-    [SerializeField] private float damageAmount;
     [SerializeField] private float attackRange;
 
     private void OnDrawGizmosSelected()
@@ -20,7 +22,7 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(attackPosition.position, attackRange, targetLayers);
         for(int a = 0; a < hitColliders.Length; a++)
         {
-            hitColliders[a].GetComponent<IDamageable>().TakeDamage(damageAmount);
+            hitColliders[a].GetComponent<IDamageable>().TakeDamage(enemyStats.Damage);
         }
     }
 }

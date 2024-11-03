@@ -4,51 +4,42 @@ using UnityEngine;
 
 public class MagneticCoreBehaviour : MonoBehaviour
 {
-    private float aoeRadius;
-    private float duration;
-    private bool willExplode;
-    private float explosionDamage;
+    [Header("Ground Check Variables")]
+    [SerializeField] private float groundCheckLength;
+    [SerializeField] private LayerMask groundLayers;
+
+    [Header("General Variables")]
+    [SerializeField] private Rigidbody rb;
+    private bool isActivated = false;
+    private bool hasLanded = false;
+
+    private List<EnemyStats> affectedEnemies; //try to figure out a better way to do this. this is to prevent the fact that you have multiple colliders on enemies make it so you affect the object multiple times
+
+    [Header("Base Stats")]
+    public float pullStrength;
+    public float aoeRadius;
+    public float duration;
+    public bool strongerMagneticEffect = false;
+
+    [Header("Explosion")]
+    public bool willExplode;
+    public float explosionDamage;
+
+    [Header("Vunerable")]
     public bool applyVulnerable = false;
     public float damageIncreasePercentage = 0f;
     public float vulnerableDuration = 0f;
+
+    [Header("Stun")]
     public bool applyStun = false;
+    public float stunDuration;
+
+    [Header("Weaken")]
     public bool applyWeaken = false;
     public float weakenPercentage = 0f;
-    public bool strongerMagneticEffect = false;
+    public float weakenDuration;
 
-    private bool isActivated = false;
-
-    private List<Enemy> affectedEnemies = new List<Enemy>();
-
-    void Start()
-    {
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (!isActivated)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                ActivateCore();
-            }
-        }
-    }
-
-    void ActivateCore()
-    {
-        isActivated = true;
-
-        StartCoroutine(CoreLifetime());
-
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-        }
-    }
-
-    public void Initialize(float radius, float duration, bool explodeAtEnd, float explosionDamage)
+    public void Initialize(float radius, float duration, bool explodeAtEnd, float explosionDamage) //will remove
     {
         this.aoeRadius = radius;
         this.duration = duration;
@@ -56,69 +47,113 @@ public class MagneticCoreBehaviour : MonoBehaviour
         this.explosionDamage = explosionDamage;
     }
 
-    void Update()
+    private void OnDrawGizmosSelected()
     {
-        if (isActivated)
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, Vector3.down * groundCheckLength);
+    }
+
+    private void Start()
+    {
+        StartCoroutine(SelfDestructIfNotLanded(5f));
+    }
+
+    private IEnumerator SelfDestructIfNotLanded(float timeToSelfDestruct)
+    {
+        yield return new WaitForSeconds(timeToSelfDestruct);
+        if(!hasLanded)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, aoeRadius);
-            foreach (Collider collider in colliders)
-            {
-                Enemy enemy = collider.GetComponentInParent<Enemy>();
-                if (enemy != null)
-                {
-                    if (!affectedEnemies.Contains(enemy))
-                    {
-                        affectedEnemies.Add(enemy);
-                        if (applyVulnerable)
-                        {
-                            enemy.ApplyVulnerable(damageIncreasePercentage, vulnerableDuration > 0 ? vulnerableDuration : duration);
-                        }
-                        if (applyWeaken)
-                        {
-                            enemy.ApplyWeaken(weakenPercentage);
-                        }
-                    }
-                    PullEnemy(enemy);
-                }
-            }
+            Destroy(gameObject);
         }
     }
 
-    void PullEnemy(Enemy enemy)
+    private void Update()
     {
-        Vector3 direction = (transform.position - enemy.transform.position).normalized;
-        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+        if(!hasLanded)
+        {
+            CheckForGround();
+        }
 
-        float pullStrength = strongerMagneticEffect ? 1.5f - (distance / aoeRadius) : 1.25f - (distance / aoeRadius);
+        if(isActivated)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, aoeRadius);
+            affectedEnemies = new List<EnemyStats>();
+            for(int a = 0; a < colliders.Length; a++)
+            {
+                EnemyStats enemy = colliders[a].GetComponent<EnemyStats>();
+                //Debug.Log(colliders[a]);
+                if(enemy != null)
+                {
+                    if(!affectedEnemies.Contains(enemy))
+                    {
+                        affectedEnemies.Add(enemy);
+                        if(applyVulnerable)
+                        {
+                            enemy.ApplyVulnerable(damageIncreasePercentage, vulnerableDuration);
+                        }
+                        if (applyWeaken)
+                        {
+                            enemy.ApplyWeaken(weakenPercentage, weakenDuration);
+                        }
+                        SetPullForce(enemy);
+                    }
+                }
+            }
+        }
 
-        Vector3 pullForce = direction * pullStrength * enemy.GetMoveSpeed();
-        enemy.AddForce(pullForce);
     }
 
-    IEnumerator CoreLifetime()
+    private void CheckForGround()
     {
-        Debug.Log("Waiting " + duration + " seconds");
+        if(Physics.Raycast(transform.position, Vector3.down, groundCheckLength, groundLayers))
+        {
+            hasLanded = true;
+            ActivateCore();
+        }
+    }
+
+    private void ActivateCore()
+    {
+        isActivated = true;
+        rb.constraints = RigidbodyConstraints.FreezePosition;
+        rb.freezeRotation = true;
+        StartCoroutine(CoreLifetime());
+    }
+
+    private void SetPullForce(EnemyStats enemy)
+    {
+        Vector3 direction = (transform.position - enemy.transform.position).normalized;
+        //direction.y = 0;
+        //Debug.Log(direction * pullStrength);
+        enemy.pullForce = direction;
+    }
+
+    private IEnumerator CoreLifetime()
+    {
+        //Debug.Log("Waiting " + duration + " seconds");
         yield return new WaitForSeconds(duration);
         if (willExplode)
         {
             Explode();
         }
-        Debug.Log("Destroying magnetic core");
+        //Debug.Log("Destroying magnetic core");
         Destroy(gameObject);
     }
 
-    void Explode()
+
+
+    private void Explode()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, aoeRadius);
         foreach (Collider collider in colliders)
         {
-            Enemy enemy = collider.GetComponentInParent<Enemy>();
+            EnemyStats enemy = collider.GetComponentInParent<EnemyStats>();
             if (enemy != null)
             {
                 enemy.TakeDamage(explosionDamage);
                 if (applyStun)
                 {
-                    enemy.Stun(3f); // Stun duration can be adjusted as needed
+                    enemy.ApplyStun(3f); // Stun duration should be set by the ability
                 }
             }
         }

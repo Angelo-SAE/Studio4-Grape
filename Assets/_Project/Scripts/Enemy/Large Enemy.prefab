@@ -1174,8 +1174,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5333390723782072280}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00012756884}
-  m_LocalPosition: {x: 8.56, y: 0, z: 2.69}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1183,7 +1183,7 @@ Transform:
   - {fileID: 5517674800374850786}
   - {fileID: 2595208699075831153}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 179.985, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7005525916752765276
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1223,15 +1223,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f30b2adce29bc42ba43b6f541b1f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: {fileID: 11400000, guid: 39b9f50d7f65bc34a9b8bb087f155c43, type: 2}
+  baseDamage: {fileID: 11400000, guid: d06b90b404e7b6f44a8e8f8153156043, type: 2}
   healthSlider: {fileID: 8477496319681218988}
+  movementSpeed: 5
+  movementSpeedMultiplier: 1
   health: 100
-  damage: 5
-  moveSpeed: 5
-  isVulnerable: 0
-  damageMultiplier: 1
-  isInFire: 0
+  pullForce: {x: 0, y: 0, z: 0}
+  isSlowed: 0
+  isStunned: 0
   isOnFire: 0
   isWeakened: 0
+  weakenMultiplier: 0
+  isVulnerable: 0
+  damageMultiplier: 1
+  rb: {fileID: 7005525916752765276}
 --- !u!114 &8215104822961223890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,6 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 11400000, guid: 8fe245095ef794848aa0e3b9eebb0e15, type: 2}
+  enemyStats: {fileID: 5665046632775339304}
   chaseBehaviour: {fileID: 2440418768661214062}
   attackBehaviour: {fileID: 5481343180486238444}
   enemyLayer:
@@ -1256,6 +1263,7 @@ MonoBehaviour:
   attackRange: 4
   attackDelay: 0.5
   attackDuration: 1.1
+  playerInRange: 0
   animator: {fileID: 4262068644051503969}
   attackAnimation: SmashAttack
 --- !u!114 &2440418768661214062
@@ -1271,8 +1279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 11400000, guid: 8fe245095ef794848aa0e3b9eebb0e15, type: 2}
+  enemyStats: {fileID: 5665046632775339304}
   rb: {fileID: 7005525916752765276}
-  speed: 5
   steeringSpeed: 6
   avoidanceLayers:
     serializedVersion: 2
@@ -1290,11 +1298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ebf0657ca84ee43a14772fcbd8dec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 5665046632775339304}
   attackPosition: {fileID: 2595208699075831153}
   targetLayers:
     serializedVersion: 2
     m_Bits: 128
-  damageAmount: 2
   attackRange: 2.86
 --- !u!65 &2140585431624472512
 BoxCollider:

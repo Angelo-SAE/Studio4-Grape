@@ -82,7 +82,8 @@ public class AbilityUIManager : MonoBehaviour
         overlayColor.a = 1f;
         overlay.color = overlayColor;
 
-        Vector3 initialScale = icon.transform.localScale;
+        //Vector3 initialScale = icon.transform.localScale;
+        Vector3 initialScale = Vector3.one;
         Vector3 targetScale = initialScale * 1.1f;
 
         float duration = 1f;

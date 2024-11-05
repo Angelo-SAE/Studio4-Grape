@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
+    [Header("Player UI")]
+    [SerializeField] private TMP_Text healthText;
+
     [Header("Player Stats")]
     [SerializeField] private float health;
     [SerializeField] private float baseAttackSpeed;
@@ -27,6 +32,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
     private float currentStimDelay;
     private bool resetStim;
 
+    private void Start()
+    {
+        healthText.text = health.ToString();
+    }
+
     private void Update()
     {
         if(resetStim)
@@ -42,6 +52,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         health -= damage - (damage * damageReduction);
+        healthText.text = health.ToString();
     }
 
     public void StimPlayer(float attackSpeedBuff, float damageReductionBuff, float movementSpeedBuff)

@@ -14,6 +14,8 @@ public class Ladder : MonoBehaviour, IInteractable
     [SerializeField] private Transform playerPosition;
     [SerializeField] private Transform topEndPosition;
     [SerializeField] private float ladderHeight;
+    [SerializeField] private float bottomStartHeight;
+    [SerializeField] private float topStartHeight;
 
     public bool CheckIfInteractable()
     {
@@ -31,9 +33,12 @@ public class Ladder : MonoBehaviour, IInteractable
     {
         if((transform.position.y + (ladderHeight/2)) - playerObject.value.transform.position.y > 0)
         {
-            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + 0.4f, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, transform.position.y + ladderHeight - 1.8f, transform.position.y + 0.2f, false);
+            Debug.Log(transform.position.y + 0.1f);
+            Debug.Log(transform.position.y + bottomStartHeight);
+            Debug.Log(transform.position.y + ladderHeight - topStartHeight + 0.2f);
+            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + bottomStartHeight, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, transform.position.y + ladderHeight - topStartHeight + 0.2f, transform.position.y + 0.1f, false);
         } else {
-            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + ladderHeight - 3f, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, transform.position.y + ladderHeight - 1.8f, transform.position.y + 0.2f, true);
+            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + ladderHeight - topStartHeight, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, transform.position.y + ladderHeight - topStartHeight + 0.2f, transform.position.y + 0.1f, true);
         }
     }
 

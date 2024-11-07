@@ -46,7 +46,8 @@ public class CutsceneTrigger : MonoBehaviour
 
         if (playScene != null)
         {
-            playScene.stopped -= OnTimelineStopped;
+            //playScene.stopped -= OnTimelineStopped;
+            Application.Quit();
         }
     }
 

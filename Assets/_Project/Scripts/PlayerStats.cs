@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerStats : MonoBehaviour, IDamageable
 {
     [Header("Player UI")]
-    [SerializeField] private TMP_Text healthText;
+    //temp [SerializeField] private TMP_Text healthText;
 
     [Header("Player Stats")]
     [SerializeField] private float health;
@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        healthText.text = health.ToString();
+        //temp healthText.text = health.ToString();
         attackSpeed = baseAttackSpeed;
     }
 
@@ -53,7 +53,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         health -= damage - (damage * damageReduction);
-        healthText.text = health.ToString();
+        //temp healthText.text = health.ToString();
     }
 
     public void StimPlayer(float attackSpeedBuff, float damageReductionBuff, float movementSpeedBuff)

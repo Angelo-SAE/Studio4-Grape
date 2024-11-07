@@ -33,12 +33,12 @@ public class Ladder : MonoBehaviour, IInteractable
     {
         if((transform.position.y + (ladderHeight/2)) - playerObject.value.transform.position.y > 0)
         {
-            Debug.Log(transform.position.y + 0.1f);
-            Debug.Log(transform.position.y + bottomStartHeight);
-            Debug.Log(transform.position.y + ladderHeight - topStartHeight + 0.2f);
-            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + bottomStartHeight, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, transform.position.y + ladderHeight - topStartHeight + 0.2f, transform.position.y + 0.1f, false);
+            //Debug.Log(transform.position.y + 0.1f);
+            //Debug.Log(transform.position.y + bottomStartHeight);
+            //Debug.Log(transform.position.y + ladderHeight - topStartHeight + 0.2f);
+            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + bottomStartHeight, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, topEndPosition.localEulerAngles, transform.position.y + ladderHeight - topStartHeight + 0.2f, transform.position.y + 0.1f, false);
         } else {
-            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + ladderHeight - topStartHeight, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, transform.position.y + ladderHeight - topStartHeight + 0.2f, transform.position.y + 0.1f, true);
+            playerObject.value.GetComponent<ThirdPersonMovement>().StartLadderClimb(new Vector3(playerPosition.position.x, transform.position.y + ladderHeight - topStartHeight, playerPosition.position.z), topEndPosition.position, playerPosition.localEulerAngles, topEndPosition.localEulerAngles, transform.position.y + ladderHeight - topStartHeight + 0.2f, transform.position.y + 0.1f, true);
         }
     }
 

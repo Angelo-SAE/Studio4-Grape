@@ -47,6 +47,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [Header("Crouching")]
     [SerializeField] private float crouchSpeed;
+    [SerializeField] private GameObject playerCollider;
 
     private bool crouching;
 
@@ -71,6 +72,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private float topEndHeight;
     private float bottomEndHeight;
     private Vector3 topEndPosition;
+    private Vector3 topEndRotation;
 
     private void OnDrawGizmos()
     {
@@ -157,11 +159,20 @@ public class ThirdPersonMovement : MonoBehaviour
             Jump();
             EndLadderClimb();
         }
-        if(Input.GetKey(keyBindings.crouch))
+        if(Input.GetKey(keyBindings.crouch) && !isClimbing)
         {
-            crouching = true;
-        } else {
+            if(!crouching)
+            {
+                crouching = true;
+                animator.Play("Crouch");
+                animator.SetBool("Crouching", true);
+                playerCollider.transform.localScale = new Vector3(1f, 0.5f, 1f); //currently y 0.77 is the right amount
+            }
+        } else if(crouching)
+        {
+            playerCollider.transform.localScale = new Vector3(1f, 1f, 1f);
             crouching = false;
+            animator.SetBool("Crouching", false);
         }
     }
 
@@ -369,13 +380,15 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     */
 
-    public void StartLadderClimb(Vector3 sPosition, Vector3 tEndPosition, Vector3 rotation, float tEndHeight, float bEndHeight, bool top) //IDK why but bug where player is starting in there current position rather than the ladder
+    public void StartLadderClimb(Vector3 sPosition, Vector3 tEndPosition, Vector3 rotation, Vector3 tEndRotation, float tEndHeight, float bEndHeight, bool top) //IDK why but bug where player is starting in there current position rather than the ladder
     {
+        playerCollider.SetActive(false);
         animator.SetBool("ClimbingLadder", true);
         animator.Play("ClimbingLadder");
         topEndHeight = tEndHeight;
         bottomEndHeight = bEndHeight;
         topEndPosition = tEndPosition;
+        topEndRotation = tEndRotation;
         isClimbing = true;
         StopObject();
         rb.useGravity = false;
@@ -428,6 +441,8 @@ public class ThirdPersonMovement : MonoBehaviour
         if(transform.position.y >= topEndHeight)
         {
             transform.position = topEndPosition;
+            objectToRotate.transform.eulerAngles = topEndRotation;
+            cameraHolder.transform.eulerAngles = topEndRotation;
             EndLadderClimb();
         } else if(transform.position.y <= bottomEndHeight)
         {
@@ -437,6 +452,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void EndLadderClimb()
     {
+        playerCollider.SetActive(true);
         animator.SetBool("ClimbingLadder", false);
         isClimbing = false;
         rb.useGravity = true;

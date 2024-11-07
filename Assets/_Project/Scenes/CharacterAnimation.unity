@@ -797,19 +797,17 @@ MonoBehaviour:
   blastRadius: 5
   damageFalloffStart: 0
   currentUpgrade: 0
-  increasedBlastRadiusPercentage: 15
   improvedBaseDamage: 200
   improvedMinDamage: 50
+  increasedBlastRadiusPercentage: 15
   fireDuration: 7
-  fireDPS: 5
+  spawnedFireDuration: 0
+  fireDamagePerTick: 50
+  fireDensity: 1
+  fireSlowStrength: 0
+  fireExpansionPercentage: 33
   stunDuration: 3
   knockbackForceMultiplier: 2
-  enemiesInFireSlowed: 0
-  sphereDensity: 4
-  damageNoFalloff: 0
-  enemiesStayOnFire: 0
-  onFireDuration: 1.5
-  fireExpansionPercentage: 33
 --- !u!1001 &898280031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1097,6 +1095,7 @@ MonoBehaviour:
   keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
   paused: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
   playerIsShooting: {fileID: 11400000, guid: 8d1644a303bcb5546a8971063962e3b0, type: 2}
+  playerStats: {fileID: 1016251786}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1104,10 +1103,8 @@ MonoBehaviour:
   gunShot: {fileID: 4115974739509227812, guid: 91ee3acf7bd733b4684602d84bfddded, type: 3}
   shotPosition: {fileID: 391786056}
   primaryFireRange: 50
-  basePrimaryFireDelay: 0.1
   primaryFireDelay: 0.1
   primaryFireDamage: 10
-  isStimmed: 0
 --- !u!114 &1016251784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,14 +1122,13 @@ MonoBehaviour:
   canInteract: {fileID: 11400000, guid: 561ae8ac112c6d34d9ac608f3ff1af5e, type: 2}
   playerIsShooting: {fileID: 11400000, guid: 8d1644a303bcb5546a8971063962e3b0, type: 2}
   animator: {fileID: 5650866916520417164}
-  cameraHolder: {fileID: 402414049989040538}
-  objectToRotate: {fileID: 0}
+  playerStats: {fileID: 1016251786}
+  cameraHolder: {fileID: 1059846719}
+  objectToRotate: {fileID: 402414049989040538}
   movementDirectionObject: {fileID: 1397162596}
   movementSpeed: 5
   sprintSpeed: 8
   rb: {fileID: 1016251790}
-  isStimmed: 0
-  movementMultipler: 1
   jumpForce: 5
   jumpDelay: 0.1
   crouchSpeed: 3.5
@@ -1168,7 +1164,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d7409096da3274f92b4522fe725dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
   health: 10
+  baseAttackSpeed: 1
+  baseDamageReduction: 1
+  baseMovementSpeed: 1
+  attackSpeed: 1
+  damageReduction: 1
+  movementSpeed: 1
 --- !u!135 &1016251787
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1868,6 +1871,8 @@ MonoBehaviour:
   playerPosition: {fileID: 1711036157}
   topEndPosition: {fileID: 1683960832}
   ladderHeight: 5
+  bottomStartHeight: 0
+  topStartHeight: 0
 --- !u!65 &1809687622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1973,10 +1978,9 @@ MonoBehaviour:
   buffDuration: 10
   lingerDuration: 0
   abilityUI: {fileID: 0}
-  fireRateBuffPercentage: 10
-  damageReductionPercentage: 10
+  attackSpeedBuffPercentage: 10
+  damageReductionBuffPercentage: 10
   movementSpeedBuffPercentage: 25
-  applyLinger: 0
   healPerKill: 0
   vulnerableChance: 0
   weakenChance: 0

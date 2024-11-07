@@ -110,15 +110,34 @@ public class AbilityUIManager : MonoBehaviour
     private IEnumerator StartCooldownCountdown(TextMeshProUGUI cooldownText, float cooldownTime)
     {
         float remainingTime = cooldownTime;
+        Color redColor = Color.red;
+        Color whiteColor = Color.white;
 
         while (remainingTime > 0)
         {
-            cooldownText.text = Mathf.Ceil(remainingTime).ToString(); // Display rounded time
-            yield return new WaitForSeconds(1f); // Update every second
+            cooldownText.text = Mathf.Ceil(remainingTime).ToString();
+            
+            if (remainingTime <= 3)
+            {
+                if (Mathf.Ceil(remainingTime) % 2 == 1)
+                {
+                    cooldownText.color = whiteColor;
+                }
+                else
+                {
+                    cooldownText.color = redColor;
+                }
+            }
+            else
+            {
+                cooldownText.color = redColor;
+            }
+
+            yield return new WaitForSeconds(1f);
             remainingTime -= 1f;
         }
 
-        cooldownText.text = ""; // Clear the text when cooldown finishes
+        cooldownText.text = "";
     }
 }
 

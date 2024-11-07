@@ -35,6 +35,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     private void Start()
     {
         healthText.text = health.ToString();
+        attackSpeed = baseAttackSpeed;
     }
 
     private void Update()

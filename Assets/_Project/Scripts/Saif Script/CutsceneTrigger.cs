@@ -37,7 +37,7 @@ public class CutsceneTrigger : MonoBehaviour
 
         if (director == playScene)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Test 2");
         }
     }
 

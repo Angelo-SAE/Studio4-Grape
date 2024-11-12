@@ -12,8 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d295b7fbea09ff408f7bbc5180564e9, type: 3}
   m_Name: Onel_0
   m_EditorClassIdentifier: 
-  npcName: 
-  npcDialogue: []
-  playerName: 
-  playerDialogue: []
-  dialogueControl: 
+  npcName: Onel
+  npcDialogue:
+  - "If I just do this, I would\u2026"
+  - "Yeah  I'm a bit busy right now\u2026... sigh, sorry"
+  - I saw you talking with Ant. I hope he didn't bore you with Greg and how they
+    are neurally linked.
+  - Never mind.. look, you seem like a pretty decent guy, Nat, and I am usually more
+    polite than this, but you have caught me at a terrible time
+  - 'How about this: If you survive what Mellow has in store for you, I will get
+    you an alcohol bottle from Loren.'
+  playerName: Nathan
+  playerDialogue:
+  - "HI, am Nathan\u2026"
+  - Neurally what?
+  - Yeah, Sure
+  dialogueControl: 0100010100010100

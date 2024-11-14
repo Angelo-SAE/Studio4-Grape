@@ -17,7 +17,6 @@ public class NPCAnimations : MonoBehaviour
     private void Start()
     {
         currentAnimationCycle = animationCycles[Random.Range(0, animationCycles.Length)];
-        transform.position = currentAnimationCycle.startingPosition;
         PlayNextAnimation();
     }
 
@@ -34,13 +33,7 @@ public class NPCAnimations : MonoBehaviour
         Vector3 endRotation = currentAnimationCycle.animationRotation[currentAnimation];
         if(currentAnimationCycle.includeMovement[currentAnimation])
         {
-            Vector3 tempVector = (currentAnimationCycle.movementCordinants[currentMovement] - transform.position).normalized;
-            if(tempVector.x > 0)
-            {
-                endRotation.y = Vector3.Angle(Vector3.forward, tempVector);
-            } else {
-                endRotation.y = -Vector3.Angle(Vector3.forward, tempVector);
-            }
+            endRotation.y = transform.eulerAngles.y + Vector3.Angle(transform.forward, currentAnimationCycle.movementCordinants[currentMovement] - transform.position); //can maybe clean this up to work a little differently but I think it works fine for now
         }
         while(rotating)
         {

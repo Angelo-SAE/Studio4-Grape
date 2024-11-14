@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d295b7fbea09ff408f7bbc5180564e9, type: 3}
   m_Name: Nurse Miller_0
   m_EditorClassIdentifier: 
-  npcName: Nurse Miller
+  npcName: (Listening) Nurse Miller
   npcDialogue:
-  - Are you my Daddy
-  playerName: 
-  playerDialogue: []
-  dialogueControl: 00
+  - "Nurse Miller: You will be fine. It\u2019s a piercing wound, a clear shot that
+    went through "
+  - ' I am sure they were nothing more than advanced bugs; just focus on holding
+    on for now. The doctor will get to you soon '
+  - Sera, I think his out of it
+  playerName: (Listening) Khalid
+  playerDialogue:
+  - "I don\u2019t want to die. I don\u2019t want to die"
+  - Oh God, but it hurts so bad, what were those thin
+  - ' I am telling you those were not bugs. They were humanoid-looking. We are doomed,
+    so doomed '
+  dialogueControl: 010001000100

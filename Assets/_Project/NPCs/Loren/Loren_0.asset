@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d295b7fbea09ff408f7bbc5180564e9, type: 3}
   m_Name: Loren_0
   m_EditorClassIdentifier: 
-  npcName: 
-  npcDialogue: []
-  playerName: 
-  playerDialogue: []
-  dialogueControl: 
+  npcName: Loren
+  npcDialogue:
+  - 'Hi, hot stuff '
+  - Just putting scavaged goods into inventory?
+  - Oh, it's no border. How can I help you, Sugar?
+  - "I hope the Colonel didn't spread any rumors about me or rum now. He's not lying,
+    but just that's no way to talk about a lady.\_"
+  - Ha, don't laugh. Anyway, I gotta go back to work. It's been nice talking to you,
+    Sugar.
+  playerName: Nathan
+  playerDialogue:
+  - What are you doing
+  - Sorry, I can come back later
+  - "Chuckle\u2026."
+  dialogueControl: 0100010001010001

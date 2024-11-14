@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d295b7fbea09ff408f7bbc5180564e9, type: 3}
   m_Name: Sergent Ohera_0
   m_EditorClassIdentifier: 
-  npcName: Ohera
+  npcName: Sergeant O'Hara
   npcDialogue:
-  - Sir?
-  playerName: 
-  playerDialogue: []
-  dialogueControl: 00
+  - 'Excuse me, Sir '
+  - ' 5th Brigade, Sergeant O''Hara '
+  - ' Running Simulations on cadets all over the base to identify the most suited
+    for Elite Sir '
+  playerName: Nthan
+  playerDialogue:
+  - 'Identify yourself '
+  - ' What are you working on, Sergeant '
+  - Carry on
+  dialogueControl: 010001000100

@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d295b7fbea09ff408f7bbc5180564e9, type: 3}
   m_Name: Scientist 2_0
   m_EditorClassIdentifier: 
-  npcName: Scientist 2
+  npcName: '(Listening)Scientist 2: '
   npcDialogue:
-  - Moore Science Stuff
-  playerName: 
-  playerDialogue: []
-  dialogueControl: 00
+  - 'We all are, suck it up  '
+  - In your dreams
+  playerName: '(Listening)Scientist 1: '
+  playerDialogue:
+  - 'Am Exhuasted '
+  - Ahh, fine, but I need my coffee, and you are getting it
+  dialogueControl: 00010001

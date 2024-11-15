@@ -45,8 +45,8 @@ public class ChaseBehaviour : MonoBehaviour,  IBehaviour //need to change from i
         GetBadDirections();
         CalculateFinalVector();
         Vector3 tempSteeringForce = finalVector.normalized - transform.forward;
-        Vector3 tempFinalVector = (transform.forward + (tempSteeringForce * (Time.deltaTime * steeringSpeed))).normalized * enemyStats.MovementSpeed;
-        rb.velocity = tempFinalVector + (enemyStats.pullForce * (enemyStats.MovementSpeed + 1));
+        Vector3 tempFinalVector = ((transform.forward + (tempSteeringForce * (Time.deltaTime * steeringSpeed))).normalized * enemyStats.MovementSpeed);
+        rb.velocity = new Vector3(tempFinalVector.x, rb.velocity.y, tempFinalVector.z) + (enemyStats.pullForce * (enemyStats.MovementSpeed + 1));
         enemyStats.pullForce = Vector3.zero;
         transform.rotation = Quaternion.LookRotation(tempFinalVector);
     }

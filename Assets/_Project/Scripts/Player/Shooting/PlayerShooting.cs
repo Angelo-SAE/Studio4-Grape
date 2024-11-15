@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour
     [Header("Woop")]
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private GameObject playerCamera;
     [SerializeField] private GameObject gunShot;
     [SerializeField] private Transform shotPosition;
 
@@ -60,9 +60,15 @@ public class PlayerShooting : MonoBehaviour
     {
         if(pFireOffCooldown)
         {
-            Instantiate(gunShot, shotPosition.position, shotPosition.rotation, shotPosition);
-
             RaycastHit hit;
+            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange))
+            {
+                Debug.Log(hit.point);
+                Instantiate(gunShot, shotPosition.position, Quaternion.LookRotation(hit.point - shotPosition.position, Vector3.up), shotPosition);
+            } else {
+                Instantiate(gunShot, shotPosition.position, shotPosition.rotation, shotPosition);
+            }
+
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange, enemyLayer))
             {
                 hit.collider.transform.GetComponent<EnemyStats>().TakeDamage(primaryFireDamage);

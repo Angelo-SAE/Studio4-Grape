@@ -64,9 +64,9 @@ public class PlayerShooting : MonoBehaviour
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange))
             {
                 Debug.Log(hit.point);
-                Instantiate(gunShot, shotPosition.position, Quaternion.LookRotation(hit.point - shotPosition.position, Vector3.up), shotPosition);
+                Instantiate(gunShot, shotPosition.position, Quaternion.LookRotation(hit.point - shotPosition.position, Vector3.up));
             } else {
-                Instantiate(gunShot, shotPosition.position, shotPosition.rotation, shotPosition);
+                Instantiate(gunShot, shotPosition.position, shotPosition.rotation);
             }
 
             if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange, enemyLayer))

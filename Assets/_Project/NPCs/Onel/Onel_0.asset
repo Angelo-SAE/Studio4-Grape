@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d295b7fbea09ff408f7bbc5180564e9, type: 3}
   m_Name: Onel_0
   m_EditorClassIdentifier: 
-  npcName: 
-  npcDialogue: []
-  playerName: 
-  playerDialogue: []
-  dialogueControl: 
+  npcName: Onel
+  npcDialogue:
+  - "If I just do this, I would\u2026"
+  - "I'm a bit busy\u2026... sorry. I saw you talking with Ant. I hope he didn\u2019t
+    bore you with Greg and how they are neurally linked. "
+  - ' Nevermind. You seem to be a nice guy, Nat, and I am usually more polite than
+    this, but you got me on a busy day. '
+  - ' So, how about this: If you survive what Mellow has planned for you, I will
+    buy you lunch from Loren. '
+  playerName: Nathan
+  playerDialogue:
+  - "HI, am Natha\u2026 "
+  - 'Neurally wha? '
+  - 'Yeah! Sure '
+  dialogueControl: 01000100010100

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d295b7fbea09ff408f7bbc5180564e9, type: 3}
+  m_Name: Orion_0
+  m_EditorClassIdentifier: 
+  npcName: Orion
+  npcDialogue:
+  - "Oh, hey, are you here to check the wears\u2026.oh you are new "
+  - 'Well, everyone knows someone, and I know everyone. Stay here long enough, and
+    you will get it. '
+  - ' Not really. Incredible armor. I have something similar, though mine is rusty.
+    Do you want to take it off and compare notes? '
+  - Shame, where are my Manners? Hey, I am Orion, your lovable salesman. I deal in
+    weapons, armor, explosives, and toys that will make your friends wish they were
+    you.
+  - 'wait, if you are new here, that means you have no trading tokens, sorry lad,
+    i guess you will have to wait till the full DLC release  '
+  playerName: Nathan
+  playerDialogue:
+  - 'Nathan: How do you know?  '
+  - 'Nathan: Impressive '
+  - 'Nathan: No thanks'
+  dialogueControl: 0100010001000101

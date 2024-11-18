@@ -14,7 +14,7 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] private float minHeight;
 
     [Header("Camera Rotation")]
-    [SerializeField] private float setCameraSensitivity;
+    //[SerializeField] private float setCameraSensitivity;
 
     private float mouseX;
     private float mouseY;
@@ -69,8 +69,11 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void GetMouseInputs()
     {
-        mouseX = Input.GetAxis("Mouse X") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
-        mouseY = Input.GetAxis("Mouse Y") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
+        //mouseX = Input.GetAxis("Mouse X") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
+        //mouseY = Input.GetAxis("Mouse Y") * setCameraSensitivity *  cameraSensitivity.value * Time.deltaTime;
+
+        mouseX = Input.GetAxis("Mouse X")  * cameraSensitivity.value;
+        mouseY = Input.GetAxis("Mouse Y") * cameraSensitivity.value;
     }
 
     private void RotateCamera()

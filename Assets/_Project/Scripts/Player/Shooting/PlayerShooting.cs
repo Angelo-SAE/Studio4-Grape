@@ -90,9 +90,8 @@ public class PlayerShooting : MonoBehaviour
                     bullet.transform.rotation = shotPosition.rotation;
                 }
 
-                bullet.SetActive(true); // Activate the bullet
-
-                // Optionally, reset any bullet-specific properties here
+                bullet.SetActive(true);
+                
             }
 
             // Damage enemy if hit

@@ -12,20 +12,26 @@ public class NPCAnimations : MonoBehaviour
     private int currentAnimation;
     private int currentMovement;
 
+    private bool playAnimation;
+    private float currentDelay;
+    private bool moving;
 
 
     private void Start()
     {
         currentAnimationCycle = animationCycles[Random.Range(0, animationCycles.Length)];
-        PlayNextAnimation();
+        StartCoroutine(RotateNPC());
     }
 
-    private void PlayNextAnimation()
+    private void Update()
     {
-        StartCoroutine(PlayAnimation());
+        if(playAnimation)
+        {
+            PlayAnimation();
+        }
     }
 
-    private IEnumerator PlayAnimation()
+    private IEnumerator RotateNPC()
     {
         bool rotating = true;
         Vector3 currentRotation = transform.eulerAngles;
@@ -47,29 +53,33 @@ public class NPCAnimations : MonoBehaviour
         }
 
         animator.Play(currentAnimationCycle.animations[currentAnimation]);
+        moving = currentAnimationCycle.includeMovement[currentAnimation];
+        playAnimation = true;
+    }
 
-        if(currentAnimationCycle.includeMovement[currentAnimation])
+    private void PlayAnimation()
+    {
+        if(moving)
         {
-            bool moving = true;
-            while(moving)
+            transform.position = Vector3.MoveTowards(transform.position, currentAnimationCycle.movementCordinants[currentMovement], 1f * Time.deltaTime);
+            if(transform.position == currentAnimationCycle.movementCordinants[currentMovement])
             {
-                yield return 0;
-                transform.position = Vector3.MoveTowards(transform.position, currentAnimationCycle.movementCordinants[currentMovement], 1f * Time.deltaTime);
-                if(transform.position == currentAnimationCycle.movementCordinants[currentMovement])
-                {
-                    currentMovement++;
-                    moving = false;
-                }
+                currentMovement++;
+                GetNextAnimation();
             }
         } else {
-            yield return new WaitForSeconds(currentAnimationCycle.animationDelay[currentAnimation]);
+            currentDelay += Time.deltaTime;
+            if(currentDelay >= currentAnimationCycle.animationDelay[currentAnimation])
+            {
+                currentDelay = 0;
+                GetNextAnimation();
+            }
         }
-
-        GetNextAnimation();
     }
 
     private void GetNextAnimation()
     {
+        playAnimation = false;
         currentAnimation++;
         if(currentAnimation == currentAnimationCycle.animations.Length)
         {
@@ -77,21 +87,21 @@ public class NPCAnimations : MonoBehaviour
             {
                 currentMovement = 0;
                 currentAnimation = 0;
-                PlayNextAnimation();
+                StartCoroutine(RotateNPC());
             }
         } else {
-            PlayNextAnimation();
+            StartCoroutine(RotateNPC());
         }
     }
 
     public void PauseAnimation()
     {
-
+        playAnimation = false;
     }
 
     public void StartAnimation()
     {
-
+        StartCoroutine(RotateNPC());
     }
 }
 

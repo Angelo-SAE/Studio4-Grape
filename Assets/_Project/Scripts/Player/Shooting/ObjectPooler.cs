@@ -10,7 +10,7 @@ public class ObjectPooler : MonoBehaviour
 
     [SerializeField] private GameObject objectToPool;
 
-    [SerializeField] private int amountToPool = 20;
+    [SerializeField] private int amountToPool;
 
     private List<GameObject> pooledObjects;
 

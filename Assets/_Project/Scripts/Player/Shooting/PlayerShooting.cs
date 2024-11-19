@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject playerCamera;
-    [SerializeField] private GameObject gunShot;
     [SerializeField] private Transform shotPosition;
 
     [Header("Primary Fire")]
@@ -26,19 +26,18 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update()
     {
-        if(!paused.value)
-        {
-            CoolDowns();
-            GetInputs();
-        }
+        if (paused.value) return;
+
+        CoolDowns();
+        GetInputs();
     }
 
     private void CoolDowns()
     {
-        if(!pFireOffCooldown)
+        if (!pFireOffCooldown)
         {
             pFireCurrentDelay += Time.deltaTime;
-            if(pFireCurrentDelay >= primaryFireDelay / playerStats.AttackSpeed)
+            if (pFireCurrentDelay >= primaryFireDelay / playerStats.AttackSpeed)
             {
                 pFireOffCooldown = true;
             }
@@ -47,34 +46,70 @@ public class PlayerShooting : MonoBehaviour
 
     private void GetInputs()
     {
-        if(Input.GetKey(keyBindings.primaryFire))
+        if (Input.GetKey(keyBindings.primaryFire))
         {
-            playerIsShooting.value = true;
+            if (!playerIsShooting.value)
+            {
+                playerIsShooting.value = true; // Only set when changing state
+            }
             PrimaryFire();
-        } else {
-            playerIsShooting.value = false;
+        }
+        else
+        {
+            if (playerIsShooting.value)
+            {
+                playerIsShooting.value = false; // Only set when changing state
+            }
         }
     }
 
     private void PrimaryFire()
     {
-        if(pFireOffCooldown)
+        if (pFireOffCooldown)
         {
             RaycastHit hit;
-            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange))
+            Vector3 shotDirection = playerCamera.transform.forward;
+
+            // Perform a raycast to determine hit point
+            bool hitSomething = Physics.Raycast(playerCamera.transform.position, shotDirection, out hit, primaryFireRange);
+
+            // Get a pooled object
+            GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject();
+
+            if (bullet != null)
             {
-                Debug.Log(hit.point);
-                Instantiate(gunShot, shotPosition.position, Quaternion.LookRotation(hit.point - shotPosition.position, Vector3.up));
-            } else {
-                Instantiate(gunShot, shotPosition.position, shotPosition.rotation);
+                bullet.transform.position = shotPosition.position;
+
+                // Set rotation based on whether something was hit
+                if (hitSomething)
+                {
+                    bullet.transform.rotation = Quaternion.LookRotation(hit.point - shotPosition.position);
+                }
+                else
+                {
+                    bullet.transform.rotation = shotPosition.rotation;
+                }
+
+                bullet.SetActive(true); // Activate the bullet
+
+                // Optionally, reset any bullet-specific properties here
             }
 
-            if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, primaryFireRange, enemyLayer))
+            // Damage enemy if hit
+            if (hitSomething && ((1 << hit.collider.gameObject.layer) & enemyLayer) != 0)
             {
-                hit.collider.transform.GetComponent<EnemyStats>().TakeDamage(primaryFireDamage);
+                EnemyStats enemyStats = hit.collider.GetComponent<EnemyStats>();
+                if (enemyStats != null)
+                {
+                    enemyStats.TakeDamage(primaryFireDamage);
+                }
             }
+
+            // Reset cooldown
             pFireCurrentDelay = 0;
             pFireOffCooldown = false;
         }
     }
+
+    
 }

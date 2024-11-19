@@ -14,7 +14,7 @@ public class ThirdPersonCamera : MonoBehaviour
     [SerializeField] private float minHeight;
 
     [Header("Camera Rotation")]
-    //[SerializeField] private float setCameraSensitivity;
+    [SerializeField] private float setCameraSensitivity;
 
     private float mouseX;
     private float mouseY;

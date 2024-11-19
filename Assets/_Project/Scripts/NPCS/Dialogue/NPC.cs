@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NPC : MonoBehaviour, IInteractable
 {
@@ -8,6 +9,14 @@ public class NPC : MonoBehaviour, IInteractable
     [SerializeField] private GameObjectObject dialogueBox;
     [SerializeField] private IntObject npcDialogueCount;
     [SerializeField] private DialogueObject[] npcDialogue;
+    [SerializeField] private GameObjectObject playerObject;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent OnInteract;
+    [SerializeField] private UnityEvent AfterDialogue;
+
+    [Header("NPC Animator")]
+    [SerializeField] private Animator animator;
 
     private bool isInteractable;
 
@@ -34,11 +43,24 @@ public class NPC : MonoBehaviour, IInteractable
     {
         if(npcDialogueCount.value < npcDialogue.Length)
         {
-            dialogueBox.value.GetComponent<DialogueBox>().StartDialogue(npcDialogue[npcDialogueCount.value]);
+            OnInteract.Invoke();
+            LookAtPlayer();
+            dialogueBox.value.GetComponent<DialogueBox>().StartDialogue(this, npcDialogue[npcDialogueCount.value]);
             npcDialogueCount.value++;
             isInteractable = false;
         }
     }
 
     public void AltInteract() {}
+
+    private void LookAtPlayer()
+    {
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, Vector3.Angle(Vector3.forward, playerObject.value.transform.position - transform.position), transform.eulerAngles.z);
+        animator.Play("Talking");
+    }
+
+    public void EndDialogue()
+    {
+        AfterDialogue.Invoke();
+    }
 }

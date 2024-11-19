@@ -19,6 +19,7 @@ public class DialogueBox : MonoBehaviour
     private int npcDialogueCount;
     private int playerDialogueCount;
     private DialogueObject dialogue;
+    private NPC currentNPC;
 
     [Header("Unity Events")]
     [SerializeField] private UnityEvent OnDialogueStart;
@@ -44,8 +45,9 @@ public class DialogueBox : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueObject milkyDial)
+    public void StartDialogue(NPC npc, DialogueObject milkyDial)
     {
+        currentNPC = npc;
         dialogue = milkyDial;
         dialogueText.text = "";
         npcDialogueCount = 0;
@@ -81,6 +83,7 @@ public class DialogueBox : MonoBehaviour
                 playerDialogueCount++;
             }
         } else {
+            currentNPC.EndDialogue();
             OnDialogueEnd.Invoke();
         }
 

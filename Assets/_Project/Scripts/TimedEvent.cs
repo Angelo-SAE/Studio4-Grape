@@ -5,23 +5,20 @@ using UnityEngine.Events;
 
 public class TimedEvent : MonoBehaviour
 {
-    [Header("Variables")]
-    [SerializeField] private float timeTillEvent;
-    [SerializeField] private UnityEvent timedEvent;
+    [SerializeField] private float lifeTime = 2f; // Time after which the bullet deactivates
 
-    private float currentTime;
-
-    private void Update()
+    private void OnEnable()
     {
-        currentTime += Time.deltaTime;
-        if(currentTime >= timeTillEvent)
-        {
-            timedEvent.Invoke();
-        }
+        Invoke("Deactivate", lifeTime);
     }
 
-    public void DestroyObject()
+    private void OnDisable()
     {
-        Destroy(gameObject);
+        CancelInvoke();
+    }
+
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }

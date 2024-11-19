@@ -119,18 +119,12 @@ public class AbilityUIManager : MonoBehaviour
             
             if (remainingTime <= 3)
             {
-                if (Mathf.Ceil(remainingTime) % 2 == 1)
-                {
-                    cooldownText.color = whiteColor;
-                }
-                else
-                {
-                    cooldownText.color = redColor;
-                }
+                cooldownText.color = redColor;
+                
             }
             else
             {
-                cooldownText.color = redColor;
+                cooldownText.color = whiteColor;
             }
 
             yield return new WaitForSeconds(1f);

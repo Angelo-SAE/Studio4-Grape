@@ -72,6 +72,7 @@ public class UpgradeLineGenerator : MonoBehaviour
         vLineRect.localPosition = new Vector2(vLineX, vLineY);
         vLineRect.localScale = Vector3.one;
         vLine.AddComponent<UnityEngine.UI.Image>().color = colour;
+        vLine.transform.SetSiblingIndex(0);
 
         // Instantiate the horizontal line
         GameObject hLine = new GameObject("HorizontalLine");
@@ -81,6 +82,7 @@ public class UpgradeLineGenerator : MonoBehaviour
         hLineRect.localPosition = new Vector2(hLineX, hLineY);
         hLineRect.localScale = Vector3.one;
         hLine.AddComponent<UnityEngine.UI.Image>().color = colour;
+        hLine.transform.SetSiblingIndex(0);
 
     }
 

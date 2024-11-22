@@ -71,7 +71,6 @@ public class CityBlock : MonoBehaviour
                     break;
                 }
             }
-
         }
         for(int a = 0; a < sideObjectsToGenerate; a++)
         {

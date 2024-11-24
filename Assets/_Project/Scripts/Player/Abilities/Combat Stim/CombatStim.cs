@@ -19,6 +19,9 @@ public class CombatStim : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
 
+    [Header("Player Stats")]
+    [SerializeField] private PlayerStats playerStats;
+
     [Header("Ability Settings")]
     public float baseCooldown = 10f;
     public GameObject stimDevicePrefab;

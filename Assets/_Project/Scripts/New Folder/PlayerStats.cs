@@ -18,15 +18,17 @@ public class PlayerStats : MonoBehaviour, IDamageable
     [SerializeField]private float attackSpeed;
     [SerializeField]private float damageReduction; //temp serialization for testing
     [SerializeField]private float movementSpeed;
+    [SerializeField]private float damageMultiplier;
 
     //Idk if i wil use later so i will leave these here for now
     private float BaseAttackSpeed => baseAttackSpeed;
     private float BaseDamageReduction => baseDamageReduction;
     private float BaseMovementSpeed => baseMovementSpeed;
 
-    public float AttackSpeed {get => attackSpeed;}
-    public float DamageReduction {get => damageReduction;}
-    public float MovementSpeed {get => movementSpeed;}
+    public float DamageMultiplier => damageMultiplier;
+    public float AttackSpeed => attackSpeed;
+    public float DamageReduction => damageReduction;
+    public float MovementSpeed => movementSpeed;
 
     private float stimDelay;
     private float currentStimDelay;
@@ -53,7 +55,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         health -= damage - (damage * damageReduction);
-        healthText.text = health.ToString();
+        healthText.text = Mathf.Round(health).ToString();
     }
 
     public void StimPlayer(float attackSpeedBuff, float damageReductionBuff, float movementSpeedBuff)

@@ -953,10 +953,12 @@ MonoBehaviour:
   isSlowed: 0
   isStunned: 0
   isOnFire: 0
+  isBleeding: 0
   isWeakened: 0
   weakenMultiplier: 1
   isVulnerable: 0
-  damageMultiplier: 1
+  currentDamageMultiplier: 1
+  vulnerableDamageMultiplier: 1.5
   rb: {fileID: 8425924291171664595}
 --- !u!114 &7712936176883959038
 MonoBehaviour:

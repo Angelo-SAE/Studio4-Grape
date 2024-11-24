@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThermobaricGrenade : MonoBehaviour
 {
-    public enum UpgradePath
+    private enum UpgradePath
     {
         None,
         A,
@@ -13,18 +13,14 @@ public class ThermobaricGrenade : MonoBehaviour
         AAB,
         AB,
         ABA,
-        ABB,
-        B,
-        BA,
-        BAA,
-        BAB,
-        BB,
-        BBA,
-        BBB
+        ABB
     }
 
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
+
+    [Header("Player Stats")]
+    [SerializeField] private PlayerStats playerStats;
 
     [Header("Ability Settings")]
     [SerializeField] private float baseCooldown;  // Fast cooldown
@@ -40,31 +36,37 @@ public class ThermobaricGrenade : MonoBehaviour
     [SerializeField] private Rigidbody playerRigidbody;  // Reference to player's Rigidbody
 
     [Header("Damage Settings")]
-    [SerializeField] private float baseDamage = 140f;
-    [SerializeField] private float minDamage = 35f;
-    [SerializeField] private float blastRadius = 10f;
-    [SerializeField] private float damageFalloffStart = 0f;
+    [SerializeField] private float baseDamage;
+    [SerializeField] private float blastRadius;
 
-    [Header("Upgrade Modifiers")] //need to have all different variables for each different change
-    [SerializeField] private UpgradePath currentUpgrade = UpgradePath.None;
+    [Header("Upgrade Modifiers")]
+    [SerializeField] private UpgradePath upgradePath1;
+    [SerializeField] private UpgradePath upgradePath2;
+
+    [Header("Path 1 Upgrades")]
+    [SerializeField] private int A_BlastRadiusIncrease;
+
+    [SerializeField] private float AA_StunDuration;
+    [SerializeField] private float AAA_StunDuration;
+    [SerializeField] private int AAB_BlastRadiusIncrease;
+
+    [SerializeField] private float AB_SlowDuration;
+    [SerializeField] private float ABA_SlowDuration;
+    //[SerializeField] private float ABB_VulnerableDuration; the vulnerable duration is equal to the slow duration
 
 
-    [Header("Base Upgrades")]
-    [SerializeField] private float improvedBaseDamage = 200f;
-    [SerializeField] private float improvedMinDamage = 50f;
-    [SerializeField] private float increasedBlastRadiusPercentage = 15f;
+    [Header("Path 2 Upgrades")]
+    [SerializeField] private int A_BaseDamageIncrease;
 
-    [Header("Fire Upgrades")]
-    [SerializeField] private float fireDuration = 5f;
-    [SerializeField] private float spawnedFireDuration;
-    [SerializeField] private float fireDamagePerTick = 50f;
-    [SerializeField] private float fireDensity = 1f;
-    [SerializeField] private float fireSlowStrength;
-    [SerializeField] private float fireExpansionPercentage = 33f;
+    [SerializeField] private float AA_FireDuration;
+    [SerializeField] private float AA_FireDamagePerTick;
+    [SerializeField] private float AAA_FireDuration;
+    [SerializeField] private float AAB_FireDamagePerTick;
 
-    [Header("Stun Upgrades")]
-    [SerializeField] private float stunDuration = 2f;
-    [SerializeField] private float knockbackForceMultiplier = 1f;
+    [SerializeField] private int AB_BleedTickSpeed;
+    [SerializeField] private float AB_BleedDamage;
+    [SerializeField] private float ABA_BleedTickSpeed;
+    [SerializeField] private float ABB_BleedDamage;
 
 
 
@@ -106,102 +108,105 @@ public class ThermobaricGrenade : MonoBehaviour
 
         float finalBlastRadius = blastRadius;
         float finalBaseDamage = baseDamage;
-        float finalMinDamage = minDamage;
 
         ThermobaricGrenadeBehaviour grenadeBehaviour = grenade.GetComponent<ThermobaricGrenadeBehaviour>();
 
-        switch(currentUpgrade)
+        switch(upgradePath1)
         {
             case UpgradePath.A:
-                finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f); //maybe just change variable so there will be no need to divide by 100
+                finalBlastRadius += A_BlastRadiusIncrease;
             break;
 
             case UpgradePath.AA:
-                finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f);
-                finalBaseDamage = improvedBaseDamage;
-                finalMinDamage = improvedMinDamage;
+                finalBlastRadius += A_BlastRadiusIncrease;
+                grenadeBehaviour.stun = true;
+                grenadeBehaviour.stunDuration = AA_StunDuration;
             break;
 
             case UpgradePath.AAA:
-                finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f);
-                finalBaseDamage = improvedBaseDamage;
-                finalMinDamage = improvedMinDamage;
-                grenadeBehaviour.knockbackAndStun = true;
-                grenadeBehaviour.knockbackForceMultiplier = knockbackForceMultiplier;
-                grenadeBehaviour.stunDuration = stunDuration;
+                finalBlastRadius += A_BlastRadiusIncrease;
+                grenadeBehaviour.stun = true;
+                grenadeBehaviour.stunDuration = AAA_StunDuration;
             break;
 
             case UpgradePath.AAB:
-                finalBlastRadius *= 1 + (increasedBlastRadiusPercentage / 100f);
-                finalBaseDamage = improvedBaseDamage;
-                finalMinDamage = improvedMinDamage;
-                grenadeBehaviour.knockbackAndStun = false;
-                grenadeBehaviour.knockbackForceMultiplier = knockbackForceMultiplier;
-                grenadeBehaviour.stunDuration = stunDuration;
-                grenadeBehaviour.applyDamageOverTime = true;
+                finalBlastRadius += AAB_BlastRadiusIncrease;
+                grenadeBehaviour.stun = true;
+                grenadeBehaviour.stunDuration = AA_StunDuration;
             break;
 
             case UpgradePath.AB:
-                finalMinDamage = finalBaseDamage * 0.5f;
+                finalBlastRadius += A_BlastRadiusIncrease;
+                grenadeBehaviour.slow = true;
+                grenadeBehaviour.slowDuration = AB_SlowDuration;
             break;
 
             case UpgradePath.ABA:
-                finalBaseDamage = improvedBaseDamage;
-                finalMinDamage = finalBaseDamage * 0.5f;
+                finalBlastRadius += A_BlastRadiusIncrease;
+                grenadeBehaviour.slow = true;
+                grenadeBehaviour.slowDuration = ABA_SlowDuration;
             break;
 
             case UpgradePath.ABB:
-                finalMinDamage = finalBaseDamage;
+                finalBlastRadius += A_BlastRadiusIncrease;
+                grenadeBehaviour.slow = true;
+                grenadeBehaviour.slowDuration = AB_SlowDuration;
+                grenadeBehaviour.vulnerable = true;
+                grenadeBehaviour.vulnerableDuration = AB_SlowDuration;
+            break;
+        }
+
+        switch(upgradePath2)
+        {
+            case UpgradePath.A:
+                finalBaseDamage += A_BaseDamageIncrease;
             break;
 
-            case UpgradePath.B:
+            case UpgradePath.AA:
+                finalBaseDamage += A_BaseDamageIncrease;
                 grenadeBehaviour.spawnFire = true;
-                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
+                grenadeBehaviour.fireDamagePerTick = AA_FireDamagePerTick * playerStats.DamageMultiplier;
+                grenadeBehaviour.fireDuration = AA_FireDuration;
             break;
 
-            case UpgradePath.BA:
+            case UpgradePath.AAA:
+                finalBaseDamage += A_BaseDamageIncrease;
                 grenadeBehaviour.spawnFire = true;
-                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
+                grenadeBehaviour.fireDamagePerTick = AA_FireDamagePerTick * playerStats.DamageMultiplier;
+                grenadeBehaviour.fireDuration = AAA_FireDuration;
             break;
 
-            case UpgradePath.BAA:
+            case UpgradePath.AAB:
+                finalBaseDamage += A_BaseDamageIncrease;
                 grenadeBehaviour.spawnFire = true;
-                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
-                grenadeBehaviour.enemiesInFireSlowed = true;
-                grenadeBehaviour.fireSlowStrength = fireSlowStrength;
+                grenadeBehaviour.fireDamagePerTick = AAB_FireDamagePerTick * playerStats.DamageMultiplier;
+                grenadeBehaviour.fireDuration = AA_FireDuration;
             break;
 
-            case UpgradePath.BAB:
-                grenadeBehaviour.spawnFire = true;
-                grenadeBehaviour.fireDamagePerTick = fireDamagePerTick;
-                grenadeBehaviour.enemiesInFireSlowed = false;
-                grenadeBehaviour.applyDamageOverTime = true;
+            case UpgradePath.AB:
+                finalBaseDamage += A_BaseDamageIncrease;
+                grenadeBehaviour.applyBleed = true;
+                grenadeBehaviour.bleedTickSpeed = AB_BleedTickSpeed;
+                grenadeBehaviour.bleedDamage = AB_BleedDamage * playerStats.DamageMultiplier;
             break;
 
-            case UpgradePath.BB:
-                grenadeBehaviour.spawnFire = true;
-                grenadeBehaviour.fireDamagePerTick = 10f;
+            case UpgradePath.ABA:
+                finalBaseDamage += A_BaseDamageIncrease;
+                grenadeBehaviour.applyBleed = true;
+                grenadeBehaviour.bleedTickSpeed = ABA_BleedTickSpeed;
+                grenadeBehaviour.bleedDamage = AB_BleedDamage * playerStats.DamageMultiplier;
             break;
 
-            case UpgradePath.BBA:
-                grenadeBehaviour.spawnFire = true;
-                grenadeBehaviour.fireDamagePerTick = 10f;
-                grenadeBehaviour.fireExpansionPercentage = fireExpansionPercentage;
-            break;
-
-            case UpgradePath.BBB:
-                grenadeBehaviour.spawnFire = true;
-                grenadeBehaviour.fireDuration = fireDuration;
-                grenadeBehaviour.fireDamagePerTick = 10f;
+            case UpgradePath.ABB:
+                finalBaseDamage += A_BaseDamageIncrease;
+                grenadeBehaviour.applyBleed = true;
+                grenadeBehaviour.bleedTickSpeed = AB_BleedTickSpeed;
+                grenadeBehaviour.bleedDamage = ABB_BleedDamage * playerStats.DamageMultiplier;
             break;
         }
 
         grenadeBehaviour.blastRadius = finalBlastRadius;
-        grenadeBehaviour.baseDamage = finalBaseDamage;
-        grenadeBehaviour.minDamage = finalMinDamage;
-        grenadeBehaviour.damageFalloffStart = damageFalloffStart;
-        grenadeBehaviour.fireDensity = fireDensity;
-        grenadeBehaviour.spawnedFireDuration = spawnedFireDuration;
+        grenadeBehaviour.explosionDamage = finalBaseDamage * playerStats.DamageMultiplier;
 
         Rigidbody grenadeRigidbody = grenade.GetComponentInChildren<Rigidbody>();
 
@@ -217,8 +222,4 @@ public class ThermobaricGrenade : MonoBehaviour
         abilityUI.SetIconOnCooldown(3, isAbilityReady, baseCooldown);
     }
 
-    public void Upgrade()
-    {
-        currentUpgrade = UpgradePath.A;
-    }
 }

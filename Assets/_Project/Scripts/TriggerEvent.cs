@@ -21,4 +21,14 @@ public class TriggerEvent : MonoBehaviour
             }
         }
     }
+    private void OnTriggerStay(Collider col)
+    {
+        if (col.tag is not null)
+        {
+            if (col.tag == triggerTag)
+            {
+                onTriggerEvent.Invoke();
+            }
+        }
+    }
 }

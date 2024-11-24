@@ -16,6 +16,10 @@ public class CityBlock : MonoBehaviour
     [SerializeField] private int sideObjectsToGenerate;
     [SerializeField] private int roadObjectsToGenerate;
     [SerializeField] private int monsterSpawnerObjectsToGenerate;
+    [SerializeField] private Vector2Int bl;
+    [SerializeField] private Vector2Int tl;
+    [SerializeField] private Vector2Int br;
+    [SerializeField] private Vector2Int tr;
 
     private GameObject objHolder;
     private bool hasStart;
@@ -71,7 +75,6 @@ public class CityBlock : MonoBehaviour
                     break;
                 }
             }
-
         }
         for(int a = 0; a < sideObjectsToGenerate; a++)
         {
@@ -136,13 +139,22 @@ public class CityBlock : MonoBehaviour
         {
             return false;
         }
-        if((position.x + (obj.Size.x/2)) > platformSize.x || (position.y + (obj.Size.y/2)) > platformSize.y || (position.x - (obj.Size.x/2)) < 0 || (position.y - (obj.Size.y/2)) < 0)
+
+        int objOrientation = FindObjectOrientation(position);
+        Vector2Int objPosition = obj.Size;
+        if(objOrientation == 90 || objOrientation == 270)
+        {
+            objPosition = new Vector2Int(obj.Size.y, obj.Size.x);
+        }
+
+
+        if((position.x + (objPosition.x/2)) > platformSize.x || (position.y + (objPosition.y/2)) > platformSize.y || (position.x - (objPosition.x/2)) < 0 || (position.y - (objPosition.y/2)) < 0)
         {
             return false;
         } else {
-            for(int a = position.y - (obj.Size.y/2); a < (position.y + (obj.Size.y/2)); a++)
+            for(int a = position.y - (objPosition.y/2); a < (position.y + (objPosition.y/2)); a++)
             {
-                for(int b = position.x - (obj.Size.x/2); b < (position.x + (obj.Size.x/2)); b++)
+                for(int b = position.x - (objPosition.x/2); b < (position.x + (objPosition.x/2)); b++)
                 {
                     if(grid[b, a])
                     {
@@ -150,16 +162,48 @@ public class CityBlock : MonoBehaviour
                     }
                 }
             }
-            for(int a = position.y - (obj.Size.y/2); a < (position.y + (obj.Size.y/2)); a++)
+            for(int a = position.y - (objPosition.y/2); a < (position.y + (objPosition.y/2)); a++)
             {
-                for(int b = position.x - (obj.Size.x/2); b < (position.x + (obj.Size.x/2)); b++)
+                for(int b = position.x - (objPosition.x/2); b < (position.x + (objPosition.x/2)); b++)
                 {
                     grid[b, a] = true;
                 }
             }
         }
-        Instantiate(obj, new Vector3(transform.position.x - (platformSize.x/2) + position.x, obj.transform.position.y, transform.position.z - (platformSize.y/2) + position.y), transform.rotation, objHolder.transform);
+        Instantiate(obj, new Vector3(transform.position.x - (platformSize.x/2) + position.x, obj.transform.position.y, transform.position.z - (platformSize.y/2) + position.y), Quaternion.Euler(transform.eulerAngles.x, objOrientation, transform.eulerAngles.z), objHolder.transform);
         return true;
+    }
+
+    private int FindObjectOrientation(Vector2Int position)
+    {
+        Vector2Int differentOrientations = Vector2Int.zero;
+
+        if(position.x <= platformSize.x/2)
+        {
+            if(position.y <= platformSize.y/2) //bottom left
+            {
+                differentOrientations = bl;
+            } else if(position.y > platformSize.y/2) //top left
+            {
+                differentOrientations = tl;
+            }
+        } else if(position.x > platformSize.x/2)
+        {
+            if(position.y <= platformSize.y/2) // bottom right
+            {
+                differentOrientations = br;
+            } else if(position.y > platformSize.y/2) //top right
+            {
+                differentOrientations = tr;
+            }
+        }
+
+        if(Random.Range(0, 1 + 1) == 0)
+        {
+            return differentOrientations.x;
+        } else {
+            return differentOrientations.y;
+        }
     }
 
     private ObjectToSpawn ChooseRandomObject(ObjectArrayObject objects)

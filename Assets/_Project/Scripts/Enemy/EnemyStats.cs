@@ -22,7 +22,7 @@ public class EnemyStats : MonoBehaviour
 
     public float MovementSpeed => movementSpeed * movementSpeedMultiplier; //idk if i will need if will deelte if not used
 
-    public float Damage => baseDamage.value * damageMultiplier;
+    public float Damage => baseDamage.value * weakenMultiplier;
 
     public Vector3 pullForce; //set to vector3 0 after using
 
@@ -44,13 +44,19 @@ public class EnemyStats : MonoBehaviour
     private float currentFireDuration;
     private float fireDamagePerTick;
 
+    [SerializeField] private bool isBleeding;
+    private float bleedDamage;
+    private float bleedTickSpeed;
+    private float currentBleedTick;
+
     [SerializeField] private bool isWeakened;
     [SerializeField] private float weakenMultiplier;
     private float weakenDuration;
     private float currentWeakenDuration;
 
     [SerializeField] private bool isVulnerable;
-    [SerializeField] private float damageMultiplier;
+    [SerializeField] private float currentDamageMultiplier;
+    [SerializeField] private float vulnerableDamageMultiplier;
     private float vulnerableDuration;
     private float currentVulnerableDuration;
 
@@ -79,6 +85,11 @@ public class EnemyStats : MonoBehaviour
         if(isOnFire)
         {
             EnemyOnFire();
+        }
+
+        if(isBleeding)
+        {
+            EnemyBleeding();
         }
 
         if(isSlowed)
@@ -131,11 +142,37 @@ public class EnemyStats : MonoBehaviour
         fireDamagePerTick = damage;
     }
 
-    //public void ApplyKnockback(Vector3 forceVector, float forceStrength)
-    //{
-    //    rb.AddForce(forceVector, ForceMode.Impulse);
-    //    rb.AddForce(new Vector3(0, 1.5f * forceStrength, 0), ForceMode.Impulse);
-    //}
+    public void ApplyBleed(float tickSpeed, float damage)
+    {
+        if(bleedDamage > 0)
+        {
+            if(tickSpeed < bleedTickSpeed)
+            {
+                bleedTickSpeed = tickSpeed;
+            }
+        } else {
+            bleedTickSpeed = tickSpeed;
+        }
+        bleedDamage += damage;
+        isBleeding = true;
+    }
+
+    public void EnemyBleeding()
+    {
+        currentBleedTick += Time.deltaTime;
+        if(currentBleedTick >= bleedTickSpeed)
+        {
+            currentBleedTick -= bleedTickSpeed;
+            TakeDamage(bleedDamage/10);
+            bleedDamage = bleedDamage - (bleedDamage/10);
+        }
+        if(bleedDamage <= 0)
+        {
+            bleedDamage = 0;
+            isBleeding = false;
+        }
+
+    }
 
     public void ApplySlow(float duration, float strength)
     {
@@ -147,9 +184,9 @@ public class EnemyStats : MonoBehaviour
 
     private void RemoveSlow()
     {
-        if(movementSpeedMultiplier > slowStrength)
+        if(movementSpeedMultiplier > 1 - (slowStrength/100))
         {
-            movementSpeedMultiplier = slowStrength;
+            movementSpeedMultiplier = 1 - (slowStrength/100);
         }
         currentSlowDuration += Time.deltaTime;
         if(currentSlowDuration >= slowDuration)
@@ -177,12 +214,15 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public void ApplyVulnerable(float increasePercentage, float duration)
+    public void ApplyVulnerable(float duration)
     {
         isVulnerable = true;
-        currentVulnerableDuration = 0;
-        vulnerableDuration = duration;
-        damageMultiplier = 1 + (increasePercentage / 100f);
+        if(currentVulnerableDuration < duration)
+        {
+            currentVulnerableDuration = 0;
+            vulnerableDuration = duration;
+        }
+        currentDamageMultiplier = vulnerableDamageMultiplier;
     }
 
     private void RemoveVunerable()
@@ -190,17 +230,17 @@ public class EnemyStats : MonoBehaviour
         currentVulnerableDuration += Time.deltaTime;
         if(currentVulnerableDuration >= vulnerableDuration)
         {
-            damageMultiplier = 1f;
+            currentDamageMultiplier = 1f;
             isVulnerable = false;
         }
     }
 
-    public void ApplyWeaken(float weakenPercentage, float duration)
+    public void ApplyWeaken(float weakenStrength, float duration)
     {
         isWeakened = true;
         currentWeakenDuration = 0;
         weakenDuration = duration;
-        weakenMultiplier = 1 - (weakenPercentage / 100f);
+        weakenMultiplier = 1 - (weakenStrength / 100f);
     }
 
     private void RemoveWeaken()
@@ -220,7 +260,7 @@ public class EnemyStats : MonoBehaviour
 
     public void TakeDamage(float damageTaken)
     {
-        float effectiveDamage = damageTaken * damageMultiplier;
+        float effectiveDamage = damageTaken * currentDamageMultiplier;
         health -= effectiveDamage;
         UpdateHealthSlider();
 

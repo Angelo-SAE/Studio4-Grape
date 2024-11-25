@@ -5,33 +5,40 @@ using UnityEngine;
 public class ThermobaricGrenadeBehaviour : MonoBehaviour
 {
     [Header("Base Variables")]
-    public float baseDamage;
-    public float minDamage;
+    public float explosionDamage;
     public float blastRadius;
-    public bool damageNoFalloff;
-    public float damageFalloffStart; //this will be a percentage of the blast radius
-    public float explosionDelay;
+    [SerializeField] private float explosionDelay;
 
     [Header("Fire Variables")]
     public bool spawnFire;
-    public float spawnedFireDuration;
-    public float fireTickSpeed;
     public float fireDuration;
     public float fireDamagePerTick;
-    public float fireDensity; //will look at more. for fire balls. will replace with vfx and mvoe the fireball behaivouir to this script and jsut ause a single collider on the grenade
-    public float fireExpansionPercentage;
-    public bool enemiesInFireSlowed;
-    public float fireSlowStrength;
+    [SerializeField] private float fireTickSpeed;
+    [SerializeField] private float fireBurnDuration;
+    [SerializeField] private float fireDensity;
 
     private bool fireSpawned;
 
+    [Header("Bleed Variables")]
+    public bool applyBleed;
+    public float bleedDamage;
+    public float bleedTickSpeed;
+
     [Header("Stun Variables")]
-    public bool knockbackAndStun;
-    public float knockbackForceMultiplier;
+    public bool stun;
     public float stunDuration;
 
+    [Header("Slow Variables")]
+    public bool slow;
+    public float slowDuration;
+    [SerializeField] private float slowStrength;
 
-    public bool applyDamageOverTime; //why unless it is made more clear that this is a seperate status effect from fire and is like a poision or something
+    [Header("Vulnerable Variables")]
+    public bool vulnerable;
+    public float vulnerableDuration;
+
+
+
 
     [Header("Objects and VFX")]
     public GameObject grenade;
@@ -68,22 +75,28 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
                 if(!affectedEnemies.Contains(enemy))
                 {
                     affectedEnemies.Add(enemy);
-                    float distance = Vector3.Distance(transform.position, enemy.transform.position);
-                    float damage = damageNoFalloff ? baseDamage : CalculateDamage(distance);
+                    float damage = explosionDamage;
 
                     enemy.TakeDamage(damage);
 
-                    if (knockbackAndStun)
+                    if (stun)
                     {
-                        Vector3 knockbackDirection = (enemy.transform.position - transform.position).normalized;
-                        float knockbackForce = damage * knockbackForceMultiplier;
-                        //enemy.ApplyKnockback(knockbackDirection * knockbackForce, knockbackForce);
                         enemy.ApplyStun(stunDuration);
                     }
 
-                    if (applyDamageOverTime)
+                    if(slow)
                     {
-                        //enemy.ApplyDamageOverTime(50f, 5f);  // 50 damage over 5 seconds
+                        enemy.ApplySlow(slowDuration, slowStrength);
+                    }
+
+                    if(vulnerable)
+                    {
+                        enemy.ApplyVulnerable(vulnerableDuration);
+                    }
+
+                    if (applyBleed)
+                    {
+                        enemy.ApplyBleed(bleedTickSpeed, bleedDamage);
                     }
                 }
 
@@ -93,36 +106,16 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
         if (spawnFire)
         {
             fireSpawned = true;
-            SpawnFireSpheres(); //replaced with VFX
-            StartCoroutine(DestroyGrenade(spawnedFireDuration));
+            SpawnFireVFX();
+            StartCoroutine(DestroyGrenade(fireDuration));
         } else {
             StartCoroutine(DestroyGrenade(1.5f));
         }
     }
 
-    private float CalculateDamage(float distance)
+    private void SpawnFireVFX()
     {
-        if (distance <= damageFalloffStart)
-        {
-            return baseDamage;
-        }
-        else if (distance >= blastRadius)
-        {
-            return minDamage;
-        }
-        else
-        {
-            float t = (distance - damageFalloffStart) / (blastRadius - damageFalloffStart);
-            return Mathf.Lerp(baseDamage, minDamage, t);
-        }
-    }
-
-    private void SpawnFireSpheres() //replaced with VFX
-    {
-        float radiusMultipler = 1 + (fireExpansionPercentage / 100);
-        float multipliedBlastRadius = blastRadius * radiusMultipler;
-        int sphereCount = Mathf.CeilToInt(Mathf.PI * multipliedBlastRadius * multipliedBlastRadius * fireDensity);
-        //Debug.Log("Spawning " + sphereCount + " fireballs.");
+        int sphereCount = Mathf.CeilToInt(Mathf.PI * blastRadius * blastRadius * fireDensity);
 
         for (int i = 0; i < sphereCount; i++)
         {
@@ -147,16 +140,10 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
 
         for(int a = 0; a < colliders.Length; a++)
         {
-            //Debug.Log(colliders[a]);
             EnemyStats enemy = colliders[a].GetComponent<EnemyStats>();
             if (enemy != null)
             {
-                enemy.GetFireData(fireTickSpeed, fireDuration, fireDamagePerTick);
-
-                if (enemiesInFireSlowed)
-                {
-                    enemy.ApplySlow(fireDuration, fireSlowStrength);
-                }
+                enemy.GetFireData(fireTickSpeed, fireBurnDuration, fireDamagePerTick);
             }
         }
     }

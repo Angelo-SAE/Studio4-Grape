@@ -179,25 +179,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deb5f4649aa5444480a5ef4d46aa365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 0
-  minDamage: 0
+  explosionDamage: 0
   blastRadius: 0
-  damageNoFalloff: 0
-  damageFalloffStart: 0
-  explosionDelay: 2
+  explosionDelay: 1.5
   spawnFire: 0
-  spawnedFireDuration: 0
-  fireTickSpeed: 0.5
   fireDuration: 0
   fireDamagePerTick: 0
-  fireDensity: 0
-  fireExpansionPercentage: 0
-  enemiesInFireSlowed: 0
-  fireSlowStrength: 0
-  knockbackAndStun: 0
-  knockbackForceMultiplier: 0
+  fireTickSpeed: 0.5
+  fireBurnDuration: 0.2
+  fireDensity: 0.5
+  applyBleed: 0
+  bleedDamage: 0
+  bleedTickSpeed: 0
+  stun: 0
   stunDuration: 0
-  applyDamageOverTime: 0
+  slow: 0
+  slowDuration: 0
+  slowStrength: 50
+  vulnerable: 0
+  vulnerableDuration: 0
   grenade: {fileID: 5318921219321307693}
   fireVFX: {fileID: 6038965263756625131, guid: d44f00a10f189244083968c08f537ca9, type: 3}
   explosionVFX: {fileID: 6009614973921908663}

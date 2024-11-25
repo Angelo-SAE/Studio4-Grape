@@ -102,13 +102,13 @@ public class MagneticCore : MonoBehaviour
             case UpgradePath.AA:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.bigExplode = true;
-                coreBehaviour.explosionDamage = AA_ExplosionDamage;
+                coreBehaviour.explosionDamage = AA_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
             case UpgradePath.AAA:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.bigExplode = true;
-                coreBehaviour.explosionDamage = AA_ExplosionDamage;
+                coreBehaviour.explosionDamage = AA_ExplosionDamage * playerStats.DamageMultiplier;
                 coreBehaviour.stun = true;
                 coreBehaviour.stunDuration = AAA_StunDuration;
             break;
@@ -116,28 +116,28 @@ public class MagneticCore : MonoBehaviour
             case UpgradePath.AAB:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.bigExplode = true;
-                coreBehaviour.explosionDamage = AAB_ExplosionDamage;
+                coreBehaviour.explosionDamage = AAB_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
             case UpgradePath.AB:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.miniExplosions = true;
                 coreBehaviour.explosionDelay = AB_ExplosionDelay;
-                coreBehaviour.explosionDamage = AB_ExplosionDamage;
+                coreBehaviour.explosionDamage = AB_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
             case UpgradePath.ABA:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.miniExplosions = true;
                 coreBehaviour.explosionDelay = ABA_ExplosionDelay;
-                coreBehaviour.explosionDamage = AB_ExplosionDamage;
+                coreBehaviour.explosionDamage = AB_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
             case UpgradePath.ABB:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.miniExplosions = true;
                 coreBehaviour.explosionDelay = AB_ExplosionDelay;
-                coreBehaviour.explosionDamage = ABB_ExplosionDamage;
+                coreBehaviour.explosionDamage = ABB_ExplosionDamage * playerStats.DamageMultiplier;
             break;
         }
 

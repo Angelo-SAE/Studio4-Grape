@@ -13231,13 +13231,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 1077936133}
   health: 100
-  baseAttackSpeed: 5
+  baseAttackSpeed: 1
   baseDamageReduction: 0
   baseMovementSpeed: 1
   attackSpeed: 5
   damageReduction: 0
   movementSpeed: 1
   damageMultiplier: 1
+  onHitHealChance: 0
+  onHitHealAmount: 0
+  onHitVulnerableChance: 0
+  onHitVulnerableDuration: 0
 --- !u!135 &688604256
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22672,19 +22676,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
   playerStats: {fileID: 688604255}
-  baseCooldown: 10
-  stimDevicePrefab: {fileID: 7567352328360788744, guid: 32f565cfb8dce72468add20e73ba8867, type: 3}
+  baseCooldown: 2
   baseAOERadius: 5
-  buffDuration: 10
-  lingerDuration: 0
+  baseStimDuration: 10
+  baseAttackSpeedPercent: 10
+  stimDevicePrefab: {fileID: 6838046298687962693, guid: a4790732c95956d46ba5379497cd0d93, type: 3}
   abilityUI: {fileID: 1676399201}
-  attackSpeedBuffPercentage: 0.5
-  damageReductionBuffPercentage: 0.5
-  movementSpeedBuffPercentage: 0.25
-  healPerKill: 0
-  vulnerableChance: 0
-  weakenChance: 0
-  currentUpgrade: 1
+  upgradePath1: 0
+  upgradePath2: 0
+  A_LingerDuration: 3
+  AA_MovementSpeedPercent: 10
+  AAA_MovementSpeedPercent: 20
+  AAB_LingerDuration: 6
+  AB_AOEIncrease: 3
+  ABB_AttackSpeedIncrease: 10
+  ABA_LingerDuration: 6
+  A_HealChancePercent: 40
+  A_HealAmount: 1
+  AA_DamageReductionPercent: 20
+  AAA_DamageReductionPercent: 30
+  AAB_HealAmount: 2
+  AB_VulnerableChancePercent: 10
+  AB_VulnerableDuration: 5
+  ABB_VulnerableChancePercent: 20
+  ABA_HealAmount: 2
 --- !u!1 &1116930687
 GameObject:
   m_ObjectHideFlags: 0
@@ -29812,7 +29827,7 @@ MonoBehaviour:
   playerCamera: {fileID: 780590695}
   shotPosition: {fileID: 8757072}
   primaryFireRange: 50
-  primaryFireDelay: 0.5
+  primaryFireDelay: 0.3
   primaryFireDamage: 10
 --- !u!1 &1484155636
 GameObject:

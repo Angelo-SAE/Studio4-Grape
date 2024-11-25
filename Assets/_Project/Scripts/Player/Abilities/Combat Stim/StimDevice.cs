@@ -13,12 +13,19 @@ public class StimDevice : MonoBehaviour
 
     [Header("Base Stats")]
     public float aoeRadius;
-    public float buffDuration;
+    public float stimDuration;
 
     [Header("Buffs")]
-    public float attackSpeedBuffPercentage;
-    public float damageReductionBuffPercentage;
-    public float movementSpeedBuffPercentage;
+    public float attackSpeedPercent;
+    public float damageReductionPercent;
+    public float movementSpeedPercent;
+
+    [Header("OnHit Effects")]
+    public float healChancePercent;
+    public float healAmount;
+
+    public float vulnerableChancePercent;
+    public float vulnerableDuration;
 
     [Header("Linger Efffect")]
     public float lingerDuration;
@@ -38,7 +45,7 @@ public class StimDevice : MonoBehaviour
         CheckForPlayerInRange();
         if(playerInRange && !resetPlayer)
         {
-            playerStats.StimPlayer(attackSpeedBuffPercentage, damageReductionBuffPercentage, movementSpeedBuffPercentage);
+            playerStats.StimPlayer(attackSpeedPercent / 100, damageReductionPercent / 100, movementSpeedPercent / 100, healChancePercent / 100, healAmount, vulnerableChancePercent / 100, vulnerableDuration);
             resetPlayer = true;
         } else if(!playerInRange && resetPlayer)
         {
@@ -59,7 +66,7 @@ public class StimDevice : MonoBehaviour
 
     private IEnumerator DestroyAfterDuration()
     {
-        yield return new WaitForSeconds(buffDuration);
+        yield return new WaitForSeconds(stimDuration);
         if (playerInRange)
         {
             playerStats.ResetStimStatsAfterTime(lingerDuration);

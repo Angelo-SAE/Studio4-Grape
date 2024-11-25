@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3085857791269840756}
   - component: {fileID: 2652472695868341508}
   - component: {fileID: 4511875292485472012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Magnetic Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,19 +53,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2305
   rb: {fileID: 4511875292485472012}
-  pullStrength: 0
   aoeRadius: 0
   duration: 0
-  strongerMagneticEffect: 0
-  willExplode: 0
+  bigExplode: 0
+  miniExplosions: 0
   explosionDamage: 0
-  applyVulnerable: 0
-  damageIncreasePercentage: 0
+  explosionDelay: 0
+  vulnerable: 0
   vulnerableDuration: 5
-  applyStun: 0
+  stun: 0
   stunDuration: 0
-  applyWeaken: 0
-  weakenPercentage: 0
+  weaken: 0
+  weakenStrength: 0
   weakenDuration: 0
 --- !u!114 &2652472695868341508
 MonoBehaviour:
@@ -247,7 +246,7 @@ GameObject:
   - component: {fileID: 7966101695854425753}
   - component: {fileID: 2315743216372742568}
   - component: {fileID: 2222898820062384399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

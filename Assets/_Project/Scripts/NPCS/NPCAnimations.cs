@@ -36,10 +36,11 @@ public class NPCAnimations : MonoBehaviour
         bool rotating = true;
         Vector3 currentRotation = transform.eulerAngles;
         float lerpValue = 0;
-        Vector3 endRotation = currentAnimationCycle.animationRotation[currentAnimation];
+        Vector3 endRotation = currentAnimationCycle.animationRotation[currentAnimation]; //check x vectyor if positive means positive if negative means negativbe comparted to transform forward
+        //then check if z is negative or piositive to know which 90 degrees
         if(currentAnimationCycle.includeMovement[currentAnimation])
         {
-            endRotation.y = transform.eulerAngles.y + Vector3.Angle(transform.forward, currentAnimationCycle.movementCordinants[currentMovement] - transform.position); //can maybe clean this up to work a little differently but I think it works fine for now
+            endRotation.y = transform.eulerAngles.y + Vector3.Angle(transform.forward, currentAnimationCycle.movementCordinants[currentMovement] - transform.position);
         }
         while(rotating)
         {

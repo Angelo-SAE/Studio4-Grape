@@ -96,8 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: de73f35b2c7466a42b35ce4e405a1f8b, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c975b617227ba3141974081af94a21b4, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.089999676
@@ -230,6 +234,10 @@ PrefabInstance:
     - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,6 +300,10 @@ PrefabInstance:
     - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Study_Desk_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4793901493916496, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_LocalScale.x
@@ -400,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Alcohol_Bottle_Empty_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1534343351596094, guid: eab9d04fa02640849bdba2eb34f693ce, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4550510859159784, guid: eab9d04fa02640849bdba2eb34f693ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.266851
@@ -461,6 +477,10 @@ PrefabInstance:
     - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bed_Bunk_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4527372321015794, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_LocalPosition.x
@@ -524,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Drink_Bottle_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1687963133933838, guid: fe7485ddc63a5764981aa828ce2734e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4864364682483600, guid: fe7485ddc63a5764981aa828ce2734e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6720631
@@ -580,6 +604,10 @@ PrefabInstance:
     - target: {fileID: 1692527686985206, guid: c03af3d34a4ccce4bb92c2d6351069a7, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Sign_Caution_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692527686985206, guid: c03af3d34a4ccce4bb92c2d6351069a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4919733689139088, guid: c03af3d34a4ccce4bb92c2d6351069a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -658,7 +686,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &49438329
 Transform:
@@ -758,6 +786,10 @@ PrefabInstance:
     - target: {fileID: 1817594825494990, guid: 5ce0c2daf45a9ca4182d1d2f53059b84, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Table_Metal_Preset_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817594825494990, guid: 5ce0c2daf45a9ca4182d1d2f53059b84, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4310111470565866, guid: 5ce0c2daf45a9ca4182d1d2f53059b84, type: 3}
       propertyPath: m_LocalScale.x
@@ -942,7 +974,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &55989078
 Transform:
@@ -981,7 +1013,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &58100874
 Transform:
@@ -1048,6 +1080,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1121,6 +1157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7519999
@@ -1185,7 +1225,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &112502035
 Transform:
@@ -1464,6 +1504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Bed_Bunk_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4527372321015794, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.0669994
@@ -1530,6 +1574,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1608,6 +1656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Book_Magazine_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1216048829378026, guid: aea9f96738a126d4c8cc625f7abc6189, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4277546484087072, guid: aea9f96738a126d4c8cc625f7abc6189, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.8891487
@@ -1664,6 +1716,10 @@ PrefabInstance:
     - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bunker_RoofWire_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4963714558640972, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1730,9 +1786,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 58100874}
     m_Modifications:
+    - target: {fileID: 1126810118408830, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1315032638551322, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Locker_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315032638551322, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4137015707005370, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
       propertyPath: m_LocalScale.z
@@ -1813,6 +1877,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1261613641580850, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4585602416923640, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.04
@@ -1879,6 +1947,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1951,6 +2023,10 @@ PrefabInstance:
     - target: {fileID: 1314518813326150, guid: 8a0d4038f37da8043a8df48c3ba19afe, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bathroom_Pipes_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314518813326150, guid: 8a0d4038f37da8043a8df48c3ba19afe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4535718238458478, guid: 8a0d4038f37da8043a8df48c3ba19afe, type: 3}
       propertyPath: m_LocalScale.x
@@ -2025,6 +2101,10 @@ PrefabInstance:
     - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4252631363477688, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2231,6 +2311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Wirecutter_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1913851771705754, guid: 4229c1bf0fca93a4bb95d5e14235f52b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4516935693348122, guid: 4229c1bf0fca93a4bb95d5e14235f52b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.6517315
@@ -2394,6 +2478,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1809841070471890, guid: 0e4082dba9eb0ad4b821534ba7c54dd3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4107373518340206, guid: 0e4082dba9eb0ad4b821534ba7c54dd3, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -2458,6 +2546,10 @@ PrefabInstance:
     - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bunker_RoofWire_02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4963714558640972, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -2527,6 +2619,10 @@ PrefabInstance:
     - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2717,6 +2813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Book_Magazine_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1929721814028654, guid: 1f907f538eeec5f4d8d1d3af279bb1ec, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4561825864761926, guid: 1f907f538eeec5f4d8d1d3af279bb1ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9243264
@@ -2777,7 +2877,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &257593891
 Transform:
@@ -2868,6 +2968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Shelf_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1047606854514074, guid: 545b8937bb91d544aa7bc3b1d7bb580d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4640829191642392, guid: 545b8937bb91d544aa7bc3b1d7bb580d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5830002
@@ -2945,6 +3049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Stool_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1187200450180934, guid: 0e00c912fa7886943a0a4c1cc706c044, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4717518156578954, guid: 0e00c912fa7886943a0a4c1cc706c044, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.37514877
@@ -3001,6 +3109,10 @@ PrefabInstance:
     - target: {fileID: 174708, guid: ec7ca66bc439fd8488a40c954601ee72, type: 3}
       propertyPath: m_Name
       value: SA_Item_Map (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 174708, guid: ec7ca66bc439fd8488a40c954601ee72, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 476448, guid: ec7ca66bc439fd8488a40c954601ee72, type: 3}
       propertyPath: m_LocalScale.y
@@ -3192,6 +3304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Clipboard_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1930321881619256, guid: 3987a6de53ee3f9449e12ce9c781eb3d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4321151709275094, guid: 3987a6de53ee3f9449e12ce9c781eb3d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -3261,6 +3377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Air_Horn_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1749693068551828, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4526338019315796, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.14899993
@@ -3322,6 +3442,10 @@ PrefabInstance:
     - target: {fileID: 1316859233479328, guid: 93276e6f06975ca4e90c19573b958147, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bed_Military_Bunk_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316859233479328, guid: 93276e6f06975ca4e90c19573b958147, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4345181516663778, guid: 93276e6f06975ca4e90c19573b958147, type: 3}
       propertyPath: m_LocalScale.x
@@ -3431,6 +3555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Sign_Quarantine_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1944108449062042, guid: 57765ca4085e2dd429c5269354fd64a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4576947976390936, guid: 57765ca4085e2dd429c5269354fd64a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.51
@@ -3493,6 +3621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Rice_02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1316910841363498, guid: 568c22079a95dd04782e774b047921a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4098579489260320, guid: 568c22079a95dd04782e774b047921a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.32500005
@@ -3549,6 +3681,10 @@ PrefabInstance:
     - target: {fileID: 1930455487743470, guid: 05c3caac42590ac45b52f27eb8d20ed8, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Diner_Stool_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930455487743470, guid: 05c3caac42590ac45b52f27eb8d20ed8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4402153471451570, guid: 05c3caac42590ac45b52f27eb8d20ed8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3616,6 +3752,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3746,6 +3886,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Drink_Bottle_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1687963133933838, guid: fe7485ddc63a5764981aa828ce2734e4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4864364682483600, guid: fe7485ddc63a5764981aa828ce2734e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9220631
@@ -3808,6 +3952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Can_08 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1916647
@@ -3865,6 +4013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Alcohol_Glass_Filled_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1126824068822070, guid: fb29e70946e152d4191a0361efa91ca4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4407337400568096, guid: fb29e70946e152d4191a0361efa91ca4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.7902117
@@ -3921,6 +4073,10 @@ PrefabInstance:
     - target: {fileID: 1802597560460616, guid: 0885829d49621424fa1780f667551010, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Study_Lamp_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802597560460616, guid: 0885829d49621424fa1780f667551010, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4738860966873490, guid: 0885829d49621424fa1780f667551010, type: 3}
       propertyPath: m_LocalScale.z
@@ -4055,6 +4211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Rice_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1316910841363498, guid: 568c22079a95dd04782e774b047921a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4098579489260320, guid: 568c22079a95dd04782e774b047921a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.13400006
@@ -4126,6 +4286,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1302950925058072, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4242633384482578, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5869098
@@ -4182,6 +4346,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4254,6 +4422,10 @@ PrefabInstance:
     - target: {fileID: 1305933842384340, guid: ccb79d2f691e98548a17e09e7c6f22c3, type: 3}
       propertyPath: m_Name
       value: SM_Prop_BedMatress_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305933842384340, guid: ccb79d2f691e98548a17e09e7c6f22c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4214353630943454, guid: ccb79d2f691e98548a17e09e7c6f22c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4415,7 +4587,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &442703828
 Transform:
@@ -4445,6 +4617,10 @@ PrefabInstance:
     - target: {fileID: 1759161923155734, guid: 8a9d166004450274fac6bc5252c52ed0, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Powercable_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759161923155734, guid: 8a9d166004450274fac6bc5252c52ed0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4780716705987676, guid: 8a9d166004450274fac6bc5252c52ed0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4676,6 +4852,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1399205497852904, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16270351
@@ -4732,6 +4912,10 @@ PrefabInstance:
     - target: {fileID: 1044288825663308, guid: d78c61f0a8d2c0a4d881d40cf741639f, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Chair_Metal_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044288825663308, guid: d78c61f0a8d2c0a4d881d40cf741639f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4367864795127468, guid: d78c61f0a8d2c0a4d881d40cf741639f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4815,6 +4999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8299999
@@ -4874,7 +5062,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &492311768
 Transform:
@@ -5046,6 +5234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SA_Prop_MattressBed_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 134310, guid: 700727b908d290a44aa7e1cf7bf995bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 467012, guid: 700727b908d290a44aa7e1cf7bf995bb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.53
@@ -5138,6 +5330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Rug_04
       objectReference: {fileID: 0}
+    - target: {fileID: 1661139685211656, guid: fa13aecf5da33384e9f57335cbc2cc81, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4129919444827090, guid: fa13aecf5da33384e9f57335cbc2cc81, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -5221,6 +5417,10 @@ PrefabInstance:
     - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bunker_RoofWire_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4963714558640972, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -5370,6 +5570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Light_Industrial_Ceiling_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4540727062475918, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -5443,6 +5647,10 @@ PrefabInstance:
     - target: {fileID: 1794386954244956, guid: fca1e3dd35059784a9b452424961c94d, type: 3}
       propertyPath: m_Name
       value: SM_Chr_Attach_Book_Pouch_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794386954244956, guid: fca1e3dd35059784a9b452424961c94d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4668946399001292, guid: fca1e3dd35059784a9b452424961c94d, type: 3}
       propertyPath: m_LocalScale.x
@@ -5527,6 +5735,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1302950925058072, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4242633384482578, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5869098
@@ -5592,7 +5804,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &543793643
 Transform:
@@ -5803,7 +6015,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &557518526
 Transform:
@@ -5898,6 +6110,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6104,6 +6320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Bed_Bunk_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4527372321015794, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -6211,6 +6431,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1302950925058072, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4242633384482578, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5869098
@@ -6270,7 +6494,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &593991018
 Transform:
@@ -6297,9 +6521,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1945612007}
     m_Modifications:
+    - target: {fileID: 1102837466989472, guid: 0005c237459219c4a909b574c462a86e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1227132026527172, guid: 0005c237459219c4a909b574c462a86e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Washingline_Small_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227132026527172, guid: 0005c237459219c4a909b574c462a86e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4691894146959866, guid: 0005c237459219c4a909b574c462a86e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6379,7 +6611,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &597376067
 Transform:
@@ -6410,6 +6642,10 @@ PrefabInstance:
     - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_Name
       value: SM_Item_Drink_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4884943208062728, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6811,7 +7047,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &617814180
 Transform:
@@ -6865,7 +7101,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &623813021
 Transform:
@@ -6898,6 +7134,10 @@ PrefabInstance:
     - target: {fileID: 1979001051842680, guid: 5313621d332ebb24cb1b12d175865cd5, type: 3}
       propertyPath: m_Name
       value: SM_Item_Alcohol_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979001051842680, guid: 5313621d332ebb24cb1b12d175865cd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4216859993220516, guid: 5313621d332ebb24cb1b12d175865cd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7083,6 +7323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Light_Industrial_Ceiling_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4540727062475918, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -7235,7 +7479,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &642253668
 Transform:
@@ -7411,7 +7655,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &650364440
 Transform:
@@ -7453,6 +7697,10 @@ PrefabInstance:
     - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Study_Desk_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4793901493916496, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_LocalScale.x
@@ -7531,6 +7779,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_BeerCup_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1998767522208182, guid: 1db3c76848f9c8b46877c5c15a1767fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4259221322150228, guid: 1db3c76848f9c8b46877c5c15a1767fd, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
@@ -7597,6 +7849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Drink_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4884943208062728, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.212
@@ -7658,6 +7914,10 @@ PrefabInstance:
     - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_08 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7894,6 +8154,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_ToolBox_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1306924218609970, guid: fae614550b766604bb03f019f586c0a1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757544910094292, guid: fae614550b766604bb03f019f586c0a1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4448880198459766, guid: fae614550b766604bb03f019f586c0a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.6479034
@@ -7958,7 +8226,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &728413400
 Transform:
@@ -8001,6 +8269,10 @@ PrefabInstance:
     - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8130,7 +8402,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &751192399
 Transform:
@@ -8225,6 +8497,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4252631363477688, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.76
@@ -8281,6 +8557,10 @@ PrefabInstance:
     - target: {fileID: 1051052327438898, guid: 491b8f3587293c74d80d7566981beb57, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Gas_Table_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051052327438898, guid: 491b8f3587293c74d80d7566981beb57, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4842798846145396, guid: 491b8f3587293c74d80d7566981beb57, type: 3}
       propertyPath: m_LocalScale.x
@@ -8384,7 +8664,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &763712615
 Transform:
@@ -8484,6 +8764,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1302950925058072, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4242633384482578, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.44300008
@@ -8541,6 +8825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Study_Lamp_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1802597560460616, guid: 0885829d49621424fa1780f667551010, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4738860966873490, guid: 0885829d49621424fa1780f667551010, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0007963
@@ -8597,6 +8885,14 @@ PrefabInstance:
     - target: {fileID: 1672174440213808, guid: ff97b96ec5acf45459e81a9924e4293a, type: 3}
       propertyPath: m_Name
       value: SM_Tool_Pliers_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1672174440213808, guid: ff97b96ec5acf45459e81a9924e4293a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805835429030646, guid: ff97b96ec5acf45459e81a9924e4293a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4651812149196202, guid: ff97b96ec5acf45459e81a9924e4293a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8674,6 +8970,10 @@ PrefabInstance:
     - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4252631363477688, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8839,6 +9139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Shelf_Preset_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1910730707740184, guid: 498a63665d1ca8f44a568877fc5f4bfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4375288873950494, guid: 498a63665d1ca8f44a568877fc5f4bfb, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -8912,6 +9216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.756
@@ -8968,6 +9276,10 @@ PrefabInstance:
     - target: {fileID: 1329448962256884, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Cone_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329448962256884, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4537028678556216, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9043,6 +9355,10 @@ PrefabInstance:
     - target: {fileID: 134310, guid: 700727b908d290a44aa7e1cf7bf995bb, type: 3}
       propertyPath: m_Name
       value: SA_Prop_MattressBed_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 134310, guid: 700727b908d290a44aa7e1cf7bf995bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 467012, guid: 700727b908d290a44aa7e1cf7bf995bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9146,6 +9462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Wire_Lights_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1151774480896904, guid: 3dac3381379d5934ba70f0909dcf4f99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4162397750991076, guid: 3dac3381379d5934ba70f0909dcf4f99, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -9229,6 +9549,10 @@ PrefabInstance:
     - target: {fileID: 1749693068551828, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
       propertyPath: m_Name
       value: SM_Item_Air_Horn_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749693068551828, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4526338019315796, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9381,6 +9705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2259998
@@ -9445,7 +9773,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &862416158
 Transform:
@@ -9583,7 +9911,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &869267694
 Transform:
@@ -9753,7 +10081,7 @@ MonoBehaviour:
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
   m_ShowToolkit: 0
-  m_ShowCustomSorter: 1
+  m_ShowCustomSorter: 0
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -9781,9 +10109,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1945612007}
     m_Modifications:
+    - target: {fileID: 1102837466989472, guid: 0005c237459219c4a909b574c462a86e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1227132026527172, guid: 0005c237459219c4a909b574c462a86e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Washingline_Small_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227132026527172, guid: 0005c237459219c4a909b574c462a86e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4691894146959866, guid: 0005c237459219c4a909b574c462a86e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9851,6 +10187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Alcohol_07 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1960465383281148, guid: d48ad9c1809a65e47b786f1ef3f8c26f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4381287716026474, guid: d48ad9c1809a65e47b786f1ef3f8c26f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6860001
@@ -9912,6 +10252,10 @@ PrefabInstance:
     - target: {fileID: 1910730707740184, guid: 498a63665d1ca8f44a568877fc5f4bfb, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Shelf_Preset_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910730707740184, guid: 498a63665d1ca8f44a568877fc5f4bfb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4375288873950494, guid: 498a63665d1ca8f44a568877fc5f4bfb, type: 3}
       propertyPath: m_LocalScale.x
@@ -9993,7 +10337,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &909420948
 Transform:
@@ -10029,6 +10373,10 @@ PrefabInstance:
     - target: {fileID: 1261613641580850, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Table_Metal_Preset_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261613641580850, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4585602416923640, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10086,6 +10434,10 @@ PrefabInstance:
     - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Light_Industrial_Ceiling_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4540727062475918, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_LocalScale.x
@@ -10170,6 +10522,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1399205497852904, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.047943115
@@ -10226,6 +10582,10 @@ PrefabInstance:
     - target: {fileID: 1497356258787852, guid: 8460ccb07f996be47887ae47ebd033d2, type: 3}
       propertyPath: m_Name
       value: SM_Item_Alcohol_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497356258787852, guid: 8460ccb07f996be47887ae47ebd033d2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4634025380125038, guid: 8460ccb07f996be47887ae47ebd033d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10368,6 +10728,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10549,6 +10913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Table_Metal_Preset_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1817594825494990, guid: 5ce0c2daf45a9ca4182d1d2f53059b84, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4310111470565866, guid: 5ce0c2daf45a9ca4182d1d2f53059b84, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -10692,7 +11060,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &990622770
 Transform:
@@ -10753,6 +11121,10 @@ PrefabInstance:
     - target: {fileID: 1257984996261748, guid: 5ecd7ef4327b4dd40800a95e990697ef, type: 3}
       propertyPath: m_Name
       value: SM_Item_Alcohol_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257984996261748, guid: 5ecd7ef4327b4dd40800a95e990697ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4757466488596488, guid: 5ecd7ef4327b4dd40800a95e990697ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10885,7 +11257,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1012384035
 Transform:
@@ -10925,6 +11297,10 @@ PrefabInstance:
     - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Light_Industrial_Ceiling_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4540727062475918, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_LocalScale.x
@@ -11015,6 +11391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Stool_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1187200450180934, guid: 0e00c912fa7886943a0a4c1cc706c044, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4717518156578954, guid: 0e00c912fa7886943a0a4c1cc706c044, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.91
@@ -11081,6 +11461,10 @@ PrefabInstance:
     - target: {fileID: 1261613641580850, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Table_Metal_Preset_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261613641580850, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4585602416923640, guid: 2f42d0296170f7543ae6c8037effe144, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11245,6 +11629,10 @@ PrefabInstance:
     - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bunker_RoofWire_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4963714558640972, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -11430,7 +11818,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1056521623
 Transform:
@@ -11484,7 +11872,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1061014897
 Transform:
@@ -11526,6 +11914,10 @@ PrefabInstance:
     - target: {fileID: 1027780731411400, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Ladder_Rust_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027780731411400, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4962732862809444, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
       propertyPath: m_LocalScale.x
@@ -11600,6 +11992,10 @@ PrefabInstance:
     - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bed_Bunk_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4527372321015794, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11767,6 +12163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Rice_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1316910841363498, guid: 568c22079a95dd04782e774b047921a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4098579489260320, guid: 568c22079a95dd04782e774b047921a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.15699983
@@ -11831,7 +12231,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1098237627
 Transform:
@@ -11930,6 +12330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Can_08 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1916647
@@ -12014,6 +12418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Tape_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1185187841381110, guid: e228fc92e8af2974b932665a3d01b206, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4896120582483904, guid: e228fc92e8af2974b932665a3d01b206, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.21099997
@@ -12070,6 +12478,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12128,6 +12540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Drink_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4884943208062728, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.1197145
@@ -12184,6 +12600,10 @@ PrefabInstance:
     - target: {fileID: 1047606854514074, guid: 545b8937bb91d544aa7bc3b1d7bb580d, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Shelf_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047606854514074, guid: 545b8937bb91d544aa7bc3b1d7bb580d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4640829191642392, guid: 545b8937bb91d544aa7bc3b1d7bb580d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12290,6 +12710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Light_Industrial_Ceiling_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4540727062475918, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -12363,6 +12787,10 @@ PrefabInstance:
     - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Study_Desk_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4793901493916496, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_LocalScale.x
@@ -12467,6 +12895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_BrokenBottle_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1698316238075150, guid: 23e18505c28c42448929eb47cde31bdd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4052621064377866, guid: 23e18505c28c42448929eb47cde31bdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1090441
@@ -12531,7 +12963,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1139350139
 Transform:
@@ -12558,9 +12990,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 58100874}
     m_Modifications:
+    - target: {fileID: 1126810118408830, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1315032638551322, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Locker_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315032638551322, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4137015707005370, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
       propertyPath: m_LocalScale.z
@@ -12629,7 +13069,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1143716172
 Transform:
@@ -12671,6 +13111,10 @@ PrefabInstance:
     - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4252631363477688, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12728,6 +13172,10 @@ PrefabInstance:
     - target: {fileID: 1526635465168484, guid: f3912e428fbc1b64d8ce277c27ff3284, type: 3}
       propertyPath: m_Name
       value: SM_Item_Cigarette_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526635465168484, guid: f3912e428fbc1b64d8ce277c27ff3284, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4849617582316756, guid: f3912e428fbc1b64d8ce277c27ff3284, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12793,7 +13241,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1160733985
 Transform:
@@ -12838,6 +13286,10 @@ PrefabInstance:
     - target: {fileID: 1904110655226658, guid: 9800c6d801238954c849f822784a08cd, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Alcohol_Glass_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904110655226658, guid: 9800c6d801238954c849f822784a08cd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4615145792505528, guid: 9800c6d801238954c849f822784a08cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12900,6 +13352,10 @@ PrefabInstance:
     - target: {fileID: 1252592623594548, guid: 5f0a587201ef70a48836ebd1572c155b, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Radio_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252592623594548, guid: 5f0a587201ef70a48836ebd1572c155b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4729942170743862, guid: 5f0a587201ef70a48836ebd1572c155b, type: 3}
       propertyPath: m_LocalScale.z
@@ -12974,7 +13430,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1188338839
 Transform:
@@ -13080,6 +13536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Light_Industrial_Ceiling_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4540727062475918, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -13153,6 +13613,10 @@ PrefabInstance:
     - target: {fileID: 1053685149452518, guid: f9c5616a18c549d4eaa5ded0fcecfb0d, type: 3}
       propertyPath: m_Name
       value: SM_Item_Alcohol_Broken_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053685149452518, guid: f9c5616a18c549d4eaa5ded0fcecfb0d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4223753086585296, guid: f9c5616a18c549d4eaa5ded0fcecfb0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13285,6 +13749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Radio_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1984870230227448, guid: 4a0b12304089cc6449f596387d1efda8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4826652472036280, guid: 4a0b12304089cc6449f596387d1efda8, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
@@ -13391,6 +13859,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1823289685449104, guid: ac6635c94a1124440bc95f976363db86, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4405365601486420, guid: ac6635c94a1124440bc95f976363db86, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -13483,6 +13955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7519999
@@ -13539,6 +14015,10 @@ PrefabInstance:
     - target: {fileID: 1960465383281148, guid: d48ad9c1809a65e47b786f1ef3f8c26f, type: 3}
       propertyPath: m_Name
       value: SM_Item_Alcohol_07 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960465383281148, guid: d48ad9c1809a65e47b786f1ef3f8c26f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4381287716026474, guid: d48ad9c1809a65e47b786f1ef3f8c26f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13741,6 +14221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1500001
@@ -13797,6 +14281,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13855,6 +14343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.502
@@ -13912,6 +14404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Drink_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4884943208062728, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13968,6 +14464,10 @@ PrefabInstance:
     - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_Name
       value: SM_Item_Drink_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4884943208062728, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14031,6 +14531,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Setup_Dirty_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1531275865982350, guid: 0fa59e6a3e65e294f90badb6c7fcf9d4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4884736090522568, guid: 0fa59e6a3e65e294f90badb6c7fcf9d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0488977
@@ -14087,6 +14591,10 @@ PrefabInstance:
     - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14164,6 +14672,10 @@ PrefabInstance:
     - target: {fileID: 1027780731411400, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Ladder_Rust_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027780731411400, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4962732862809444, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
       propertyPath: m_LocalScale.x
@@ -14341,6 +14853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Bottle_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1450819416614728, guid: c79615aa59b92cc4eab7c677ede3a060, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4944284738259632, guid: c79615aa59b92cc4eab7c677ede3a060, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.48785114
@@ -14402,6 +14918,10 @@ PrefabInstance:
     - target: {fileID: 1085496763188208, guid: 119deb9a1b861344eb8660c95692a006, type: 3}
       propertyPath: m_Name
       value: SM_Item_Alcohol_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085496763188208, guid: 119deb9a1b861344eb8660c95692a006, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4483247757225586, guid: 119deb9a1b861344eb8660c95692a006, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14682,6 +15202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_WallAttach_Electronics_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1686342638753298, guid: dbc8ff25f28f33c4bb982b04e5dbdefb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4936082098280938, guid: dbc8ff25f28f33c4bb982b04e5dbdefb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.1520004
@@ -14742,6 +15266,10 @@ PrefabInstance:
     - target: {fileID: 1891676619981234, guid: c9de463e7878f024eb5ec6291e400b69, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891676619981234, guid: c9de463e7878f024eb5ec6291e400b69, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4021406844776184, guid: c9de463e7878f024eb5ec6291e400b69, type: 3}
       propertyPath: m_LocalScale.x
@@ -14826,6 +15354,10 @@ PrefabInstance:
     - target: {fileID: 1932384908691354, guid: 627ad439ba650f14884b1aa6bf3e02aa, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bathroom_Pipes_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932384908691354, guid: 627ad439ba650f14884b1aa6bf3e02aa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4483757067205548, guid: 627ad439ba650f14884b1aa6bf3e02aa, type: 3}
       propertyPath: m_LocalScale.x
@@ -14916,6 +15448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Can_03 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1302950925058072, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4242633384482578, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.44300008
@@ -14982,6 +15518,10 @@ PrefabInstance:
     - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4252631363477688, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15099,7 +15639,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1377621240
 Transform:
@@ -15134,6 +15674,10 @@ PrefabInstance:
     - target: {fileID: 1439699062209684, guid: d4287851fb9b66e42b7d76bffc435029, type: 3}
       propertyPath: m_Name
       value: SM_Prop_CarBattery_Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439699062209684, guid: d4287851fb9b66e42b7d76bffc435029, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4562005773606616, guid: d4287851fb9b66e42b7d76bffc435029, type: 3}
       propertyPath: m_LocalScale.x
@@ -15411,6 +15955,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Light_Portable_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1072707556556728, guid: 799067640f582a34691053ab47997777, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113491316714104, guid: 799067640f582a34691053ab47997777, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850129892943746, guid: 799067640f582a34691053ab47997777, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4076868869643384, guid: 799067640f582a34691053ab47997777, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -15523,6 +16079,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Cone_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1329448962256884, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4537028678556216, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.739523
@@ -15587,6 +16147,10 @@ PrefabInstance:
     - target: {fileID: 1067864138911158, guid: b9049a88abe0e7f408cc2a3db76d8e02, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Village_Stairs_Small_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067864138911158, guid: b9049a88abe0e7f408cc2a3db76d8e02, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4056344767949084, guid: b9049a88abe0e7f408cc2a3db76d8e02, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15803,6 +16367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Alcohol_07
       objectReference: {fileID: 0}
+    - target: {fileID: 1960465383281148, guid: d48ad9c1809a65e47b786f1ef3f8c26f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4381287716026474, guid: d48ad9c1809a65e47b786f1ef3f8c26f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.79699993
@@ -15859,6 +16427,10 @@ PrefabInstance:
     - target: {fileID: 1090187093199570, guid: 7e955b4c1a70c434ea0f4cd9db9a54fa, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Pipes_Valves_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090187093199570, guid: 7e955b4c1a70c434ea0f4cd9db9a54fa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4485973646958388, guid: 7e955b4c1a70c434ea0f4cd9db9a54fa, type: 3}
       propertyPath: m_LocalScale.x
@@ -15928,6 +16500,10 @@ PrefabInstance:
     - target: {fileID: 1523162032033068, guid: bf86a39106e431940a00aedd4e5e38bb, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Generator_Large_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523162032033068, guid: bf86a39106e431940a00aedd4e5e38bb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4778271892957488, guid: bf86a39106e431940a00aedd4e5e38bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16120,6 +16696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Book_Open_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1345328649443024, guid: 2d39db34524c5e243b197578b75165d8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4927900740800758, guid: 2d39db34524c5e243b197578b75165d8, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
@@ -16186,6 +16766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Alcohol_03
       objectReference: {fileID: 0}
+    - target: {fileID: 1257984996261748, guid: 5ecd7ef4327b4dd40800a95e990697ef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4757466488596488, guid: 5ecd7ef4327b4dd40800a95e990697ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.124851
@@ -16242,6 +16826,10 @@ PrefabInstance:
     - target: {fileID: 1027780731411400, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Ladder_Rust_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027780731411400, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4962732862809444, guid: 102907a72e1abd841be7f7cc54a76a60, type: 3}
       propertyPath: m_LocalScale.x
@@ -16312,6 +16900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Bottle_Small_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1460396016348330, guid: 2d1504c58f756304f8c0c27fd1db41d1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4391299796997464, guid: 2d1504c58f756304f8c0c27fd1db41d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.59914875
@@ -16369,6 +16961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Can_08 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -16425,6 +17021,10 @@ PrefabInstance:
     - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Study_Desk_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612179956201368, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4793901493916496, guid: d01b9506ff8b9d5458068c0a9bec6a47, type: 3}
       propertyPath: m_LocalScale.x
@@ -16685,9 +17285,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 112502035}
     m_Modifications:
+    - target: {fileID: 1216763835486756, guid: f9bf4d782a1fbd54783d4d28c995240d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1526227570199608, guid: f9bf4d782a1fbd54783d4d28c995240d, type: 3}
       propertyPath: m_Name
       value: SM_Item_Compass_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526227570199608, guid: f9bf4d782a1fbd54783d4d28c995240d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908020011605462, guid: f9bf4d782a1fbd54783d4d28c995240d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4512902007414366, guid: f9bf4d782a1fbd54783d4d28c995240d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16745,6 +17357,10 @@ PrefabInstance:
     - target: {fileID: 1979557458371514, guid: 641f311d3f3e3ff41a1dd023e49a295b, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Cigarette_Tray_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979557458371514, guid: 641f311d3f3e3ff41a1dd023e49a295b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4895814929804092, guid: 641f311d3f3e3ff41a1dd023e49a295b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16884,6 +17500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.065999985
@@ -16941,6 +17561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Can_08
       objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -16997,6 +17621,10 @@ PrefabInstance:
     - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bunker_RoofWire_02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4963714558640972, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -17079,7 +17707,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1559455299
 Transform:
@@ -17119,6 +17747,10 @@ PrefabInstance:
     - target: {fileID: 1749693068551828, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
       propertyPath: m_Name
       value: SM_Item_Air_Horn_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749693068551828, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4526338019315796, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17176,6 +17808,14 @@ PrefabInstance:
     - target: {fileID: 1306924218609970, guid: fae614550b766604bb03f019f586c0a1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_ToolBox_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306924218609970, guid: fae614550b766604bb03f019f586c0a1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757544910094292, guid: fae614550b766604bb03f019f586c0a1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4448880198459766, guid: fae614550b766604bb03f019f586c0a1, type: 3}
       propertyPath: m_LocalScale.z
@@ -17247,6 +17887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Rice_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1316910841363498, guid: 568c22079a95dd04782e774b047921a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4098579489260320, guid: 568c22079a95dd04782e774b047921a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17303,6 +17947,10 @@ PrefabInstance:
     - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_08 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17495,9 +18143,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 990622770}
     m_Modifications:
+    - target: {fileID: 1083854830309970, guid: 2020c42effb3bff4a98f3cda26076b3b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595560622074928, guid: 2020c42effb3bff4a98f3cda26076b3b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1904242416950636, guid: 2020c42effb3bff4a98f3cda26076b3b, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Metal_Door_x2_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904242416950636, guid: 2020c42effb3bff4a98f3cda26076b3b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4525097069974648, guid: 2020c42effb3bff4a98f3cda26076b3b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17558,7 +18218,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1590070728
 Transform:
@@ -17878,6 +18538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Bottle_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1168353465961796, guid: 315f2acd02ded7a458e8ae77a8d7db44, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4088265055751036, guid: 315f2acd02ded7a458e8ae77a8d7db44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8748512
@@ -17935,6 +18599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Air_Horn_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1749693068551828, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4526338019315796, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -17991,6 +18659,10 @@ PrefabInstance:
     - target: {fileID: 1292167988951802, guid: bb70aa61cd1a33b479182db924101dbc, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Cafe_Chair_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292167988951802, guid: bb70aa61cd1a33b479182db924101dbc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4588122652851228, guid: bb70aa61cd1a33b479182db924101dbc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18053,6 +18725,10 @@ PrefabInstance:
     - target: {fileID: 1538072803918672, guid: c732b10bf2d956f478a1a3598ae2a10e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Radio_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538072803918672, guid: c732b10bf2d956f478a1a3598ae2a10e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4955290200302688, guid: c732b10bf2d956f478a1a3598ae2a10e, type: 3}
       propertyPath: m_LocalScale.z
@@ -18140,6 +18816,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Cone_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1329448962256884, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4537028678556216, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.9820004
@@ -18199,6 +18879,10 @@ PrefabInstance:
     - target: {fileID: 1406573134572020, guid: 1dc3b42f7f53e474c8268e5d68f9699a, type: 3}
       propertyPath: m_Name
       value: SM_Item_Alcohol_Broken_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406573134572020, guid: 1dc3b42f7f53e474c8268e5d68f9699a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4543754385760238, guid: 1dc3b42f7f53e474c8268e5d68f9699a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18288,6 +18972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Cone_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1329448962256884, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4537028678556216, guid: 6cb095184513906418cea8b6f00a294c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2139988
@@ -18347,6 +19035,10 @@ PrefabInstance:
     - target: {fileID: 1548556774101716, guid: c5a9d4962a0e7654294993013e5b4ea5, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Container_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548556774101716, guid: c5a9d4962a0e7654294993013e5b4ea5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4685866690887392, guid: c5a9d4962a0e7654294993013e5b4ea5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18445,6 +19137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Tape_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1185187841381110, guid: e228fc92e8af2974b932665a3d01b206, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4896120582483904, guid: e228fc92e8af2974b932665a3d01b206, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15300012
@@ -18498,9 +19194,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 990622770}
     m_Modifications:
+    - target: {fileID: 1410048499962784, guid: b1e26128d52359245ad05476f411dee7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1798362585262532, guid: b1e26128d52359245ad05476f411dee7, type: 3}
       propertyPath: m_Name
       value: SM_Prop_ToolBox_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798362585262532, guid: b1e26128d52359245ad05476f411dee7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4542145472354784, guid: b1e26128d52359245ad05476f411dee7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18569,6 +19273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Camera_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1097852312463232, guid: c63081b7c68aab742937fce11cf85e90, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4254622282348490, guid: c63081b7c68aab742937fce11cf85e90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9199996
@@ -18630,6 +19338,10 @@ PrefabInstance:
     - target: {fileID: 1830654024553444, guid: 66bb7dc50c367114da33b16b9b7214e1, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Alcohol_Bottle_Half_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830654024553444, guid: 66bb7dc50c367114da33b16b9b7214e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4035306277138728, guid: 66bb7dc50c367114da33b16b9b7214e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18798,7 +19510,7 @@ GameObject:
   m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1688843615
 Transform:
@@ -18871,6 +19583,18 @@ PrefabInstance:
     - target: {fileID: 1072707556556728, guid: 799067640f582a34691053ab47997777, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Light_Portable_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072707556556728, guid: 799067640f582a34691053ab47997777, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113491316714104, guid: 799067640f582a34691053ab47997777, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850129892943746, guid: 799067640f582a34691053ab47997777, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4076868869643384, guid: 799067640f582a34691053ab47997777, type: 3}
       propertyPath: m_LocalScale.x
@@ -19387,6 +20111,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 125180, guid: aee8becd4335c474389920eff458d5c8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 447294, guid: aee8becd4335c474389920eff458d5c8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -19486,6 +20214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Book_Magazine_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1216048829378026, guid: aea9f96738a126d4c8cc625f7abc6189, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4277546484087072, guid: aea9f96738a126d4c8cc625f7abc6189, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.93264437
@@ -19546,7 +20278,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1724651005
 Transform:
@@ -19646,6 +20378,10 @@ PrefabInstance:
     - target: {fileID: 174708, guid: ec7ca66bc439fd8488a40c954601ee72, type: 3}
       propertyPath: m_Name
       value: SA_Item_Map (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 174708, guid: ec7ca66bc439fd8488a40c954601ee72, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 476448, guid: ec7ca66bc439fd8488a40c954601ee72, type: 3}
       propertyPath: m_LocalScale.y
@@ -19808,6 +20544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Can_08 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1916647
@@ -19870,6 +20610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Piping_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1325832438892700, guid: 6944e47a841bec1438cb33ed76563ce9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4429233442052140, guid: 6944e47a841bec1438cb33ed76563ce9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6459732
@@ -19926,6 +20670,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20013,6 +20761,10 @@ PrefabInstance:
     - target: {fileID: 1316859233479328, guid: 93276e6f06975ca4e90c19573b958147, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bed_Military_Bunk_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316859233479328, guid: 93276e6f06975ca4e90c19573b958147, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4345181516663778, guid: 93276e6f06975ca4e90c19573b958147, type: 3}
       propertyPath: m_LocalScale.x
@@ -20116,6 +20868,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0e880bef09551b545a15ef786670d34d, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Alcohol_Broken_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0e880bef09551b545a15ef786670d34d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0e880bef09551b545a15ef786670d34d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20344,6 +21100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Light_Industrial_Ceiling_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1702094317585904, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4540727062475918, guid: 1412236919a9a1c4ca543687a89f839b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -20423,6 +21183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Bed_Bunk_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4527372321015794, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.0669994
@@ -20494,6 +21258,10 @@ PrefabInstance:
     - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20577,6 +21345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.027
@@ -20633,6 +21405,10 @@ PrefabInstance:
     - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_08 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20782,6 +21558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Wire_Pole_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1333091749827914, guid: 4a32b46784e9f0d49a173eda013ab192, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4199053169263732, guid: 4a32b46784e9f0d49a173eda013ab192, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.5
@@ -20842,6 +21622,10 @@ PrefabInstance:
     - target: {fileID: 1109247648396928, guid: 0550cbc7292eda844a926e5c0904ea86, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Wire_Ground_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1109247648396928, guid: 0550cbc7292eda844a926e5c0904ea86, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4331760325731434, guid: 0550cbc7292eda844a926e5c0904ea86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20904,6 +21688,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21015,7 +21803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: f1ebbdf8bae609146b59719eed3d5715, type: 2}
+  sharedProfile: {fileID: 11400000, guid: fc2b7b9e24707b64492380dd06aa8b53, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -21046,6 +21834,10 @@ PrefabInstance:
     - target: {fileID: 134504, guid: d0a449419dc6e404d94d5081fa710767, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Newspaper_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 134504, guid: d0a449419dc6e404d94d5081fa710767, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 484446, guid: d0a449419dc6e404d94d5081fa710767, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21109,6 +21901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Briefing_Board_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1513054728740266, guid: b3dce0d949bc52144b3d0a47f6cf60be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4764696606094708, guid: b3dce0d949bc52144b3d0a47f6cf60be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.345
@@ -21170,6 +21966,10 @@ PrefabInstance:
     - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_Name
       value: SM_Item_Drink_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847027969511464, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4884943208062728, guid: 907f8303af992f44289b29cb614b45c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21268,6 +22068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Beam_End_Curved_Concrete_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1196249698009172, guid: db57c043274921f47b7d2238258f5e4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4217124678430782, guid: db57c043274921f47b7d2238258f5e4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07704592
@@ -21327,7 +22131,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1945612007
 Transform:
@@ -21476,6 +22280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Rice_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1316910841363498, guid: 568c22079a95dd04782e774b047921a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4098579489260320, guid: 568c22079a95dd04782e774b047921a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.44700027
@@ -21535,7 +22343,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1954044754
 Transform:
@@ -21628,6 +22436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Air_Horn_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1749693068551828, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4526338019315796, guid: 3db91374ff13ad14e98c0fd485df17d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.004999876
@@ -21684,6 +22496,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21907,9 +22723,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 58100874}
     m_Modifications:
+    - target: {fileID: 1126810118408830, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1315032638551322, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Locker_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315032638551322, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4137015707005370, guid: 0fa52c3b8752a904092b19903957969e, type: 3}
       propertyPath: m_LocalScale.z
@@ -21985,6 +22809,10 @@ PrefabInstance:
     - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bed_Bunk_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517652137078526, guid: 43a57043cd05ca34298fd85726812902, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4527372321015794, guid: 43a57043cd05ca34298fd85726812902, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22098,6 +22926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_CautionLine_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1616332695754028, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4669825788834836, guid: 9c6e8140ca9662042adc2f93d37a8c1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.502
@@ -22160,6 +22992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Item_Alcohol_Broken_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1904209494814440, guid: d0fc44066f110ef4ba9c88a218bdfad3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4362517652040714, guid: d0fc44066f110ef4ba9c88a218bdfad3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.87081003
@@ -22216,6 +23052,10 @@ PrefabInstance:
     - target: {fileID: 1600783218773400, guid: a11abfef5d5ff654fa730f5c63b93ece, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Book_Open_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600783218773400, guid: a11abfef5d5ff654fa730f5c63b93ece, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4625085209677300, guid: a11abfef5d5ff654fa730f5c63b93ece, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22281,7 +23121,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2051887511
 Transform:
@@ -22469,6 +23309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Powercable_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1709661139650106, guid: 1e68adc8cbf51254e80c1c12dfc8bcc6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4817091831611836, guid: 1e68adc8cbf51254e80c1c12dfc8bcc6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.504547
@@ -22655,6 +23499,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1302950925058072, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4242633384482578, guid: ba8f09511f4e7a448867acaedb592a0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.44300008
@@ -22762,6 +23610,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1435732578635654, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4252631363477688, guid: 5f3d8b2c4e94c7647b280ab37c8452a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.76
@@ -22819,6 +23671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Diner_Stool_04
       objectReference: {fileID: 0}
+    - target: {fileID: 1483231094941034, guid: 3372569c77e6eed45938d181f23ceb50, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4387058367553970, guid: 3372569c77e6eed45938d181f23ceb50, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.361551
@@ -22875,6 +23731,10 @@ PrefabInstance:
     - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_Name
       value: SM_Item_ToiletRoll_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607655948313826, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4256189405425518, guid: 5e02962de0aa81648a245e28f4bf1d13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22942,6 +23802,10 @@ PrefabInstance:
     - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bunker_RoofWire_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741651526530970, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4963714558640972, guid: 1f3d3bb695ebb6546abb3490e4e6d4b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -23011,6 +23875,10 @@ PrefabInstance:
     - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_Name
       value: SM_Item_Can_08 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739849997288908, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4370221873698642, guid: eb0cbb6bcee01ad40848859f2fc6535c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23186,6 +24054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Beam_End_Curved_Concrete_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1196249698009172, guid: db57c043274921f47b7d2238258f5e4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4217124678430782, guid: db57c043274921f47b7d2238258f5e4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07704592
@@ -23255,7 +24127,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2132485319
 Transform:
@@ -27713,7 +28585,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &2656548957966061678
 GameObject:
@@ -28978,7 +29850,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &3497327495395492183
 GameObject:
@@ -29518,7 +30390,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1001 &4026958421672060655
 PrefabInstance:
@@ -32043,7 +32915,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1001 &6231802039524111914
 PrefabInstance:
@@ -33271,7 +34143,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &6833340768681788791
 MeshCollider:
@@ -33312,7 +34184,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &6833860526874166986
 GameObject:
@@ -33331,7 +34203,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6836029891832538214
 Transform:
@@ -34727,7 +35599,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &7834683303716683187
 GameObject:
@@ -35117,7 +35989,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &8277778215027414672
 BoxCollider:
@@ -36547,7 +37419,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &9178340862560064672
 BoxCollider:

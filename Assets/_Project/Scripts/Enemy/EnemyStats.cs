@@ -264,7 +264,7 @@ public class EnemyStats : MonoBehaviour
         health -= effectiveDamage;
         UpdateHealthSlider();
 
-        Debug.Log("Enemy has taken " + effectiveDamage + " damage");
+        //Debug.Log("Enemy has taken " + effectiveDamage + " damage");
         if (health <= 0)
         {
             Destroy(gameObject);

@@ -40,7 +40,15 @@ public class NPCAnimations : MonoBehaviour
         //then check if z is negative or piositive to know which 90 degrees
         if(currentAnimationCycle.includeMovement[currentAnimation])
         {
-            endRotation.y = transform.eulerAngles.y + Vector3.Angle(transform.forward, currentAnimationCycle.movementCordinants[currentMovement] - transform.position);
+            Vector3 movementDirection = (new Vector3(currentAnimationCycle.movementCordinants[currentMovement].x, 0f, currentAnimationCycle.movementCordinants[currentMovement].z) - new Vector3(transform.position.x, 0f, transform.position.z));
+            movementDirection = movementDirection.normalized;
+            if(movementDirection.x >= 0)
+            {
+                endRotation.y = Vector3.Angle(Vector3.forward, movementDirection);
+            } else {
+                endRotation.y = -Vector3.Angle(Vector3.forward, movementDirection);
+            }
+            //endRotation.y = transform.eulerAngles.y + Vector3.Angle(transform.forward, currentAnimationCycle.movementCordinants[currentMovement] - transform.position);
         }
         while(rotating)
         {

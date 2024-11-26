@@ -380,71 +380,67 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     */
 
-    public void StartLadderClimb(Vector3 sPosition, Vector3 tEndPosition, Vector3 rotation, Vector3 tEndRotation, float tEndHeight, float bEndHeight, bool top) //IDK why but bug where player is starting in there current position rather than the ladder
+    public void StartLadderClimb(Vector3 sPosition, Vector3 tEndPosition, Vector3 rotation, Vector3 tEndRotation, float tEndHeight, float bEndHeight, bool top)
     {
+        // Disable unnecessary player components
         playerCollider.SetActive(false);
-        animator.SetBool("ClimbingLadder", true);
-        animator.Play("ClimbingLadder");
+        rb.useGravity = false;
+        StopObject();
+        canInteract.value = false;
+
+        // Set ladder end positions and rotations
         topEndHeight = tEndHeight;
         bottomEndHeight = bEndHeight;
         topEndPosition = tEndPosition;
         topEndRotation = tEndRotation;
-        isClimbing = true;
-        StopObject();
-        rb.useGravity = false;
-        canInteract.value = false;
-        objectToRotate.transform.eulerAngles = rotation;
-        if(top)
+
+        // Align player to ladder starting position
+        if (top)
         {
-            if(transform.position.y < sPosition.y)
-            {
-                transform.position = new Vector3(sPosition.x, transform.position.y, sPosition.z);
-            } else {
-                transform.position = sPosition;
-            }
-        } else {
-            if(transform.position.y > sPosition.y)
-            {
-                transform.position = new Vector3(sPosition.x, transform.position.y, sPosition.z);
-            } else {
-                transform.position = sPosition;
-            }
+            transform.position = new Vector3(sPosition.x, Mathf.Max(transform.position.y, sPosition.y), sPosition.z);
         }
+        else
+        {
+            transform.position = new Vector3(sPosition.x, Mathf.Min(transform.position.y, sPosition.y), sPosition.z);
+        }
+
+        // Align player rotation to ladder
+        objectToRotate.transform.eulerAngles = rotation;
+
+        // Start ladder climb animation
+        animator.SetBool("ClimbingLadder", true); // Use a Bool to transition into climbing states
+        animator.Play("Ladder Idle");
+
+        isClimbing = true; // Set climbing state
     }
 
     private void ClimbLadder()
     {
-        if(verticalMovement == 1)
+        // Determine movement direction and update animation speed
+        if (Input.GetKey(keyBindings.forward))
         {
-            if(sprinting)
-            {
-                animator.SetFloat("ClimbingSpeed", 1f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * playerStats.MovementSpeed * Time.deltaTime, transform.position.z);
-            } else {
-                animator.SetFloat("ClimbingSpeed", 0.7f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * playerStats.MovementSpeed * Time.deltaTime, transform.position.z);
-            }
-        } else if(verticalMovement == -1)
+            animator.SetFloat("ClimbingSpeed", 1f); // Positive speed for climbing up
+            transform.position += Vector3.up * climbingSpeed * playerStats.MovementSpeed * Time.deltaTime;
+        }
+        else if (Input.GetKey(keyBindings.backward))
         {
-            if(sprinting)
-            {
-                animator.SetFloat("ClimbingSpeed", -1f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSprintSpeed * Time.deltaTime, transform.position.z);
-            } else {
-                animator.SetFloat("ClimbingSpeed", -0.7f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + verticalMovement * climbingSpeed * Time.deltaTime, transform.position.z);
-            }
-        } else {
-            animator.SetFloat("ClimbingSpeed", 0f);
+            animator.SetFloat("ClimbingSpeed", -1f); // Negative speed for climbing down
+            transform.position -= Vector3.up * climbingSpeed * Time.deltaTime;
+        }
+        else
+        {
+            animator.SetFloat("ClimbingSpeed", 0f); // Idle on the ladder
         }
 
-        if(transform.position.y >= topEndHeight)
+        // Check if player reaches ladder ends
+        if (transform.position.y >= topEndHeight)
         {
             transform.position = topEndPosition;
             objectToRotate.transform.eulerAngles = topEndRotation;
             cameraHolder.transform.eulerAngles = topEndRotation;
             EndLadderClimb();
-        } else if(transform.position.y <= bottomEndHeight)
+        }
+        else if (transform.position.y <= bottomEndHeight)
         {
             EndLadderClimb();
         }
@@ -452,10 +448,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void EndLadderClimb()
     {
+        // Re-enable player components
         playerCollider.SetActive(true);
-        animator.SetBool("ClimbingLadder", false);
-        isClimbing = false;
         rb.useGravity = true;
         canInteract.value = true;
+
+        // Reset Animator state
+        animator.SetBool("ClimbingLadder", false);
+
+        isClimbing = false; // End climbing state
     }
 }

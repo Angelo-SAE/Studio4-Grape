@@ -11,6 +11,9 @@ public class NPC : MonoBehaviour, IInteractable
     [SerializeField] private DialogueObject[] npcDialogue;
     [SerializeField] private GameObjectObject playerObject;
 
+    [Header("NPC Variables")]
+    [SerializeField] private bool lookAtPlayerWhenTalking;
+
     [Header("Events")]
     [SerializeField] private UnityEvent OnInteract;
     [SerializeField] private UnityEvent AfterDialogue;
@@ -44,7 +47,10 @@ public class NPC : MonoBehaviour, IInteractable
         if(npcDialogueCount.value < npcDialogue.Length)
         {
             OnInteract.Invoke();
-            LookAtPlayer();
+            if(lookAtPlayerWhenTalking)
+            {
+                LookAtPlayer();
+            }
             dialogueBox.value.GetComponent<DialogueBox>().StartDialogue(this, npcDialogue[npcDialogueCount.value]);
             npcDialogueCount.value++;
             isInteractable = false;

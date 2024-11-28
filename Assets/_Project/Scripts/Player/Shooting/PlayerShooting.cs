@@ -91,7 +91,7 @@ public class PlayerShooting : MonoBehaviour
                 }
 
                 bullet.SetActive(true);
-                
+
             }
 
             // Damage enemy if hit
@@ -100,7 +100,15 @@ public class PlayerShooting : MonoBehaviour
                 EnemyStats enemyStats = hit.collider.GetComponent<EnemyStats>();
                 if (enemyStats != null)
                 {
-                    enemyStats.TakeDamage(primaryFireDamage);
+                    if(Random.Range(0f, 1f) <= playerStats.OnHitHealChance)
+                    {
+                        playerStats.Heal(playerStats.OnHitHealAmount);
+                    }
+                    if(Random.Range(0f, 1f) <= playerStats.OnHitVulnerableChance)
+                    {
+                        enemyStats.ApplyVulnerable(playerStats.OnHitVulnerableDuration);
+                    }
+                    enemyStats.TakeDamage(primaryFireDamage * playerStats.DamageMultiplier);
                 }
             }
 
@@ -110,5 +118,5 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    
+
 }

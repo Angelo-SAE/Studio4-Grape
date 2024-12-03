@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class CombatStim : MonoBehaviour
 {
-    public enum UpgradePath
-    {
-        None,
-        A,
-        AA,
-        AAA,
-        AAB,
-        AB,
-        ABA,
-        ABB
-    }
 
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
@@ -37,8 +26,7 @@ public class CombatStim : MonoBehaviour
     private bool isAbilityReady;
 
     [Header("Upgrade Paths")]
-    [SerializeField] private UpgradePath upgradePath1;
-    [SerializeField] private UpgradePath upgradePath2;
+    [SerializeField] public AbilityUpgradePath.Upgrade[] upgradePaths;
 
     [Header("Upgrade Path 1")]
     [SerializeField] private float A_LingerDuration;
@@ -68,6 +56,7 @@ public class CombatStim : MonoBehaviour
 
     private void Start()
     {
+        upgradePaths = new AbilityUpgradePath.Upgrade[2];
         isAbilityReady = true;
     }
 
@@ -92,81 +81,81 @@ public class CombatStim : MonoBehaviour
         float stimDuration = baseStimDuration;
         float attackSpeedPercent = baseAttackSpeedPercent;
 
-        switch(upgradePath1)
+        switch(upgradePaths[0])
         {
-            case UpgradePath.A:
+            case AbilityUpgradePath.Upgrade.A:
                 stimDevice.lingerDuration = A_LingerDuration;
             break;
 
-            case UpgradePath.AA:
+            case AbilityUpgradePath.Upgrade.AA:
                 stimDevice.lingerDuration = A_LingerDuration;
                 stimDevice.movementSpeedPercent = AA_MovementSpeedPercent;
             break;
 
-            case UpgradePath.AAA:
+            case AbilityUpgradePath.Upgrade.AAA:
                 stimDevice.lingerDuration = A_LingerDuration;
                 stimDevice.movementSpeedPercent = AAA_MovementSpeedPercent;
             break;
 
-            case UpgradePath.AAB:
+            case AbilityUpgradePath.Upgrade.AAB:
                 stimDevice.lingerDuration = AAB_LingerDuration;
                 stimDevice.movementSpeedPercent = AA_MovementSpeedPercent;
             break;
 
-            case UpgradePath.AB:
+            case AbilityUpgradePath.Upgrade.AB:
                 stimDevice.lingerDuration = A_LingerDuration;
                 aoeRadius += AB_AOEIncrease;
             break;
 
-            case UpgradePath.ABA:
+            case AbilityUpgradePath.Upgrade.ABA:
                 stimDevice.lingerDuration = ABA_LingerDuration;
                 aoeRadius += AB_AOEIncrease;
             break;
 
-            case UpgradePath.ABB:
+            case AbilityUpgradePath.Upgrade.ABB:
                 stimDevice.lingerDuration = A_LingerDuration;
                 aoeRadius += AB_AOEIncrease;
                 attackSpeedPercent += ABB_AttackSpeedIncrease;
             break;
         }
 
-        switch(upgradePath2)
+        switch(upgradePaths[1])
         {
-            case UpgradePath.A:
+            case AbilityUpgradePath.Upgrade.A:
                 stimDevice.healChancePercent = A_HealChancePercent;
                 stimDevice.healAmount = A_HealAmount;
             break;
 
-            case UpgradePath.AA:
+            case AbilityUpgradePath.Upgrade.AA:
                 stimDevice.healChancePercent = A_HealChancePercent;
                 stimDevice.healAmount = A_HealAmount;
                 stimDevice.damageReductionPercent = AA_DamageReductionPercent;
             break;
 
-            case UpgradePath.AAA:
+            case AbilityUpgradePath.Upgrade.AAA:
                 stimDevice.healChancePercent = A_HealChancePercent;
                 stimDevice.healAmount = A_HealAmount;
                 stimDevice.damageReductionPercent = AAA_DamageReductionPercent;
             break;
 
-            case UpgradePath.AAB:
+            case AbilityUpgradePath.Upgrade.AAB:
                 stimDevice.healChancePercent = A_HealChancePercent;
                 stimDevice.healAmount = AAB_HealAmount;
             break;
 
-            case UpgradePath.AB:
+            case AbilityUpgradePath.Upgrade.AB:
                 stimDevice.healChancePercent = A_HealChancePercent;
                 stimDevice.healAmount = A_HealAmount;
                 stimDevice.vulnerableChancePercent = AB_VulnerableChancePercent;
                 stimDevice.vulnerableDuration = AB_VulnerableDuration;
             break;
 
-            case UpgradePath.ABA:
+            case AbilityUpgradePath.Upgrade.ABA:
                 stimDevice.healChancePercent = A_HealChancePercent;
                 stimDevice.healAmount = ABA_HealAmount;
             break;
 
-            case UpgradePath.ABB:
+            case AbilityUpgradePath.Upgrade.ABB:
                 stimDevice.healChancePercent = A_HealChancePercent;
                 stimDevice.healAmount = A_HealAmount;
                 stimDevice.vulnerableChancePercent = ABB_VulnerableChancePercent;

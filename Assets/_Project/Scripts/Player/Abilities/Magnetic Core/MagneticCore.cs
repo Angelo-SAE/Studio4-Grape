@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class MagneticCore : MonoBehaviour
 {
-    public enum UpgradePath
-    {
-        None,
-        A,
-        AA,
-        AAA,
-        AAB,
-        AB,
-        ABA,
-        ABB
-    }
 
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
@@ -40,8 +29,7 @@ public class MagneticCore : MonoBehaviour
     CoreSize coreSize;
 
     [Header("Upgrade Paths")]
-    [SerializeField] private UpgradePath upgradePath1;
-    [SerializeField] private UpgradePath upgradePath2;
+    [SerializeField] public AbilityUpgradePath.Upgrade[] upgradePaths;
 
     [Header("Upgrade Path 1")]
     [SerializeField] private float A_AOEIncrease;
@@ -68,6 +56,7 @@ public class MagneticCore : MonoBehaviour
 
     private void Start()
     {
+        upgradePaths = new AbilityUpgradePath.Upgrade[2];
         isAbilityReady = true;
     }
 
@@ -93,19 +82,19 @@ public class MagneticCore : MonoBehaviour
         float finalAOERadius = baseAOERadius;
         float finalDuration = baseDuration;
 
-        switch (upgradePath1)
+        switch (upgradePaths[0])
         {
-            case UpgradePath.A:
+            case AbilityUpgradePath.Upgrade.A:
                 finalAOERadius += A_AOEIncrease;
             break;
 
-            case UpgradePath.AA:
+            case AbilityUpgradePath.Upgrade.AA:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.bigExplode = true;
                 coreBehaviour.explosionDamage = AA_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
-            case UpgradePath.AAA:
+            case AbilityUpgradePath.Upgrade.AAA:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.bigExplode = true;
                 coreBehaviour.explosionDamage = AA_ExplosionDamage * playerStats.DamageMultiplier;
@@ -113,27 +102,27 @@ public class MagneticCore : MonoBehaviour
                 coreBehaviour.stunDuration = AAA_StunDuration;
             break;
 
-            case UpgradePath.AAB:
+            case AbilityUpgradePath.Upgrade.AAB:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.bigExplode = true;
                 coreBehaviour.explosionDamage = AAB_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
-            case UpgradePath.AB:
+            case AbilityUpgradePath.Upgrade.AB:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.miniExplosions = true;
                 coreBehaviour.explosionDelay = AB_ExplosionDelay;
                 coreBehaviour.explosionDamage = AB_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
-            case UpgradePath.ABA:
+            case AbilityUpgradePath.Upgrade.ABA:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.miniExplosions = true;
                 coreBehaviour.explosionDelay = ABA_ExplosionDelay;
                 coreBehaviour.explosionDamage = AB_ExplosionDamage * playerStats.DamageMultiplier;
             break;
 
-            case UpgradePath.ABB:
+            case AbilityUpgradePath.Upgrade.ABB:
                 finalAOERadius += A_AOEIncrease;
                 coreBehaviour.miniExplosions = true;
                 coreBehaviour.explosionDelay = AB_ExplosionDelay;
@@ -141,45 +130,45 @@ public class MagneticCore : MonoBehaviour
             break;
         }
 
-        switch (upgradePath2)
+        switch (upgradePaths[1])
         {
-            case UpgradePath.A:
+            case AbilityUpgradePath.Upgrade.A:
                 finalDuration += A_DurationIncrease;
             break;
 
-            case UpgradePath.AA:
+            case AbilityUpgradePath.Upgrade.AA:
                 finalDuration += A_DurationIncrease;
                 coreBehaviour.vulnerable = true;
                 coreBehaviour.vulnerableDuration = 0.1f;
             break;
 
-            case UpgradePath.AAA:
+            case AbilityUpgradePath.Upgrade.AAA:
                 finalDuration += A_DurationIncrease;
                 coreBehaviour.vulnerable = true;
                 coreBehaviour.vulnerableDuration = AAA_VulnerableDuration;
             break;
 
-            case UpgradePath.AAB:
+            case AbilityUpgradePath.Upgrade.AAB:
                 finalDuration += AAB_DurationIncrease;
                 coreBehaviour.vulnerable = true;
                 coreBehaviour.vulnerableDuration = 0.1f;
             break;
 
-            case UpgradePath.AB:
+            case AbilityUpgradePath.Upgrade.AB:
                 finalDuration += A_DurationIncrease;
                 coreBehaviour.weaken = true;
                 coreBehaviour.weakenStrength = AB_WeakenStrength;
                 coreBehaviour.weakenDuration = AB_WeakenDuration;
             break;
 
-            case UpgradePath.ABA:
+            case AbilityUpgradePath.Upgrade.ABA:
                 finalDuration += ABA_DurationIncrease;
                 coreBehaviour.weaken = true;
                 coreBehaviour.weakenStrength = AB_WeakenStrength;
                 coreBehaviour.weakenDuration = AB_WeakenDuration;
             break;
 
-            case UpgradePath.ABB:
+            case AbilityUpgradePath.Upgrade.ABB:
                 finalDuration += A_DurationIncrease;
                 coreBehaviour.weaken = true;
                 coreBehaviour.weakenStrength = ABB_WeakenStrength;

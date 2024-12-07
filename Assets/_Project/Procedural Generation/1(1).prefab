@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: -5301952327338347990}
   m_Layer: 0
   m_Name: 1(1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,11 @@ MonoBehaviour:
   monsterSpawnerObjects: {fileID: 11400000, guid: 8f5bc9160d827f14383c3d015063e46b, type: 2}
   sideObjectsToGenerate: 20
   roadObjectsToGenerate: 5
-  monsterSpawnerObjectsToGenerate: 0
+  monsterSpawnerObjectsToGenerate: 4
+  bl: {x: 0, y: 0}
+  tl: {x: 0, y: 0}
+  br: {x: 0, y: 0}
+  tr: {x: 0, y: 0}
   platformSize: {x: 50, y: 50}
   safeZonePoints: []
   roadSizeOne: {x: 15, y: 0, z: 35, w: 50}

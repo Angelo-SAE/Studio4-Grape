@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private GameObjectListObject spawnerList;
     [SerializeField] private MonsterSetsObject monsterSets;
-    [SerializeField] private Vector3Object playerPosition;
+    [SerializeField] private GameObjectObject playerPosition;
 
     [Header("Spawner Variables")]
     [SerializeField] private float creditProductionSpeed;
@@ -21,6 +21,11 @@ public class SpawnManager : MonoBehaviour
     private Vector3 closestHolder;
     private GameObject tempHolder;
 
+    private void Start()
+    {
+        tempHolder = new GameObject();
+    }
+
 
     private void Update()
     {
@@ -33,8 +38,8 @@ public class SpawnManager : MonoBehaviour
 
         if(spawnCredits > spawnCost)
         {
-            Destroy(tempHolder);
-            tempHolder = new GameObject(); // temp code for testing
+            //Destroy(tempHolder);
+            //tempHolder = new GameObject(); // temp code for testing
             GetSpawnPositions();
             SpawnMonstersAroundPlayer();
         }
@@ -81,7 +86,7 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 FindClosest(Vector3 positionOne, Vector3 positionTwo)
     {
-        if(Vector3.Distance(positionOne, playerPosition.value) > Vector3.Distance(positionTwo, playerPosition.value))
+        if(Vector3.Distance(positionOne, playerPosition.value.transform.position) > Vector3.Distance(positionTwo, playerPosition.value.transform.position))
         {
             closestHolder = positionOne;
             return positionTwo;

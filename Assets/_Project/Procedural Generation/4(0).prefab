@@ -9430,9 +9430,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4058806221129630386}
   - component: {fileID: 3951448522837108575}
+  - component: {fileID: -8413474442732970539}
   m_Layer: 0
   m_Name: 4(0)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9473,8 +9474,8 @@ MonoBehaviour:
   safeZoneObjects: {fileID: 11400000, guid: 98d3dcbee24e3fa4d9ea118460ba2211, type: 2}
   monsterSpawnerObjects: {fileID: 11400000, guid: 8f5bc9160d827f14383c3d015063e46b, type: 2}
   sideObjectsToGenerate: 20
-  roadObjectsToGenerate: 5
-  monsterSpawnerObjectsToGenerate: 0
+  roadObjectsToGenerate: 15
+  monsterSpawnerObjectsToGenerate: 10
   bl: {x: 180, y: 270}
   tl: {x: 0, y: 270}
   br: {x: 180, y: 90}
@@ -9483,6 +9484,27 @@ MonoBehaviour:
   safeZonePoints: []
   roadSizeOne: {x: 15, y: 0, z: 35, w: 50}
   roadSizeTwo: {x: 0, y: 15, z: 50, w: 35}
+--- !u!65 &-8413474442732970539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080890400781554170}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 50, y: 0.1, z: 50}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8142034517362154792
 GameObject:
   m_ObjectHideFlags: 0

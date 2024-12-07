@@ -5,7 +5,9 @@ using UnityEngine;
 public class ProceduralGeneration : MonoBehaviour
 {
     [Header("ScriptableObjects")]
+    [SerializeField] private GameObjectObject proceduralGenerationObject;
     [SerializeField] private GameObjectListObject spawnerList;
+    
 
     [Header("Variabels")]
     [SerializeField] private int spawnDistance;
@@ -18,6 +20,10 @@ public class ProceduralGeneration : MonoBehaviour
     private GenerationNode[] nodes;
     private CityBlock[] spawnedBlocks;
 
+
+
+    private int currentMap;
+
     private List<Vector2Int> directions = new List<Vector2Int>
     {
         new Vector2Int(0,1),
@@ -26,8 +32,27 @@ public class ProceduralGeneration : MonoBehaviour
         new Vector2Int(-1,0)
     };
 
+    private void Start()
+    {
+        proceduralGenerationObject.value = this.gameObject;
+        spawnerList.value = new List<GameObject>();
+        GenerateMap();
+        GetTileTypes();
+        SpawnPlanes();
+    }
+
+    public void GenerateNextMap()
+    {
+        currentMap++;
+        spawnerList.value = new List<GameObject>();
+        GenerateMap();
+        GetTileTypes();
+        SpawnPlanes();
+    }
+
     private void Update() // for testing
     {
+        /*
         if(Input.GetKeyDown(KeyCode.G))
         {
             spawnerList.value = new List<GameObject>();
@@ -35,6 +60,7 @@ public class ProceduralGeneration : MonoBehaviour
             GetTileTypes();
             SpawnPlanes();
         }
+        */
     }
 
     private void GenerateMap()
@@ -52,6 +78,19 @@ public class ProceduralGeneration : MonoBehaviour
                 GetNextGridPosition(b);
             }
         }
+        //bool generateCenter = true;
+        //foreach(GenerationNode node in nodes)
+        //{
+        //    if(node.gridPosition.x == 0 && node.gridPosition.y == 0)
+        //    {
+        //        generateCenter = false;
+        //        break;
+        //    }
+        //}
+        //if(generateCenter)
+        //{
+        //
+        //}
     }
 
     private void CreateFirstGridNode(int node)
@@ -92,6 +131,10 @@ public class ProceduralGeneration : MonoBehaviour
             {
                 return true;
             }
+        }
+        if(nodes[generationSize].gridPosition == gridPosition)
+        {
+            return true;
         }
         return false;
     }

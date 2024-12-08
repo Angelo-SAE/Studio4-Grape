@@ -14,15 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Anthoine
   npcDialogue:
-  - 'I DON''T CARE! '
-  - "We do this right or not\u2026give me a sec. Hey, you must be the last survivor
-    kid, huh. "
+  - 'In Call: I DON''T CARE! '
+  - "In Call: We do this right or not\u2026give me a second. "
+  - Hey, you are awake. I guess I owed the Colonel a drink.
   - Nevermind. I am Anthoine. I run comms with all members in and out of the base.
-  - "I\u2019m the one who informed General Mellow of your\u2026interesting history. "
-  - 'I am busy now but feel free to talk to one of my Gregs for your briefing. '
-  - "You\u2019ll see what I mean\u2026..Bye for now. "
+  - 'I''m the one who found you. Unfortunately, we got there too late and.... never
+    mind. '
+  - Anyway, I am busy right now, but I am sure the Colonel will want to talk to you.
+    Once you find him, feel free to engage with one of my Gregs for your briefing.
+  - I am sure the Colonel will be more than happy to answer all of your questions
+  - 'It has been a while since I''ve seen him but talk to Doctor Saif on the second
+    floor. He should know a thing or two. '
   playerName: Nathan
   playerDialogue:
-  - 'Sorry? '
-  - "Gregs\u2026?"
-  dialogueControl: 0101000101010001
+  - 'Am sorry? '
+  - Briefing? The Colonel? Where am I
+  - Where is he?
+  dialogueControl: 0101010001010100010001

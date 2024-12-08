@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 8177059077696448401}
   - component: {fileID: 8783490799068810399}
   - component: {fileID: 7118500262437313506}
+  - component: {fileID: 4306266224939623543}
   m_Layer: 0
   m_Name: SM_Prop_FlowerPot_04 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8177059077696448401
 Transform:
@@ -83,6 +84,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4306266224939623543
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195715358758902624}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c484e3fdb0f31db4e8aab4fb1364caa3, type: 3}
 --- !u!1 &473886594730300898
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,12 +117,13 @@ GameObject:
   - component: {fileID: 6144926669555493572}
   - component: {fileID: 3967270483233572730}
   - component: {fileID: 5043264909648097030}
+  - component: {fileID: 3250554222695954628}
   m_Layer: 0
   m_Name: SM_Bld_Door_Barricaded_05
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6144926669555493572
 Transform:
@@ -167,6 +191,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3250554222695954628
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473886594730300898}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fb40e277973b665438841c135b5bb633, type: 3}
 --- !u!1 &1604916614585077313
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,12 +224,13 @@ GameObject:
   - component: {fileID: 262260499477056683}
   - component: {fileID: 6734820648665459483}
   - component: {fileID: 2013672923651543067}
+  - component: {fileID: 6440441948725977086}
   m_Layer: 0
   m_Name: SM_Bld_Shop_Small_Glass_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &262260499477056683
 Transform:
@@ -250,6 +297,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6440441948725977086
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604916614585077313}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 65c4b31f0e5325d40be29f0379efc424, type: 3}
 --- !u!1 &2665577663714849975
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,12 +330,13 @@ GameObject:
   - component: {fileID: 857546476951867823}
   - component: {fileID: 7311100723419593354}
   - component: {fileID: 9201124714448324509}
+  - component: {fileID: 1816615052923295720}
   m_Layer: 0
   m_Name: SM_Prop_FlowerPot_04 (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &857546476951867823
 Transform:
@@ -333,6 +403,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1816615052923295720
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2665577663714849975}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c484e3fdb0f31db4e8aab4fb1364caa3, type: 3}
 --- !u!1 &2761160284716628428
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,12 +436,13 @@ GameObject:
   - component: {fileID: 1678325208143359960}
   - component: {fileID: 5974579936203982404}
   - component: {fileID: 6362279360543979168}
+  - component: {fileID: 2219229648495928478}
   m_Layer: 0
   m_Name: SM_Prop_FlowerPot_04 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1678325208143359960
 Transform:
@@ -416,6 +509,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2219229648495928478
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2761160284716628428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c484e3fdb0f31db4e8aab4fb1364caa3, type: 3}
 --- !u!1 &4786799583578958824
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,12 +541,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4296107178661412947}
   - component: {fileID: 3370165783254219959}
+  - component: {fileID: 1561808026288074529}
   m_Layer: 0
   m_Name: Flower Shop
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4296107178661412947
 Transform:
@@ -469,6 +585,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 8, y: 9}
   rotateObject: 1
+--- !u!64 &1561808026288074529
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4786799583578958824}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4905134613702896222
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,12 +618,13 @@ GameObject:
   - component: {fileID: 9141416846816459442}
   - component: {fileID: 777272300485349143}
   - component: {fileID: 2079313879417035895}
+  - component: {fileID: 4007834667617214599}
   m_Layer: 0
   m_Name: SM_Bld_Door_Barricaded_07 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9141416846816459442
 Transform:
@@ -552,6 +691,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4007834667617214599
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905134613702896222}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 40ceb02bec1b1c14985d5e148a9d54e2, type: 3}
 --- !u!1 &4930711858456327305
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,12 +724,13 @@ GameObject:
   - component: {fileID: 3027862185209192430}
   - component: {fileID: 6177654419365688820}
   - component: {fileID: 4101420043383850768}
+  - component: {fileID: 3988391631311887219}
   m_Layer: 0
   m_Name: SM_Bld_Shop_Small_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3027862185209192430
 Transform:
@@ -636,6 +798,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3988391631311887219
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930711858456327305}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 65c4b31f0e5325d40be29f0379efc424, type: 3}
 --- !u!1 &5628056278019178238
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,12 +831,13 @@ GameObject:
   - component: {fileID: 4883298559676673952}
   - component: {fileID: 6146465147647360933}
   - component: {fileID: 7045666746507757156}
+  - component: {fileID: 2846847490312026734}
   m_Layer: 0
   m_Name: SM_Prop_Barricade_10
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4883298559676673952
 Transform:
@@ -719,3 +904,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2846847490312026734
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628056278019178238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: bef6e024466891d4ca25689636d8b91f, type: 3}

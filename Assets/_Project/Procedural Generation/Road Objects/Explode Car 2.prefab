@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 8202573275099367850}
   - component: {fileID: 3404829458696299958}
   - component: {fileID: 4343730128650923507}
+  - component: {fileID: 3176794964003112225}
   m_Layer: 0
   m_Name: SM_Prop_Car_Wrecked_Van_01 (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8202573275099367850
 Transform:
@@ -84,6 +85,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3176794964003112225
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043840168772141951}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 7be47036d6f2907439b46d412b445bf6, type: 3}
 --- !u!1 &1916452991241846887
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,12 +118,13 @@ GameObject:
   - component: {fileID: 521490492424214582}
   - component: {fileID: 6640625356476787150}
   - component: {fileID: 7041588564765256340}
+  - component: {fileID: 6815582211497946809}
   m_Layer: 0
   m_Name: SM_Prop_Car_Wrecked_Van_01_Overgrowth
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &521490492424214582
 Transform:
@@ -167,6 +191,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6815582211497946809
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916452991241846887}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 5650af725dc9872408bf0f8045750a29, type: 3}
 --- !u!1 &6755919682556267331
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,12 +224,13 @@ GameObject:
   - component: {fileID: 6496490820866620424}
   - component: {fileID: 219734871660640386}
   - component: {fileID: 105183445884040339}
+  - component: {fileID: 4617588351853957776}
   m_Layer: 0
   m_Name: Explode Car 2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6496490820866620424
 Transform:
@@ -227,3 +274,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 2, y: 6}
   rotateObject: 1
+--- !u!64 &4617588351853957776
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6755919682556267331}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5799464704613770896}
   - component: {fileID: 7955212174038350839}
   - component: {fileID: 7794984799750090131}
+  - component: {fileID: 2613569455484772939}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Stool_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5799464704613770896
 Transform:
@@ -83,6 +84,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2613569455484772939
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98330873606400073}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 048c948b48d562e4aa65a5b2619fba29, type: 3}
 --- !u!1 &713519837043713033
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,12 +117,13 @@ GameObject:
   - component: {fileID: 4268965878042824885}
   - component: {fileID: 2390847529596143657}
   - component: {fileID: 8721818159534685387}
+  - component: {fileID: 1893490072041333458}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Stool_01 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4268965878042824885
 Transform:
@@ -166,6 +190,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1893490072041333458
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713519837043713033}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 048c948b48d562e4aa65a5b2619fba29, type: 3}
 --- !u!1 &851383529476999278
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,12 +223,13 @@ GameObject:
   - component: {fileID: 4969196200884168197}
   - component: {fileID: 7670523619587408527}
   - component: {fileID: 8633226229395192497}
+  - component: {fileID: 8194207938241192617}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Booth_Seat_02
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4969196200884168197
 Transform:
@@ -249,6 +296,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8194207938241192617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851383529476999278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6105db14d06d8554b82126b6c6a14d3e, type: 3}
 --- !u!1 &1380159954423802233
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,12 +328,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6271619407102571911}
   - component: {fileID: 7477341474646035028}
+  - component: {fileID: 5719794306028078558}
   m_Layer: 0
   m_Name: Diner
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6271619407102571911
 Transform:
@@ -310,6 +380,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 16, y: 10}
   rotateObject: 1
+--- !u!64 &5719794306028078558
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380159954423802233}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1985302453332663960
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,12 +413,13 @@ GameObject:
   - component: {fileID: 4912057737503243758}
   - component: {fileID: 4780958350826211463}
   - component: {fileID: 525497720500426222}
+  - component: {fileID: 568255437726501506}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Stool_01 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4912057737503243758
 Transform:
@@ -393,6 +486,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &568255437726501506
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985302453332663960}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 048c948b48d562e4aa65a5b2619fba29, type: 3}
 --- !u!1 &2408497895025337676
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,12 +519,13 @@ GameObject:
   - component: {fileID: 4443011279101410195}
   - component: {fileID: 1976025051789573876}
   - component: {fileID: 6276325878957603953}
+  - component: {fileID: 4134693352936096797}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Glass_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4443011279101410195
 Transform:
@@ -476,6 +592,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4134693352936096797
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408497895025337676}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: f88226b9b21f6e5439e2955a6b8d8a41, type: 3}
 --- !u!1 &2632285840458626367
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,12 +625,13 @@ GameObject:
   - component: {fileID: 3065670437439007099}
   - component: {fileID: 3997658463481018540}
   - component: {fileID: 6376241453841150868}
+  - component: {fileID: 2952439428579817667}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Stool_01 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3065670437439007099
 Transform:
@@ -559,6 +698,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2952439428579817667
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632285840458626367}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 048c948b48d562e4aa65a5b2619fba29, type: 3}
 --- !u!1 &2961311334646170766
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,12 +732,13 @@ GameObject:
   - component: {fileID: 3370538134595336177}
   - component: {fileID: 421787720395526997}
   - component: {fileID: 8531148419312943755}
+  - component: {fileID: 2173560965711707389}
   m_Layer: 0
   m_Name: SM_Prop_Barrel_Trash_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8107727767857363277
 Transform:
@@ -665,6 +827,28 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43321689049293380, guid: 5075f2f2f0a3a9e4fa51a180750c37cd, type: 2}
+--- !u!64 &2173560965711707389
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961311334646170766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d59e8e900e85173438889639767c8640, type: 3}
 --- !u!1 &2973683632226938281
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,12 +860,13 @@ GameObject:
   - component: {fileID: 2297773708211301672}
   - component: {fileID: 8705034333280579279}
   - component: {fileID: 6704368467092969213}
+  - component: {fileID: 1908181924124715555}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Booth_Seat_02 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2297773708211301672
 Transform:
@@ -748,6 +933,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1908181924124715555
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973683632226938281}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6105db14d06d8554b82126b6c6a14d3e, type: 3}
 --- !u!1 &2991050885872049834
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,12 +966,13 @@ GameObject:
   - component: {fileID: 5397827718693780396}
   - component: {fileID: 2882747989845012385}
   - component: {fileID: 8806291804681412044}
+  - component: {fileID: 2560174750918603215}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Table_02
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5397827718693780396
 Transform:
@@ -831,6 +1039,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2560174750918603215
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991050885872049834}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fee1af96439adae4d8bb19111cf0342e, type: 3}
 --- !u!1 &3674095871889125539
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,12 +1072,13 @@ GameObject:
   - component: {fileID: 8722943167240792584}
   - component: {fileID: 8465876184852646061}
   - component: {fileID: 4604906678429763943}
+  - component: {fileID: 9085421993629713739}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Table_02 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8722943167240792584
 Transform:
@@ -914,6 +1145,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9085421993629713739
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674095871889125539}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fee1af96439adae4d8bb19111cf0342e, type: 3}
 --- !u!1 &4560985508957587835
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,12 +1178,13 @@ GameObject:
   - component: {fileID: 3733664831972915803}
   - component: {fileID: 7221425413558640907}
   - component: {fileID: 1576649895438405052}
+  - component: {fileID: 1743101535476232613}
   m_Layer: 0
   m_Name: SM_Bld_Diner_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3733664831972915803
 Transform:
@@ -999,6 +1253,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1743101535476232613
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4560985508957587835}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f88226b9b21f6e5439e2955a6b8d8a41, type: 3}
 --- !u!1 &4693332340969054731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,12 +1286,13 @@ GameObject:
   - component: {fileID: 1551021198061518145}
   - component: {fileID: 935124938601201859}
   - component: {fileID: 9142883786385445492}
+  - component: {fileID: 4991241758320540946}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Sign
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1551021198061518145
 Transform:
@@ -1082,6 +1359,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4991241758320540946
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693332340969054731}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d3b9d3a971ac53d479588250e07f4475, type: 3}
 --- !u!1 &5696008157475541071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,12 +1392,13 @@ GameObject:
   - component: {fileID: 8557614565454669631}
   - component: {fileID: 5173104316241863337}
   - component: {fileID: 4830152243198703902}
+  - component: {fileID: 795368233527891553}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Booth_Seat_02 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8557614565454669631
 Transform:
@@ -1165,6 +1465,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &795368233527891553
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696008157475541071}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6105db14d06d8554b82126b6c6a14d3e, type: 3}
 --- !u!1 &6074326045746631737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,12 +1498,13 @@ GameObject:
   - component: {fileID: 7370587338285762286}
   - component: {fileID: 2505045530777877918}
   - component: {fileID: 8819043390153659432}
+  - component: {fileID: 3579605522050399560}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Interior_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7370587338285762286
 Transform:
@@ -1248,6 +1571,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3579605522050399560
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6074326045746631737}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: f88226b9b21f6e5439e2955a6b8d8a41, type: 3}
 --- !u!1 &7506005877915486946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,12 +1604,13 @@ GameObject:
   - component: {fileID: 6180398563241230433}
   - component: {fileID: 4163461652048144656}
   - component: {fileID: 4183297259904779929}
+  - component: {fileID: 6243095531698344504}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Stool_01 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6180398563241230433
 Transform:
@@ -1331,6 +1677,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6243095531698344504
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7506005877915486946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 048c948b48d562e4aa65a5b2619fba29, type: 3}
 --- !u!1 &8386292425896982278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,12 +1710,13 @@ GameObject:
   - component: {fileID: 7211933818864953357}
   - component: {fileID: 7877059118126870115}
   - component: {fileID: 6455473058338454452}
+  - component: {fileID: 4305570882242709593}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Text_02
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7211933818864953357
 Transform:
@@ -1414,6 +1783,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4305570882242709593
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386292425896982278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ff2f930c98ca1484aba6b226d1a17622, type: 3}
 --- !u!1 &8636089083834595238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,12 +1816,13 @@ GameObject:
   - component: {fileID: 146396770248374868}
   - component: {fileID: 388192891210944429}
   - component: {fileID: 8820197678391041932}
+  - component: {fileID: 6679109162782625740}
   m_Layer: 0
   m_Name: SM_Bld_Diner_Booth_Seat_02 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &146396770248374868
 Transform:
@@ -1497,3 +1889,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6679109162782625740
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8636089083834595238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6105db14d06d8554b82126b6c6a14d3e, type: 3}

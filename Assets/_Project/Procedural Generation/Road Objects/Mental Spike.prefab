@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5222423023442993160}
   - component: {fileID: 1571891808489113781}
+  - component: {fileID: 1158594914718371841}
   m_Layer: 0
   m_Name: Mental Spike
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5222423023442993160
 Transform:
@@ -47,6 +48,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 4, y: 2}
   rotateObject: 1
+--- !u!64 &1158594914718371841
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409096355894070719}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &964950516207018766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,6 +81,14 @@ PrefabInstance:
     - target: {fileID: 1949640222255934, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}
       propertyPath: m_Name
       value: SM_Prop_MetalSpikes_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949640222255934, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949640222255934, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4319304693585524, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,8 +133,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1949640222255934, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5424730213770366971}
   m_SourcePrefab: {fileID: 100100000, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}
+--- !u!1 &964575498660890672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1949640222255934, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}
+  m_PrefabInstance: {fileID: 964950516207018766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5424730213770366971
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964575498660890672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c06a0ed6ed5dacf4ba24c96ad0b8d184, type: 3}
 --- !u!4 &966982009654703482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4319304693585524, guid: 3eea083a4d3c26a4b8a1c041e1bb5caa, type: 3}

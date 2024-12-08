@@ -20410,6 +20410,7 @@ MonoBehaviour:
   primaryFireRange: 50
   primaryFireDelay: 0.5
   primaryFireDamage: 10
+  hitMarkerSound: {fileID: 0}
 --- !u!114 &616078242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20478,6 +20479,11 @@ MonoBehaviour:
   attackSpeed: 0
   damageReduction: 0
   movementSpeed: 0
+  damageMultiplier: 0
+  onHitHealChance: 0
+  onHitHealAmount: 0
+  onHitVulnerableChance: 0
+  onHitVulnerableDuration: 0
 --- !u!136 &616078245
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25410,6 +25416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
+  playerStats: {fileID: 0}
   baseCooldown: 0.01
   grenadePrefab: {fileID: 8594820715534240545, guid: de82839838cf3e1408ea4696db9bf14b, type: 3}
   abilityUI: {fileID: 0}
@@ -25418,21 +25425,23 @@ MonoBehaviour:
   cameraTransform: {fileID: 1737557424}
   playerRigidbody: {fileID: 616078246}
   baseDamage: 30
-  minDamage: 35
   blastRadius: 5
-  damageFalloffStart: 0
-  currentUpgrade: 0
-  improvedBaseDamage: 200
-  improvedMinDamage: 50
-  increasedBlastRadiusPercentage: 15
-  fireDuration: 7
-  spawnedFireDuration: 0
-  fireDamagePerTick: 50
-  fireDensity: 1
-  fireSlowStrength: 0
-  fireExpansionPercentage: 33
-  stunDuration: 3
-  knockbackForceMultiplier: 2
+  upgradePaths: 
+  A_BlastRadiusIncrease: 0
+  AA_StunDuration: 0
+  AAA_StunDuration: 0
+  AAB_BlastRadiusIncrease: 0
+  AB_SlowDuration: 0
+  ABA_SlowDuration: 0
+  A_BaseDamageIncrease: 0
+  AA_FireDuration: 0
+  AA_FireDamagePerTick: 0
+  AAA_FireDuration: 0
+  AAB_FireDamagePerTick: 0
+  AB_BleedTickSpeed: 0
+  AB_BleedDamage: 0
+  ABA_BleedTickSpeed: 0
+  ABB_BleedDamage: 0
 --- !u!1001 &739106391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43376,23 +43385,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
+  playerStats: {fileID: 0}
   baseCooldown: 3
   baseDuration: 5
   baseAOERadius: 7.5
-  finalAOERadius: 0
   corePrefab: {fileID: 8654482479317209510, guid: 3159d8f956fcd264b85cd132ee51f0c5, type: 3}
   abilityUI: {fileID: 0}
-  currentUpgrade: 0
-  aoeIncreasePercentage: 15
-  damageIncreasePercentage: 50
-  explosionDamage: 50
-  weakenPercentage: 0
-  vulnerableDuration: 0
-  magneticStrengthIncrease: 0
   throwStrength: 7.5
   cameraTransform: {fileID: 1737557424}
   playerRigidbody: {fileID: 616078246}
-  isAbilityReady: 1
+  upgradePaths: 
+  A_AOEIncrease: 0
+  AA_ExplosionDamage: 0
+  AAA_StunDuration: 0
+  AAB_ExplosionDamage: 0
+  AB_ExplosionDamage: 0
+  AB_ExplosionDelay: 0
+  ABA_ExplosionDelay: 0
+  ABB_ExplosionDamage: 0
+  A_DurationIncrease: 0
+  AAA_VulnerableDuration: 0
+  AAB_DurationIncrease: 0
+  AB_WeakenStrength: 0
+  AB_WeakenDuration: 0
+  ABA_DurationIncrease: 0
+  ABB_WeakenStrength: 0
 --- !u!1 &1284113584 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1376619382004634, guid: 9db275ca2727d514f8375f1139bbd35c, type: 3}
@@ -64769,6 +64786,63 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.000001, y: 0.059609182, z: 5.000001}
   m_Center: {x: -2.4999967, y: 0.025796607, z: -2.5000005}
+--- !u!1001 &1867903370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1166030679592542, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Stairs_Single_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -76.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.67107403
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.74139035
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 455.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657503216441766, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d9d3f8d49834d74a9a8ec1e806ef122, type: 3}
 --- !u!1001 &1869142550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82264,7 +82338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4441552029072990, guid: ae4ca41587e494f449be1ef5696d184c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13
+      value: -10.33
       objectReference: {fileID: 0}
     - target: {fileID: 4441552029072990, guid: ae4ca41587e494f449be1ef5696d184c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -92124,3 +92198,4 @@ SceneRoots:
   - {fileID: 10017713}
   - {fileID: 177423350}
   - {fileID: 997523883}
+  - {fileID: 1867903370}

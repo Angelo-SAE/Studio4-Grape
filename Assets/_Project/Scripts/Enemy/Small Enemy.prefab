@@ -1333,6 +1333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: {fileID: 11400000, guid: 2a64e12ca3fad144aaeabda6a811d155, type: 2}
   baseDamage: {fileID: 11400000, guid: c00f65aeefbe43d4d8fb89de245cc0f5, type: 2}
+  enemiesKilled: {fileID: 11400000, guid: 9e2828909bc5ea945b5866fe019d2c28, type: 2}
+  enemyUI: {fileID: 1955820526072716209}
   healthSlider: {fileID: 6329684132497751563}
   movementSpeed: 4
   movementSpeedMultiplier: 1
@@ -1348,6 +1350,7 @@ MonoBehaviour:
   currentDamageMultiplier: 1
   vulnerableDamageMultiplier: 1.5
   rb: {fileID: 8425924291171664595}
+  animator: {fileID: 8680655754149706237}
 --- !u!114 &7712936176883959038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,7 +1430,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 136
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1448,7 +1451,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 136
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1469,7 +1472,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 136
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

@@ -4674,6 +4674,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 437951687709894372, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 878133579515070422, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1687828228708352060, guid: def39de8207dc234783193ce02a40ec2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.21844864
@@ -4722,6 +4730,10 @@ PrefabInstance:
       propertyPath: popUpText
       value: 
       objectReference: {fileID: 1952989631}
+    - target: {fileID: 3040758977212628420, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3420737743657593303, guid: def39de8207dc234783193ce02a40ec2, type: 3}
       propertyPath: abilityUI
       value: 
@@ -4738,10 +4750,42 @@ PrefabInstance:
       propertyPath: abilityUI
       value: 
       objectReference: {fileID: 884261579}
+    - target: {fileID: 6287145963878983187, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: baseCooldown
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287145963878983187, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: baseDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722851946951743457, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: pools.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722851946951743457, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: pools.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 4115974739509227812, guid: 91ee3acf7bd733b4684602d84bfddded, type: 3}
+    - target: {fileID: 6812228858457150289, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7425893163045900668, guid: def39de8207dc234783193ce02a40ec2, type: 3}
       propertyPath: abilityUI
       value: 
       objectReference: {fileID: 884261579}
+    - target: {fileID: 7425893163045900668, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: baseCooldown
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425893163045900668, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: baseStimDuration
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425893163045900668, guid: def39de8207dc234783193ce02a40ec2, type: 3}
+      propertyPath: stimDevicePrefab
+      value: 
+      objectReference: {fileID: 6838046298687962693, guid: a4790732c95956d46ba5379497cd0d93, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

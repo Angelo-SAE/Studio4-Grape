@@ -32,19 +32,22 @@ public class SmallandBigEnemyMovementAndAttack : MonoBehaviour
 
     private void Update()
     {
-        if(playerInRange)
+        if(!enemyStats.EnemyDead)
         {
-            if(!attackingPlayer)
+            if(playerInRange)
             {
-                animator.Play("RunForward");
-                chaseBehaviour.RunBehaviour();
-                CheckForAttack();
-                CheckForPlayerLeavingRange();
+                if(!attackingPlayer)
+                {
+                    animator.Play("RunForward");
+                    chaseBehaviour.RunBehaviour();
+                    CheckForAttack();
+                    CheckForPlayerLeavingRange();
+                }
+            } else {
+                CheckForPlayer();
+                rb.velocity = enemyStats.pullForce;
+                animator.Play("Idle");
             }
-        } else {
-            CheckForPlayer();
-            rb.velocity = enemyStats.pullForce;
-            animator.Play("Idle");
         }
     }
 

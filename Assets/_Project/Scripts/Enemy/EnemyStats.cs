@@ -8,8 +8,10 @@ public class EnemyStats : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private FloatObject baseHealth;
     [SerializeField] private FloatObject baseDamage;
+    [SerializeField] private IntObject enemiesKilled;
 
     [Header("Enemy UI")]
+    [SerializeField] private GameObject enemyUI;
     [SerializeField] private Slider healthSlider;
 
     [Header("Enemy Stats")]
@@ -19,10 +21,13 @@ public class EnemyStats : MonoBehaviour
 
     public float health; //will make private after changing most scripts
     private float damage;
+    private bool enemyDead;
 
     public float MovementSpeed => movementSpeed * movementSpeedMultiplier; //idk if i will need if will deelte if not used
 
     public float Damage => baseDamage.value * weakenMultiplier;
+
+    public bool EnemyDead => enemyDead;
 
     public Vector3 pullForce; //set to vector3 0 after using
 
@@ -63,6 +68,7 @@ public class EnemyStats : MonoBehaviour
 
     [Header("Enemy Variables")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private Animator animator;
 
 
 
@@ -265,10 +271,20 @@ public class EnemyStats : MonoBehaviour
         UpdateHealthSlider();
 
         //Debug.Log("Enemy has taken " + effectiveDamage + " damage");
-        if (health <= 0)
+        if (health <= 0 && !enemyDead)
         {
-            Destroy(gameObject);
+            StartCoroutine(EnemyDeath());
         }
+    }
+
+    private IEnumerator EnemyDeath()
+    {
+        enemyUI.SetActive(false);
+        enemyDead = true;
+        animator.Play("Death");
+        enemiesKilled.value++;
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
     }
 
     private void UpdateHealthSlider()

@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Animations.Rigging;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
     [Header("Player UI")]
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private GameObject playerUI;
+    [SerializeField] private GameObject playerDead;
+    [SerializeField] private GameObject abilityHolder;
 
     [Header("Player Stats")]
     [SerializeField] private float health;
     [SerializeField] private float baseAttackSpeed;
     [SerializeField] private float baseDamageReduction;
     [SerializeField] private float baseMovementSpeed;
+
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private RigBuilder rigBuilder;
 
     //temp serialization for testing VVVVVVVVVVV
     [SerializeField]private float attackSpeed;
@@ -49,6 +57,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         healthText.text = health.ToString();
         attackSpeed = baseAttackSpeed;
+        playerDead.gameObject.SetActive(false);
+        abilityHolder.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -67,6 +77,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         health -= damage - (damage * damageReduction);
         healthText.text = Mathf.Round(health).ToString();
+        if (health <= 0)
+        {
+            StartCoroutine(PlayerDeath());
+        }
     }
 
     public void Heal(float healAmount)
@@ -105,5 +119,19 @@ public class PlayerStats : MonoBehaviour, IDamageable
         onHitHealAmount = 0;
         onHitVulnerableChance = 0;
         onHitVulnerableDuration = 0;
+    }
+
+    private IEnumerator PlayerDeath()
+    {
+        rigBuilder.enabled = false;
+        GetComponent<ThirdPersonMovement>().enabled = false;
+        abilityHolder.gameObject.SetActive(false);
+        animator.Play("Dying");
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        playerUI.gameObject.SetActive(false);
+        playerDead.gameObject.SetActive(true);
     }
 }

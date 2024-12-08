@@ -283,7 +283,7 @@ public class EnemyStats : MonoBehaviour
         enemyDead = true;
         animator.Play("Death");
         enemiesKilled.value++;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 

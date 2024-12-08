@@ -8,33 +8,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1871493321807423473, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: ad55a8310fb7e5a4caa37a90e792e871, type: 3}
+    - target: {fileID: 1871493321807423473, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d1d1d8816e2483247a9659ba00de84c9, type: 2}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22774144
+      value: 0.4851789
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 5.811942
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.098259
+      value: 8.555447
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000035762784
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -42,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5715480092425006658, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -52,8 +60,149 @@ PrefabInstance:
       propertyPath: m_Name
       value: Suspicious Scientist NPC Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7838544267717947797, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+      propertyPath: m_TagString
+      value: Talk
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7838544267717947797, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 236075022463749736}
+    - targetCorrespondingSourceObject: {fileID: 7838544267717947797, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7458543334922137402}
+    - targetCorrespondingSourceObject: {fileID: 7838544267717947797, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6175471730513904129}
   m_SourcePrefab: {fileID: 100100000, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+--- !u!1 &2601721227796862003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7838544267717947797, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+  m_PrefabInstance: {fileID: 5247592791293060518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &236075022463749736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601721227796862003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6dd418c69ab714c9c6452e2ae9d85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5848997881842008663}
+  animationCycles:
+  - loopCycle: 0
+    startingPosition: {x: 0.4851789, y: 5.811942, z: 8.555447}
+    animations:
+    - Sitting on Stair
+    - Sit to Stand
+    - Stair Cilmbing
+    - NPC Walking 1
+    - Idle
+    - NPC Walking 3
+    - Military General Idle Pose
+    animationDelay:
+    - 6
+    - 2
+    - 0
+    - 0
+    - 10
+    - 0
+    - 7
+    includeMovement: 00000101000100
+    animationRotation:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 180, z: 0}
+    - {x: 0, y: 180, z: 0}
+    - {x: 0, y: 90, z: 0}
+    - {x: 0, y: 180, z: 0}
+    - {x: 0, y: 160, z: 0}
+    movementCordinants:
+    - {x: 0.4851789, y: 8.498, z: 4.41}
+    - {x: 0.858, y: 8.518, z: -3.79}
+    - {x: -1.18, y: 8.518, z: -9.431}
+--- !u!136 &7458543334922137402
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601721227796862003}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6175471730513904129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601721227796862003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f262d7ac0847d4ba8d3bf5f20f3826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 11400000, guid: 339e93f91e5f19b4a845564cf6768d48, type: 2}
+  npcDialogueCount: {fileID: 11400000, guid: aac04163167dd9b41a53d84e99f68c9e, type: 2}
+  npcDialogue:
+  - {fileID: 11400000, guid: 74f69f495c37b424f85adc3cef7529c6, type: 2}
+  - {fileID: 11400000, guid: aeff03aa07d41864ea02b285e59a12a5, type: 2}
+  playerObject: {fileID: 11400000, guid: 8fe245095ef794848aa0e3b9eebb0e15, type: 2}
+  lookAtPlayerWhenTalking: 0
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 236075022463749736}
+        m_TargetAssemblyTypeName: NPCAnimations, Assembly-CSharp
+        m_MethodName: PauseAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AfterDialogue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 236075022463749736}
+        m_TargetAssemblyTypeName: NPCAnimations, Assembly-CSharp
+        m_MethodName: StartAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  animator: {fileID: 0}
+--- !u!95 &5848997881842008663 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1871493321807423473, guid: 910091e21ced2374cadf11bb71d09b68, type: 3}
+  m_PrefabInstance: {fileID: 5247592791293060518}
+  m_PrefabAsset: {fileID: 0}

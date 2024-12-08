@@ -2163,7 +2163,7 @@ Rigidbody:
   m_GameObject: {fileID: 6041742719744731574}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 0.5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2314,7 +2314,7 @@ MonoBehaviour:
   movementSpeed: 5
   sprintSpeed: 8
   rb: {fileID: 5323747783348744884}
-  jumpForce: 5
+  jumpForce: 7
   jumpDelay: 0.1
   crouchSpeed: 3.5
   playerCollider: {fileID: 5805123747033200936}

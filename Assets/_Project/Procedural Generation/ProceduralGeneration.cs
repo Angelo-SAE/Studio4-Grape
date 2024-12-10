@@ -7,7 +7,7 @@ public class ProceduralGeneration : MonoBehaviour
     [Header("ScriptableObjects")]
     [SerializeField] private GameObjectObject proceduralGenerationObject;
     [SerializeField] private GameObjectListObject spawnerList;
-    
+
 
     [Header("Variabels")]
     [SerializeField] private int spawnDistance;
@@ -19,8 +19,6 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject objectHolder;
     private GenerationNode[] nodes;
     private CityBlock[] spawnedBlocks;
-
-
 
     private int currentMap;
 

@@ -18,7 +18,7 @@ public class UpgradeLineGenerator : MonoBehaviour
 
     private List<Image> lines;
 
-    private void Start()
+    private void Awake()
     {
         lines = new List<Image>();
         targetBoxPositions = new Vector3[targetBoxes.Length];

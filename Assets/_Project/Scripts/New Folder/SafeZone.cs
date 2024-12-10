@@ -8,16 +8,16 @@ public class SafeZone : MonoBehaviour
     [SerializeField] private GameObjectObject playerObject;
 
     [Header("Teleport Positions")]
-    [SerializeField] private Vector3 firstPosition;
-    [SerializeField] private Vector3 secondPosition;
+    [SerializeField] private Transform firstPosition;
+    [SerializeField] private Transform secondPosition;
 
     public void EnterSafeZone()
     {
-        playerObject.value.transform.position = secondPosition;
+        playerObject.value.transform.position = secondPosition.position;
     }
 
     public void ExitSafeZone()
     {
-        playerObject.value.transform.position = firstPosition;
+        playerObject.value.transform.position = firstPosition.position;
     }
 }

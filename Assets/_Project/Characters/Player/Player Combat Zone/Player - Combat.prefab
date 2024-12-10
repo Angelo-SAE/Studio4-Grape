@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5347610328151078065
 Transform:
   m_ObjectHideFlags: 0
@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
+  gamePauseObject: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
   playerStats: {fileID: 5742050769790441396}
   baseCooldown: 4
   grenadePrefab: {fileID: 5534385012307485041, guid: de82839838cf3e1408ea4696db9bf14b, type: 3}
@@ -182,9 +183,9 @@ MonoBehaviour:
   upwardThrowAngle: 15
   cameraTransform: {fileID: 2286548182729991267}
   playerRigidbody: {fileID: 5323747783348744884}
-  baseDamage: 90
+  baseDamage: 50
   blastRadius: 5
-  upgradePaths: 
+  upgradePaths: 0000000000000000
   A_BlastRadiusIncrease: 0
   AA_StunDuration: 0
   AAA_StunDuration: 0
@@ -280,7 +281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6642067039871385696
 Transform:
   m_ObjectHideFlags: 0
@@ -309,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
+  gamePauseObject: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
   playerStats: {fileID: 5742050769790441396}
   baseCooldown: 12
   baseAOERadius: 5
@@ -316,7 +318,7 @@ MonoBehaviour:
   baseAttackSpeedPercent: 0
   stimDevicePrefab: {fileID: 6838046298687962693, guid: a4790732c95956d46ba5379497cd0d93, type: 3}
   abilityUI: {fileID: 0}
-  upgradePaths: 
+  upgradePaths: 0000000000000000
   A_LingerDuration: 0
   AA_MovementSpeedPercent: 0
   AAA_MovementSpeedPercent: 0
@@ -1137,7 +1139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7161120454606671023
 Transform:
   m_ObjectHideFlags: 0
@@ -2030,7 +2032,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -2178,7 +2180,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &8766563536822415423
@@ -2259,9 +2261,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
-  playerUI: {fileID: 0}
-  playerDead: {fileID: 0}
   abilityHolder: {fileID: 422582375525998711}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GamePause, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CursorController, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CursorController, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   health: 100
   baseAttackSpeed: 5
   baseDamageReduction: 0
@@ -2556,7 +2631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4442432821749371567
 Transform:
   m_ObjectHideFlags: 0
@@ -2585,6 +2660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyBindings: {fileID: 11400000, guid: 0ce52bf2a100fb549be6a7c0f38ed624, type: 2}
+  gamePauseObject: {fileID: 11400000, guid: e8349cafe96c1a148955b2bc6e4856da, type: 2}
   playerStats: {fileID: 5742050769790441396}
   baseCooldown: 9
   baseDuration: 6
@@ -2594,7 +2670,7 @@ MonoBehaviour:
   throwStrength: 13
   cameraTransform: {fileID: 2286548182729991267}
   playerRigidbody: {fileID: 5323747783348744884}
-  upgradePaths: 
+  upgradePaths: 0000000000000000
   A_AOEIncrease: 0
   AA_ExplosionDamage: 0
   AAA_StunDuration: 0

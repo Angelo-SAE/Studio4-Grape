@@ -9467,11 +9467,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4f89276da43da419e3d05ed1a44268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObject: {fileID: 11400000, guid: 8fe245095ef794848aa0e3b9eebb0e15, type: 2}
   sideObjects: {fileID: 11400000, guid: bd0722c2db80d6c4e958028261241c9c, type: 2}
   roadObjects: {fileID: 11400000, guid: 51316d76036dc5a4a915d95c327ebbe7, type: 2}
   startObjectes: {fileID: 11400000, guid: d977502defe674645ba46a7092914b92, type: 2}
   exitObjects: {fileID: 11400000, guid: daafa1f3900d86c4089434ff016175fa, type: 2}
-  safeZoneObjects: {fileID: 11400000, guid: 98d3dcbee24e3fa4d9ea118460ba2211, type: 2}
+  safeZoneObjects: {fileID: 11400000, guid: ac653cca84ef11041a590b3d42ec503e, type: 2}
   monsterSpawnerObjects: {fileID: 11400000, guid: 8f5bc9160d827f14383c3d015063e46b, type: 2}
   sideObjectsToGenerate: 20
   roadObjectsToGenerate: 15
@@ -9481,7 +9482,11 @@ MonoBehaviour:
   br: {x: 180, y: 90}
   tr: {x: 0, y: 90}
   platformSize: {x: 50, y: 50}
-  safeZonePoints: []
+  safeZonePoints:
+  - {x: 7, y: 7}
+  - {x: 7, y: 43}
+  - {x: 43, y: 7}
+  - {x: 43, y: 43}
   roadSizeOne: {x: 15, y: 0, z: 35, w: 50}
   roadSizeTwo: {x: 0, y: 15, z: 50, w: 35}
 --- !u!65 &-8413474442732970539

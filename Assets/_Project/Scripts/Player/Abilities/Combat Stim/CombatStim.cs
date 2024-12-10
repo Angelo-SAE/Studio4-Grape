@@ -7,6 +7,7 @@ public class CombatStim : MonoBehaviour
 
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
+    [SerializeField] private BoolObject gamePauseObject;
 
     [Header("Player Stats")]
     [SerializeField] private PlayerStats playerStats;
@@ -62,7 +63,7 @@ public class CombatStim : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyBindings.abilityThree) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityThree) && isAbilityReady && !gamePauseObject.value)
         {
             StartCoroutine(ActivateAbility());
         }

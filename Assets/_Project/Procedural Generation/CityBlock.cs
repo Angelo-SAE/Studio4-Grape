@@ -5,6 +5,7 @@ using UnityEngine;
 public class CityBlock : MonoBehaviour
 {
     [Header("Scriptable sideObjects")]
+    [SerializeField] private GameObjectObject playerObject;
     [SerializeField] private ObjectArrayObject sideObjects;
     [SerializeField] private ObjectArrayObject roadObjects;
     [SerializeField] private ObjectArrayObject startObjectes;
@@ -61,6 +62,8 @@ public class CityBlock : MonoBehaviour
         if(hasStart)
         {
             CheckForCollidingObjects(roadGrid, ChooseRandomObject(startObjectes), new Vector2Int(platformSize.x/2, platformSize.y/2));
+            playerObject.value.transform.position = transform.position;
+
         }
         if(hasExit)
         {

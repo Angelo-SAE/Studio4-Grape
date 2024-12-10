@@ -7,6 +7,7 @@ public class MagneticCore : MonoBehaviour
 
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
+    [SerializeField] private BoolObject gamePauseObject;
 
     [Header("Player Stats")]
     [SerializeField] private PlayerStats playerStats;
@@ -62,7 +63,7 @@ public class MagneticCore : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyBindings.abilityTwo) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityTwo) && isAbilityReady && !gamePauseObject.value)
         {
             StartCoroutine(ActivateAbility());
         }

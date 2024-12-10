@@ -7,6 +7,8 @@ public class Exit : MonoBehaviour
     [SerializeField] private GameObjectObject proceduralGenerationObject;
     [SerializeField] private GameObjectObject exitObject;
 
+    private bool collided;
+
     private void Start()
     {
         exitObject.value = gameObject;
@@ -15,8 +17,9 @@ public class Exit : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.tag == "Player" && !collided)
         {
+            collided = true;
             proceduralGenerationObject.value.GetComponent<MissionExit>().Exit();
         }
     }

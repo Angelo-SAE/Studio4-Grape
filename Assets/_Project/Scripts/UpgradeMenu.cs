@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class UpgradeMenu : MonoBehaviour //add skip button
 {
     //Upgrade Order : A AA AAA AAB AB ABA ABB
     //Upgrade Order : 0 1   2   3  4   5   6
+
+    [Header("Scriptable Objects")]
+    [SerializeField] private GameObjectObject upgradeMenuObject;
 
     [Header("Ability 1 Upgrade Paths")]
     [SerializeField] private ThermobaricGrenade grenade;
@@ -32,8 +36,15 @@ public class UpgradeMenu : MonoBehaviour //add skip button
     [SerializeField] private TMP_Text[] upgradeDescription;
     [SerializeField] private Image[] upgradeIcon;
 
+    [Header("Events")]
+    [SerializeField] private UnityEvent OnAwake;
+    [SerializeField] private UnityEvent OnEnableMenu;
+    [SerializeField] private UnityEvent OnUpgrade;
+
+
     private void Awake()
     {
+        upgradeMenuObject.value = gameObject;
         availableUpgrades = new List<Upgrade>();
         //add first upgrades from each path to available upgrades
         for(int a = 0; a < abilityOneUpgrades.Length; a++)
@@ -48,13 +59,17 @@ public class UpgradeMenu : MonoBehaviour //add skip button
         {
             availableUpgrades.Add(abilityThreeUpgrades[a].upgrade[0]);
         }
+        OnAwake.Invoke();
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
     {
+        OnEnableMenu.Invoke();
         SelectRandomUpgrades();
     }
 
+    /*
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.G))
@@ -62,6 +77,7 @@ public class UpgradeMenu : MonoBehaviour //add skip button
             SelectRandomUpgrades();
         }
     }
+    */
 
     private void SelectRandomUpgrades()
     {
@@ -187,6 +203,7 @@ public class UpgradeMenu : MonoBehaviour //add skip button
         }
 
         currentUpgrade.lineGenerator.GenerateLine(currentUpgrade.lineNumber);
+        OnUpgrade.Invoke();
     }
 }
 

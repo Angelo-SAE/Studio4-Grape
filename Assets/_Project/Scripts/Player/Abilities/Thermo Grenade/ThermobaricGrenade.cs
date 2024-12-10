@@ -8,6 +8,7 @@ public class ThermobaricGrenade : MonoBehaviour
 
     [Header("Scriptable Objects")]
     [SerializeField] private KeyBindingsObject keyBindings;
+    [SerializeField] private BoolObject gamePauseObject;
 
     [Header("Player Stats")]
     [SerializeField] private PlayerStats playerStats;
@@ -81,7 +82,7 @@ public class ThermobaricGrenade : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyBindings.abilityOne) && isAbilityReady)
+        if (Input.GetKeyDown(keyBindings.abilityOne) && isAbilityReady && !gamePauseObject.value)
         {
             StartCoroutine(ActivateAbility());
         }

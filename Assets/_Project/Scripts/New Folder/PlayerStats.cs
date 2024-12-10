@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
     [Header("Player UI")]
     [SerializeField] private TMP_Text healthText;
-    [SerializeField] private GameObject playerUI;
-    [SerializeField] private GameObject playerDead;
     [SerializeField] private GameObject abilityHolder;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent OnDeath;
 
     [Header("Player Stats")]
     [SerializeField] private float health;
@@ -57,7 +59,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         healthText.text = health.ToString();
         attackSpeed = baseAttackSpeed;
-        playerDead.gameObject.SetActive(false);
+        //playerDead.gameObject.SetActive(false);
         abilityHolder.gameObject.SetActive(true);
     }
 
@@ -131,7 +133,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        playerUI.gameObject.SetActive(false);
-        playerDead.gameObject.SetActive(true);
+        OnDeath.Invoke();
     }
 }

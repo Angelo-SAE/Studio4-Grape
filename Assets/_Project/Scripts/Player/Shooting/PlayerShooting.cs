@@ -112,8 +112,12 @@ public class PlayerShooting : MonoBehaviour
             // Damage enemy if hit
             if (hitSomething && ((1 << hit.collider.gameObject.layer) & enemyLayer) != 0)
             {
-                hitMarkerSound.Play();
                 EnemyStats enemyStats = hit.collider.GetComponent<EnemyStats>();
+
+                if (!enemyStats.EnemyDead)
+                {
+                    hitMarkerSound.Play();
+                }
                 if (enemyStats != null)
                 {
                     if (Random.Range(0f, 1f) <= playerStats.OnHitHealChance)
@@ -124,7 +128,7 @@ public class PlayerShooting : MonoBehaviour
                     {
                         enemyStats.ApplyVulnerable(playerStats.OnHitVulnerableDuration);
                     }
-                    enemyStats.TakeDamage(primaryFireDamage * playerStats.DamageMultiplier);
+                    enemyStats.TakeDamage(primaryFireDamage * playerStats.DamageMultiplier, Color.red);
                 }
             }
 

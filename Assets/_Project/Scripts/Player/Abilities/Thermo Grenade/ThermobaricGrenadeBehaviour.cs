@@ -77,7 +77,7 @@ public class ThermobaricGrenadeBehaviour : MonoBehaviour
                     affectedEnemies.Add(enemy);
                     float damage = explosionDamage;
 
-                    enemy.TakeDamage(damage);
+                    enemy.TakeDamage(damage, Color.yellow);
 
                     if (stun)
                     {

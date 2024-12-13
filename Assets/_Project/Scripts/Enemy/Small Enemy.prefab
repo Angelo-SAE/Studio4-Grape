@@ -865,6 +865,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0a3e82230b99df04dbe6371fcf35783d, type: 2}
+  - {fileID: 2100000, guid: 0022ca27c5963fd4198dd747f8e8a8e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1351,6 +1352,8 @@ MonoBehaviour:
   vulnerableDamageMultiplier: 1.5
   rb: {fileID: 8425924291171664595}
   animator: {fileID: 8680655754149706237}
+  enemyRenderer: {fileID: 2140807061018046839}
+  flashDuration: 0.2
 --- !u!114 &7712936176883959038
 MonoBehaviour:
   m_ObjectHideFlags: 0

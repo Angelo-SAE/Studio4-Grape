@@ -70,11 +70,49 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Animator animator;
 
+    public Renderer enemyRenderer; // Reference to the enemy's Renderer
+    public float flashDuration = 0.2f;
+
+    private Material[] _materials;
+    private Material _flashMaterial;
+    private float _flashTimer;
+    private float _baseFlashAmount = 0;
+    private int _flashAmountPropertyID;
+    private Color _baseColour;
+    private int _baseColourPropertyID;
+
 
 
     private void Start()
     {
         SetBaseHealthAndDamage();
+
+        if (enemyRenderer == null)
+        {
+            Debug.LogError("Renderer reference not set on: " + gameObject.name);
+            enabled = false;
+            return;
+        }
+
+        // Get Material Instances - Important!
+        _materials = enemyRenderer.materials;
+
+        if (_materials.Length < 2)
+        {
+            Debug.LogError("Not enough materials on renderer. Ensure you have 2 materials assigned.");
+            enabled = false;
+            return;
+        }
+        _flashMaterial = _materials[1]; // Get the *instance* of the flash material
+        if (_flashMaterial == null)
+        {
+            Debug.LogError("Second material is null. Ensure you have the correct material assigned.", gameObject);
+            enabled = false;
+            return;
+        }
+
+        _flashAmountPropertyID = Shader.PropertyToID("_FlashAmount");
+        _baseFlashAmount = _flashMaterial.GetFloat("_FlashAmount");
     }
 
     private void SetBaseHealthAndDamage()
@@ -135,7 +173,7 @@ public class EnemyStats : MonoBehaviour
         if(currentFireTick >= fireTickSpeed)
         {
             currentFireTick -= fireTickSpeed;
-            TakeDamage(fireDamagePerTick);
+            TakeDamage(fireDamagePerTick, Color.red);
         }
     }
 
@@ -169,7 +207,7 @@ public class EnemyStats : MonoBehaviour
         if(currentBleedTick >= bleedTickSpeed)
         {
             currentBleedTick -= bleedTickSpeed;
-            TakeDamage(bleedDamage/10);
+            TakeDamage(bleedDamage/10, Color.red);
             bleedDamage = bleedDamage - (bleedDamage/10);
         }
         if(bleedDamage <= 0)
@@ -264,17 +302,41 @@ public class EnemyStats : MonoBehaviour
         transform.position += force * Time.deltaTime;
     }
 
-    public void TakeDamage(float damageTaken)
+    public void TakeDamage(float damageTaken, Color flashColor)
     {
-        float effectiveDamage = damageTaken * currentDamageMultiplier;
-        health -= effectiveDamage;
-        UpdateHealthSlider();
+        if (!enemyDead) 
+        {
+            float effectiveDamage = damageTaken * currentDamageMultiplier;
+            health -= effectiveDamage;
+            UpdateHealthSlider();
+
+            _flashMaterial.SetColor("_FlashColor", flashColor);
+            StartCoroutine(FlashCoroutine());
+
+        }
+        
 
         //Debug.Log("Enemy has taken " + effectiveDamage + " damage");
         if (health <= 0 && !enemyDead)
         {
             StartCoroutine(EnemyDeath());
         }
+    }
+
+    private IEnumerator FlashCoroutine()
+    {
+        float progress = 0;
+        float flashTimer = 0;
+        while (flashTimer < flashDuration)
+        {
+            progress = flashTimer / flashDuration;
+            float flashAmount = Mathf.Lerp(1, 0, progress);
+            _flashMaterial.SetFloat(_flashAmountPropertyID, flashAmount);
+            flashTimer += Time.deltaTime;
+            yield return null;
+        }
+        _flashMaterial.SetFloat(_flashAmountPropertyID, _baseFlashAmount);
+
     }
 
     private IEnumerator EnemyDeath()

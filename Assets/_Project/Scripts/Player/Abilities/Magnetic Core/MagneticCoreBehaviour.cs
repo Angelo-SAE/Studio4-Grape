@@ -120,7 +120,7 @@ public class MagneticCoreBehaviour : MonoBehaviour
                     affectedEnemies.Add(enemy);
                     if (enemy != null)
                     {
-                        enemy.TakeDamage(explosionDamage);
+                        enemy.TakeDamage(explosionDamage, Color.yellow);
                     }
                 }
             }
@@ -176,7 +176,7 @@ public class MagneticCoreBehaviour : MonoBehaviour
                     affectedEnemies.Add(enemy);
                     if (enemy != null)
                     {
-                        enemy.TakeDamage(explosionDamage);
+                        enemy.TakeDamage(explosionDamage, Color.yellow);
                         if (stun)
                         {
                             enemy.ApplyStun(stunDuration);

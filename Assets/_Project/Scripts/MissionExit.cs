@@ -18,6 +18,7 @@ public class MissionExit : MonoBehaviour
     [SerializeField] private UnityEvent AfterFadeOutEvent;
 
     [Header("UI")]
+    [SerializeField] private GameObject fadePanelObject;
     [SerializeField] private Image fadePanel;
     [SerializeField] private float fadeSpeed;
 
@@ -40,6 +41,7 @@ public class MissionExit : MonoBehaviour
 
     private IEnumerator ExitCoroutine()
     {
+        fadePanelObject.SetActive(true);
         for(int a = 0; a <= 100; a++)
         {
             yield return new WaitForSeconds(fadeSpeed/100f);
@@ -68,6 +70,7 @@ public class MissionExit : MonoBehaviour
             yield return new WaitForSeconds(fadeSpeed/100f);
             fadePanel.color = new Color(0f, 0f, 0f, a/100f);
         }
+        fadePanelObject.SetActive(false);
         AfterFadeOutEvent.Invoke();
     }
 }

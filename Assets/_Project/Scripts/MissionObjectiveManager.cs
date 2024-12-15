@@ -91,6 +91,7 @@ public class MissionObjectiveManager : MonoBehaviour
     private void ExitMission()
     {
         killMissionTextDisplay.text = exitMissionText;
+        switchMissionTextDisplay.text = "";
         exitObject.value.SetActive(true);
     }
 }

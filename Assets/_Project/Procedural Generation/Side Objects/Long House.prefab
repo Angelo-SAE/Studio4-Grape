@@ -755,7 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8262612177351197124}
   - component: {fileID: 8262780452133499530}
-  - component: {fileID: 8751105319843751534}
+  - component: {fileID: 8587680577124483372}
   m_Layer: 0
   m_Name: Long House
   m_TagString: Ground
@@ -797,8 +797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 38, y: 14}
   rotateObject: 1
---- !u!64 &8751105319843751534
-MeshCollider:
+--- !u!65 &8587680577124483372
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -815,10 +815,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  serializedVersion: 3
+  m_Size: {x: 25.576433, y: 5, z: 10.278143}
+  m_Center: {x: 0.4294653, y: 2, z: 0.13907146}
 --- !u!1 &7234287727286498234
 GameObject:
   m_ObjectHideFlags: 0

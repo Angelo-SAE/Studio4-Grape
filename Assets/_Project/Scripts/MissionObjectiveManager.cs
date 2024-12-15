@@ -8,7 +8,8 @@ using UnityEngine.Events;
 public class MissionObjectiveManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private TMP_Text missionTextDisplay;
+    [SerializeField] private TMP_Text killMissionTextDisplay;
+    [SerializeField] private TMP_Text switchMissionTextDisplay;
 
     [SerializeField] private BoolObject missionComplete;
 
@@ -16,6 +17,8 @@ public class MissionObjectiveManager : MonoBehaviour
     [SerializeField] private string exitMissionText;
     [SerializeField] private UnityEvent exitMissionEvent;
     [SerializeField] private GameObjectObject exitObject;
+
+    private bool exitMission;
 
     [Header("Kill Enemies Mission")]
     [SerializeField] private IntObject enemiesKilled;
@@ -25,8 +28,16 @@ public class MissionObjectiveManager : MonoBehaviour
     private int currentEnemies;
     private bool killEnemiesMission;
 
+    [Header("Switch Mission")]
+    [SerializeField] private IntObject switchCount;
+    [SerializeField] private string switchMissionText;
+    [SerializeField] private int switchAmount;
+
+    private bool switchMission;
+
     private void Start()
     {
+        switchCount.value = 0;
         missionComplete.value = false;
         SelectAndDisplayMission();
     }
@@ -35,6 +46,9 @@ public class MissionObjectiveManager : MonoBehaviour
     {
         currentEnemies = enemiesKilled.value;
         killEnemiesMission = true;
+
+        switchCount.value = 0;
+        switchMission = true;
     }
 
     private void Update()
@@ -43,21 +57,40 @@ public class MissionObjectiveManager : MonoBehaviour
         {
             CheckForKilledEnemies();
         }
+
+        if(switchMission)
+        {
+            CheckForSwitches();
+        }
+
+        if(!exitMission && !switchMission && !killEnemiesMission)
+        {
+            exitMission = false;
+            ExitMission();
+        }
     }
 
     private void CheckForKilledEnemies()
     {
-        missionTextDisplay.text = killMissionText + " (" + (enemiesKilled.value - currentEnemies) + "/" + amountToKill + ")";
+        killMissionTextDisplay.text = killMissionText + " (" + (enemiesKilled.value - currentEnemies) + "/" + amountToKill + ")";
         if(enemiesKilled.value - currentEnemies >= amountToKill)
         {
             killEnemiesMission = false;
-            ExitMission();
+        }
+    }
+
+    private void CheckForSwitches()
+    {
+        switchMissionTextDisplay.text = switchMissionText + " (" + switchCount.value + "/" + switchAmount + ")";
+        if(switchCount.value == switchAmount)
+        {
+            switchMission = false;
         }
     }
 
     private void ExitMission()
     {
-        missionTextDisplay.text = exitMissionText;
+        killMissionTextDisplay.text = exitMissionText;
         exitObject.value.SetActive(true);
     }
 }

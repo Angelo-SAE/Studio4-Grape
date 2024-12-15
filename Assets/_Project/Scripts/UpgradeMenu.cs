@@ -41,8 +41,9 @@ public class UpgradeMenu : MonoBehaviour //add skip button
     [SerializeField] private UnityEvent OnEnableMenu;
     [SerializeField] private UnityEvent OnUpgrade;
 
+    private bool first;
 
-    private void Awake()
+    private void Start()
     {
         upgradeMenuObject.value = gameObject;
         availableUpgrades = new List<Upgrade>();
@@ -65,8 +66,13 @@ public class UpgradeMenu : MonoBehaviour //add skip button
 
     private void OnEnable()
     {
-        OnEnableMenu.Invoke();
-        SelectRandomUpgrades();
+        if(first)
+        {
+            OnEnableMenu.Invoke();
+            SelectRandomUpgrades();
+        } else {
+            first = true;
+        }
     }
 
     /*

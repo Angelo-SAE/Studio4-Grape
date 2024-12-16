@@ -8,7 +8,7 @@ public class SetPlayerObject : MonoBehaviour
     [SerializeField] private GameObjectObject playerObject;
     [SerializeField] private BoolObject canInteract;
 
-    private void Start()
+    private void Awake()
     {
         playerObject.value = gameObject;
         canInteract.value = true;
